@@ -1,0 +1,22 @@
+INDEX VERSION 1.131+C:\Users\Alex\Documents\Git Repos\MDSD-Xtext-Project-for-JavaFX\.metadata\.plugins\org.eclipse.jdt.core
+4173125163.index
+3006443591.index
+2088154345.index
+1798471498.index
+22143572.index
+975227842.index
+989790850.index
+978855548.index
+158644981.index
+430992713.index
+465038194.index
+111562819.index
+2743019952.index
+1267481217.index
+1935377549.index
+253499354.index
+930461167.index
+546187248.index
+3534333999.index
+2179665669.index
+3004981656.index

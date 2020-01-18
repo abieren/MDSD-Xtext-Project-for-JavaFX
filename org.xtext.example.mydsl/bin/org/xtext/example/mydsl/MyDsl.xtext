@@ -2,8 +2,74 @@ grammar org.xtext.example.mydsl.MyDsl with org.eclipse.xtext.common.Terminals
 
 generate myDsl "http://www.xtext.org/example/mydsl/MyDsl"
 
-Model:
-	greetings+=Greeting*;
-	
-Greeting:
-	'Hello' name=ID '!';
+//Domainmodel:
+//   (elements+=Type)*;
+
+Domainmodel:
+	(elements+=Type)*
+;
+
+Type:
+	Frame | Container
+;	
+
+Frame:
+	'frame' name=ID '{'
+		(size=Size)?
+		(guielements+=GuiElement)*
+	'}'
+;
+
+Container:
+	'container' containerName=ID '{'
+		(size=Size)?
+		//(position=Position)?
+		(layout=Layout)?
+		(guielements+=GuiElement)*
+	'}'
+;
+
+ContainerReference:
+	(referenceName=ID) (name=ID)
+;
+ 
+Layout:
+	'layout='layout=ID
+;
+
+Position:
+	posX=INT','posY=INT
+;
+
+Size:
+	width=INT'x'height=INT
+;
+
+Text:
+	'text='text=ID
+;
+
+CheckboxChoice:
+	choice=ID('=x')?(',')?
+;
+
+GuiElement:
+	Textfield | Label | Button | Checkbox | ContainerReference
+;
+ 
+Textfield:
+	'textfield' name=ID (size=Size)? (text=Text)
+;
+
+Label:
+	'label' name=ID (size=Size)? (text=Text)
+;
+
+Button:
+	'button' name=ID (size=Size)? (text=Text)
+;
+
+Checkbox:
+	'checkbox' name=ID (size=Size)? choice=CheckboxChoice
+;
+
