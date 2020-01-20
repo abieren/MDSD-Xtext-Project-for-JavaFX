@@ -16,6 +16,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="Container" eSuperTypes="#//Type"/>
   <eClassifiers xsi:type="ecore:EClass" name="Layout" eSuperTypes="#//GuiElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="LayoutHorizontal" eSuperTypes="#//Layout">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fixed" eType="#//Fixed"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="entries" upperBound="-1"
         eType="#//LayoutHorizontalEntry" containment="true"/>
   </eClassifiers>
@@ -26,6 +28,8 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LayoutVertical" eSuperTypes="#//Layout">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fixed" eType="#//Fixed"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="entries" upperBound="-1"
         eType="#//LayoutVerticalEntry" containment="true"/>
   </eClassifiers>
@@ -44,6 +48,9 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="guielement" eType="#//GuiElement"
         containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Fixed">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fixed" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Space">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="space" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>

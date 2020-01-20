@@ -131,6 +131,11 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
         return createLayoutPositionEntryAdapter();
       }
       @Override
+      public Adapter caseFixed(Fixed object)
+      {
+        return createFixedAdapter();
+      }
+      @Override
       public Adapter caseSpace(Space object)
       {
         return createSpaceAdapter();
@@ -368,6 +373,21 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createLayoutPositionEntryAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.Fixed <em>Fixed</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.myDsl.Fixed
+   * @generated
+   */
+  public Adapter createFixedAdapter()
   {
     return null;
   }

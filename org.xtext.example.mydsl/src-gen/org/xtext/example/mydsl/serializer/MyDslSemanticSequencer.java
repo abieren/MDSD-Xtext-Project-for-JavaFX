@@ -19,6 +19,7 @@ import org.xtext.example.mydsl.myDsl.Checkbox;
 import org.xtext.example.mydsl.myDsl.Container;
 import org.xtext.example.mydsl.myDsl.ContainerReference;
 import org.xtext.example.mydsl.myDsl.Domainmodel;
+import org.xtext.example.mydsl.myDsl.Fixed;
 import org.xtext.example.mydsl.myDsl.Frame;
 import org.xtext.example.mydsl.myDsl.Label;
 import org.xtext.example.mydsl.myDsl.LayoutHorizontal;
@@ -64,6 +65,9 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				return; 
 			case MyDslPackage.DOMAINMODEL:
 				sequence_Domainmodel(context, (Domainmodel) semanticObject); 
+				return; 
+			case MyDslPackage.FIXED:
+				sequence_Fixed(context, (Fixed) semanticObject); 
 				return; 
 			case MyDslPackage.FRAME:
 				sequence_Frame(context, (Frame) semanticObject); 
@@ -187,6 +191,24 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
+	 *     Fixed returns Fixed
+	 *
+	 * Constraint:
+	 *     fixed=INT
+	 */
+	protected void sequence_Fixed(ISerializationContext context, Fixed semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.FIXED__FIXED) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.FIXED__FIXED));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getFixedAccess().getFixedINTTerminalRuleCall_1_0(), semanticObject.getFixed());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Type returns Frame
 	 *     Frame returns Frame
 	 *
@@ -230,7 +252,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     GuiElement returns LayoutHorizontal
 	 *
 	 * Constraint:
-	 *     entries+=LayoutHorizontalEntry+
+	 *     (fixed=Fixed? entries+=LayoutHorizontalEntry*)
 	 */
 	protected void sequence_LayoutHorizontal(ISerializationContext context, LayoutHorizontal semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -291,7 +313,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     GuiElement returns LayoutVertical
 	 *
 	 * Constraint:
-	 *     entries+=LayoutVerticalEntry+
+	 *     (fixed=Fixed? entries+=LayoutVerticalEntry*)
 	 */
 	protected void sequence_LayoutVertical(ISerializationContext context, LayoutVertical semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

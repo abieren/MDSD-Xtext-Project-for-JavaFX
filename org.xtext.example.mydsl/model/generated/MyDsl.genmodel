@@ -19,6 +19,7 @@
     <genClasses ecoreClass="MyDsl.ecore#//Container"/>
     <genClasses ecoreClass="MyDsl.ecore#//Layout"/>
     <genClasses ecoreClass="MyDsl.ecore#//LayoutHorizontal">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//LayoutHorizontal/fixed"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//LayoutHorizontal/entries"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//LayoutHorizontalEntry">
@@ -26,6 +27,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//LayoutHorizontalEntry/guielement"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//LayoutVertical">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//LayoutVertical/fixed"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//LayoutVertical/entries"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//LayoutVerticalEntry">
@@ -38,6 +40,9 @@
     <genClasses ecoreClass="MyDsl.ecore#//LayoutPositionEntry">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//LayoutPositionEntry/position"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//LayoutPositionEntry/guielement"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//Fixed">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Fixed/fixed"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//Space">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Space/space"/>

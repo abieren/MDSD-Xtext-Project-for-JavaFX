@@ -22,12 +22,12 @@ import org.xtext.example.mydsl.services.MyDslGrammarAccess;
 public class MyDslSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected MyDslGrammarAccess grammarAccess;
-	protected AbstractElementAlias match_LayoutHorizontal_LayoutPosition_LayoutVertical___HorizontalKeyword_0_LeftCurlyBracketKeyword_1_RightCurlyBracketKeyword_3___or___PositionalKeyword_0_LeftCurlyBracketKeyword_1_RightCurlyBracketKeyword_3___or___VerticalKeyword_0_LeftCurlyBracketKeyword_1_RightCurlyBracketKeyword_3__;
+	protected AbstractElementAlias match_LayoutHorizontal_LayoutPosition_LayoutVertical___HorizontalKeyword_0_LeftCurlyBracketKeyword_2_RightCurlyBracketKeyword_4___or___PositionalKeyword_0_LeftCurlyBracketKeyword_1_RightCurlyBracketKeyword_3___or___VerticalKeyword_0_LeftCurlyBracketKeyword_2_RightCurlyBracketKeyword_4__;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (MyDslGrammarAccess) access;
-		match_LayoutHorizontal_LayoutPosition_LayoutVertical___HorizontalKeyword_0_LeftCurlyBracketKeyword_1_RightCurlyBracketKeyword_3___or___PositionalKeyword_0_LeftCurlyBracketKeyword_1_RightCurlyBracketKeyword_3___or___VerticalKeyword_0_LeftCurlyBracketKeyword_1_RightCurlyBracketKeyword_3__ = new AlternativeAlias(false, false, new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getLayoutHorizontalAccess().getHorizontalKeyword_0()), new TokenAlias(false, false, grammarAccess.getLayoutHorizontalAccess().getLeftCurlyBracketKeyword_1()), new TokenAlias(false, false, grammarAccess.getLayoutHorizontalAccess().getRightCurlyBracketKeyword_3())), new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getLayoutPositionAccess().getPositionalKeyword_0()), new TokenAlias(false, false, grammarAccess.getLayoutPositionAccess().getLeftCurlyBracketKeyword_1()), new TokenAlias(false, false, grammarAccess.getLayoutPositionAccess().getRightCurlyBracketKeyword_3())), new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getLayoutVerticalAccess().getVerticalKeyword_0()), new TokenAlias(false, false, grammarAccess.getLayoutVerticalAccess().getLeftCurlyBracketKeyword_1()), new TokenAlias(false, false, grammarAccess.getLayoutVerticalAccess().getRightCurlyBracketKeyword_3())));
+		match_LayoutHorizontal_LayoutPosition_LayoutVertical___HorizontalKeyword_0_LeftCurlyBracketKeyword_2_RightCurlyBracketKeyword_4___or___PositionalKeyword_0_LeftCurlyBracketKeyword_1_RightCurlyBracketKeyword_3___or___VerticalKeyword_0_LeftCurlyBracketKeyword_2_RightCurlyBracketKeyword_4__ = new AlternativeAlias(false, false, new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getLayoutHorizontalAccess().getHorizontalKeyword_0()), new TokenAlias(false, false, grammarAccess.getLayoutHorizontalAccess().getLeftCurlyBracketKeyword_2()), new TokenAlias(false, false, grammarAccess.getLayoutHorizontalAccess().getRightCurlyBracketKeyword_4())), new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getLayoutPositionAccess().getPositionalKeyword_0()), new TokenAlias(false, false, grammarAccess.getLayoutPositionAccess().getLeftCurlyBracketKeyword_1()), new TokenAlias(false, false, grammarAccess.getLayoutPositionAccess().getRightCurlyBracketKeyword_3())), new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getLayoutVerticalAccess().getVerticalKeyword_0()), new TokenAlias(false, false, grammarAccess.getLayoutVerticalAccess().getLeftCurlyBracketKeyword_2()), new TokenAlias(false, false, grammarAccess.getLayoutVerticalAccess().getRightCurlyBracketKeyword_4())));
 	}
 	
 	@Override
@@ -42,8 +42,8 @@ public class MyDslSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if (match_LayoutHorizontal_LayoutPosition_LayoutVertical___HorizontalKeyword_0_LeftCurlyBracketKeyword_1_RightCurlyBracketKeyword_3___or___PositionalKeyword_0_LeftCurlyBracketKeyword_1_RightCurlyBracketKeyword_3___or___VerticalKeyword_0_LeftCurlyBracketKeyword_1_RightCurlyBracketKeyword_3__.equals(syntax))
-				emit_LayoutHorizontal_LayoutPosition_LayoutVertical___HorizontalKeyword_0_LeftCurlyBracketKeyword_1_RightCurlyBracketKeyword_3___or___PositionalKeyword_0_LeftCurlyBracketKeyword_1_RightCurlyBracketKeyword_3___or___VerticalKeyword_0_LeftCurlyBracketKeyword_1_RightCurlyBracketKeyword_3__(semanticObject, getLastNavigableState(), syntaxNodes);
+			if (match_LayoutHorizontal_LayoutPosition_LayoutVertical___HorizontalKeyword_0_LeftCurlyBracketKeyword_2_RightCurlyBracketKeyword_4___or___PositionalKeyword_0_LeftCurlyBracketKeyword_1_RightCurlyBracketKeyword_3___or___VerticalKeyword_0_LeftCurlyBracketKeyword_2_RightCurlyBracketKeyword_4__.equals(syntax))
+				emit_LayoutHorizontal_LayoutPosition_LayoutVertical___HorizontalKeyword_0_LeftCurlyBracketKeyword_2_RightCurlyBracketKeyword_4___or___PositionalKeyword_0_LeftCurlyBracketKeyword_1_RightCurlyBracketKeyword_3___or___VerticalKeyword_0_LeftCurlyBracketKeyword_2_RightCurlyBracketKeyword_4__(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
@@ -55,7 +55,7 @@ public class MyDslSyntacticSequencer extends AbstractSyntacticSequencer {
 	 * This ambiguous syntax occurs at:
 	 *     (rule start) (ambiguity) (rule start)
 	 */
-	protected void emit_LayoutHorizontal_LayoutPosition_LayoutVertical___HorizontalKeyword_0_LeftCurlyBracketKeyword_1_RightCurlyBracketKeyword_3___or___PositionalKeyword_0_LeftCurlyBracketKeyword_1_RightCurlyBracketKeyword_3___or___VerticalKeyword_0_LeftCurlyBracketKeyword_1_RightCurlyBracketKeyword_3__(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_LayoutHorizontal_LayoutPosition_LayoutVertical___HorizontalKeyword_0_LeftCurlyBracketKeyword_2_RightCurlyBracketKeyword_4___or___PositionalKeyword_0_LeftCurlyBracketKeyword_1_RightCurlyBracketKeyword_3___or___VerticalKeyword_0_LeftCurlyBracketKeyword_2_RightCurlyBracketKeyword_4__(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

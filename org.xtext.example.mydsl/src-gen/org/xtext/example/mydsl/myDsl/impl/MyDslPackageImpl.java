@@ -14,6 +14,7 @@ import org.xtext.example.mydsl.myDsl.Button;
 import org.xtext.example.mydsl.myDsl.Checkbox;
 import org.xtext.example.mydsl.myDsl.ContainerReference;
 import org.xtext.example.mydsl.myDsl.Domainmodel;
+import org.xtext.example.mydsl.myDsl.Fixed;
 import org.xtext.example.mydsl.myDsl.Frame;
 import org.xtext.example.mydsl.myDsl.GuiElement;
 import org.xtext.example.mydsl.myDsl.Label;
@@ -118,6 +119,13 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   private EClass layoutPositionEntryEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass fixedEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -386,9 +394,20 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   @Override
-  public EReference getLayoutHorizontal_Entries()
+  public EReference getLayoutHorizontal_Fixed()
   {
     return (EReference)layoutHorizontalEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getLayoutHorizontal_Entries()
+  {
+    return (EReference)layoutHorizontalEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -441,9 +460,20 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   @Override
-  public EReference getLayoutVertical_Entries()
+  public EReference getLayoutVertical_Fixed()
   {
     return (EReference)layoutVerticalEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getLayoutVertical_Entries()
+  {
+    return (EReference)layoutVerticalEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -532,6 +562,28 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
   public EReference getLayoutPositionEntry_Guielement()
   {
     return (EReference)layoutPositionEntryEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getFixed()
+  {
+    return fixedEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getFixed_Fixed()
+  {
+    return (EAttribute)fixedEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -988,6 +1040,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     layoutEClass = createEClass(LAYOUT);
 
     layoutHorizontalEClass = createEClass(LAYOUT_HORIZONTAL);
+    createEReference(layoutHorizontalEClass, LAYOUT_HORIZONTAL__FIXED);
     createEReference(layoutHorizontalEClass, LAYOUT_HORIZONTAL__ENTRIES);
 
     layoutHorizontalEntryEClass = createEClass(LAYOUT_HORIZONTAL_ENTRY);
@@ -995,6 +1048,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     createEReference(layoutHorizontalEntryEClass, LAYOUT_HORIZONTAL_ENTRY__GUIELEMENT);
 
     layoutVerticalEClass = createEClass(LAYOUT_VERTICAL);
+    createEReference(layoutVerticalEClass, LAYOUT_VERTICAL__FIXED);
     createEReference(layoutVerticalEClass, LAYOUT_VERTICAL__ENTRIES);
 
     layoutVerticalEntryEClass = createEClass(LAYOUT_VERTICAL_ENTRY);
@@ -1007,6 +1061,9 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     layoutPositionEntryEClass = createEClass(LAYOUT_POSITION_ENTRY);
     createEReference(layoutPositionEntryEClass, LAYOUT_POSITION_ENTRY__POSITION);
     createEReference(layoutPositionEntryEClass, LAYOUT_POSITION_ENTRY__GUIELEMENT);
+
+    fixedEClass = createEClass(FIXED);
+    createEAttribute(fixedEClass, FIXED__FIXED);
 
     spaceEClass = createEClass(SPACE);
     createEAttribute(spaceEClass, SPACE__SPACE);
@@ -1116,6 +1173,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     initEClass(layoutEClass, Layout.class, "Layout", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(layoutHorizontalEClass, LayoutHorizontal.class, "LayoutHorizontal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getLayoutHorizontal_Fixed(), this.getFixed(), null, "fixed", null, 0, 1, LayoutHorizontal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getLayoutHorizontal_Entries(), this.getLayoutHorizontalEntry(), null, "entries", null, 0, -1, LayoutHorizontal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(layoutHorizontalEntryEClass, LayoutHorizontalEntry.class, "LayoutHorizontalEntry", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1123,6 +1181,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     initEReference(getLayoutHorizontalEntry_Guielement(), this.getGuiElement(), null, "guielement", null, 0, 1, LayoutHorizontalEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(layoutVerticalEClass, LayoutVertical.class, "LayoutVertical", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getLayoutVertical_Fixed(), this.getFixed(), null, "fixed", null, 0, 1, LayoutVertical.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getLayoutVertical_Entries(), this.getLayoutVerticalEntry(), null, "entries", null, 0, -1, LayoutVertical.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(layoutVerticalEntryEClass, LayoutVerticalEntry.class, "LayoutVerticalEntry", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1135,6 +1194,9 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     initEClass(layoutPositionEntryEClass, LayoutPositionEntry.class, "LayoutPositionEntry", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getLayoutPositionEntry_Position(), this.getPositionValue(), null, "position", null, 0, 1, LayoutPositionEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getLayoutPositionEntry_Guielement(), this.getGuiElement(), null, "guielement", null, 0, 1, LayoutPositionEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(fixedEClass, Fixed.class, "Fixed", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getFixed_Fixed(), ecorePackage.getEInt(), "fixed", null, 0, 1, Fixed.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(spaceEClass, Space.class, "Space", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getSpace_Space(), ecorePackage.getEInt(), "space", null, 0, 1, Space.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

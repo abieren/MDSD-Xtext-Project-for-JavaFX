@@ -44,6 +44,7 @@ public class MyDslParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getLayoutVerticalAccess().getGroup(), "rule__LayoutVertical__Group__0");
 			builder.put(grammarAccess.getLayoutPositionAccess().getGroup(), "rule__LayoutPosition__Group__0");
 			builder.put(grammarAccess.getLayoutPositionEntryAccess().getGroup(), "rule__LayoutPositionEntry__Group__0");
+			builder.put(grammarAccess.getFixedAccess().getGroup(), "rule__Fixed__Group__0");
 			builder.put(grammarAccess.getSpaceAccess().getGroup(), "rule__Space__Group__0");
 			builder.put(grammarAccess.getPositionValueAccess().getGroup(), "rule__PositionValue__Group__0");
 			builder.put(grammarAccess.getSizeAccess().getGroup(), "rule__Size__Group__0");
@@ -61,15 +62,18 @@ public class MyDslParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getContainerAccess().getNameAssignment_1(), "rule__Container__NameAssignment_1");
 			builder.put(grammarAccess.getContainerAccess().getSizeAssignment_2(), "rule__Container__SizeAssignment_2");
 			builder.put(grammarAccess.getContainerAccess().getLayoutAssignment_3(), "rule__Container__LayoutAssignment_3");
-			builder.put(grammarAccess.getLayoutHorizontalAccess().getEntriesAssignment_2(), "rule__LayoutHorizontal__EntriesAssignment_2");
+			builder.put(grammarAccess.getLayoutHorizontalAccess().getFixedAssignment_1(), "rule__LayoutHorizontal__FixedAssignment_1");
+			builder.put(grammarAccess.getLayoutHorizontalAccess().getEntriesAssignment_3(), "rule__LayoutHorizontal__EntriesAssignment_3");
 			builder.put(grammarAccess.getLayoutHorizontalEntryAccess().getSpaceAssignment_0(), "rule__LayoutHorizontalEntry__SpaceAssignment_0");
 			builder.put(grammarAccess.getLayoutHorizontalEntryAccess().getGuielementAssignment_1(), "rule__LayoutHorizontalEntry__GuielementAssignment_1");
-			builder.put(grammarAccess.getLayoutVerticalAccess().getEntriesAssignment_2(), "rule__LayoutVertical__EntriesAssignment_2");
+			builder.put(grammarAccess.getLayoutVerticalAccess().getFixedAssignment_1(), "rule__LayoutVertical__FixedAssignment_1");
+			builder.put(grammarAccess.getLayoutVerticalAccess().getEntriesAssignment_3(), "rule__LayoutVertical__EntriesAssignment_3");
 			builder.put(grammarAccess.getLayoutVerticalEntryAccess().getSpaceAssignment_0(), "rule__LayoutVerticalEntry__SpaceAssignment_0");
 			builder.put(grammarAccess.getLayoutVerticalEntryAccess().getGuielementAssignment_1(), "rule__LayoutVerticalEntry__GuielementAssignment_1");
 			builder.put(grammarAccess.getLayoutPositionAccess().getEntriesAssignment_2(), "rule__LayoutPosition__EntriesAssignment_2");
 			builder.put(grammarAccess.getLayoutPositionEntryAccess().getPositionAssignment_1(), "rule__LayoutPositionEntry__PositionAssignment_1");
 			builder.put(grammarAccess.getLayoutPositionEntryAccess().getGuielementAssignment_3(), "rule__LayoutPositionEntry__GuielementAssignment_3");
+			builder.put(grammarAccess.getFixedAccess().getFixedAssignment_1(), "rule__Fixed__FixedAssignment_1");
 			builder.put(grammarAccess.getSpaceAccess().getSpaceAssignment_1(), "rule__Space__SpaceAssignment_1");
 			builder.put(grammarAccess.getPositionValueAccess().getPosXAssignment_0(), "rule__PositionValue__PosXAssignment_0");
 			builder.put(grammarAccess.getPositionValueAccess().getPosYAssignment_2(), "rule__PositionValue__PosYAssignment_2");

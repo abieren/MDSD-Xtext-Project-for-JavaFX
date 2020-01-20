@@ -76,6 +76,7 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
       case MyDslPackage.LAYOUT_VERTICAL_ENTRY: return createLayoutVerticalEntry();
       case MyDslPackage.LAYOUT_POSITION: return createLayoutPosition();
       case MyDslPackage.LAYOUT_POSITION_ENTRY: return createLayoutPositionEntry();
+      case MyDslPackage.FIXED: return createFixed();
       case MyDslPackage.SPACE: return createSpace();
       case MyDslPackage.POSITION_VALUE: return createPositionValue();
       case MyDslPackage.SIZE: return createSize();
@@ -222,6 +223,18 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
   {
     LayoutPositionEntryImpl layoutPositionEntry = new LayoutPositionEntryImpl();
     return layoutPositionEntry;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Fixed createFixed()
+  {
+    FixedImpl fixed = new FixedImpl();
+    return fixed;
   }
 
   /**

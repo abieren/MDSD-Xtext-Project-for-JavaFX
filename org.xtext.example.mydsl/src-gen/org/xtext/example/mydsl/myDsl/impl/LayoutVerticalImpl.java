@@ -5,6 +5,7 @@ package org.xtext.example.mydsl.myDsl.impl;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -12,9 +13,12 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.xtext.example.mydsl.myDsl.Fixed;
 import org.xtext.example.mydsl.myDsl.LayoutVertical;
 import org.xtext.example.mydsl.myDsl.LayoutVerticalEntry;
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
@@ -27,6 +31,7 @@ import org.xtext.example.mydsl.myDsl.MyDslPackage;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.impl.LayoutVerticalImpl#getFixed <em>Fixed</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.LayoutVerticalImpl#getEntries <em>Entries</em>}</li>
  * </ul>
  *
@@ -34,6 +39,16 @@ import org.xtext.example.mydsl.myDsl.MyDslPackage;
  */
 public class LayoutVerticalImpl extends LayoutImpl implements LayoutVertical
 {
+  /**
+   * The cached value of the '{@link #getFixed() <em>Fixed</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getFixed()
+   * @generated
+   * @ordered
+   */
+  protected Fixed fixed;
+
   /**
    * The cached value of the '{@link #getEntries() <em>Entries</em>}' containment reference list.
    * <!-- begin-user-doc -->
@@ -71,6 +86,56 @@ public class LayoutVerticalImpl extends LayoutImpl implements LayoutVertical
    * @generated
    */
   @Override
+  public Fixed getFixed()
+  {
+    return fixed;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetFixed(Fixed newFixed, NotificationChain msgs)
+  {
+    Fixed oldFixed = fixed;
+    fixed = newFixed;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.LAYOUT_VERTICAL__FIXED, oldFixed, newFixed);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setFixed(Fixed newFixed)
+  {
+    if (newFixed != fixed)
+    {
+      NotificationChain msgs = null;
+      if (fixed != null)
+        msgs = ((InternalEObject)fixed).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.LAYOUT_VERTICAL__FIXED, null, msgs);
+      if (newFixed != null)
+        msgs = ((InternalEObject)newFixed).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.LAYOUT_VERTICAL__FIXED, null, msgs);
+      msgs = basicSetFixed(newFixed, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.LAYOUT_VERTICAL__FIXED, newFixed, newFixed));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EList<LayoutVerticalEntry> getEntries()
   {
     if (entries == null)
@@ -90,6 +155,8 @@ public class LayoutVerticalImpl extends LayoutImpl implements LayoutVertical
   {
     switch (featureID)
     {
+      case MyDslPackage.LAYOUT_VERTICAL__FIXED:
+        return basicSetFixed(null, msgs);
       case MyDslPackage.LAYOUT_VERTICAL__ENTRIES:
         return ((InternalEList<?>)getEntries()).basicRemove(otherEnd, msgs);
     }
@@ -106,6 +173,8 @@ public class LayoutVerticalImpl extends LayoutImpl implements LayoutVertical
   {
     switch (featureID)
     {
+      case MyDslPackage.LAYOUT_VERTICAL__FIXED:
+        return getFixed();
       case MyDslPackage.LAYOUT_VERTICAL__ENTRIES:
         return getEntries();
     }
@@ -123,6 +192,9 @@ public class LayoutVerticalImpl extends LayoutImpl implements LayoutVertical
   {
     switch (featureID)
     {
+      case MyDslPackage.LAYOUT_VERTICAL__FIXED:
+        setFixed((Fixed)newValue);
+        return;
       case MyDslPackage.LAYOUT_VERTICAL__ENTRIES:
         getEntries().clear();
         getEntries().addAll((Collection<? extends LayoutVerticalEntry>)newValue);
@@ -141,6 +213,9 @@ public class LayoutVerticalImpl extends LayoutImpl implements LayoutVertical
   {
     switch (featureID)
     {
+      case MyDslPackage.LAYOUT_VERTICAL__FIXED:
+        setFixed((Fixed)null);
+        return;
       case MyDslPackage.LAYOUT_VERTICAL__ENTRIES:
         getEntries().clear();
         return;
@@ -158,6 +233,8 @@ public class LayoutVerticalImpl extends LayoutImpl implements LayoutVertical
   {
     switch (featureID)
     {
+      case MyDslPackage.LAYOUT_VERTICAL__FIXED:
+        return fixed != null;
       case MyDslPackage.LAYOUT_VERTICAL__ENTRIES:
         return entries != null && !entries.isEmpty();
     }

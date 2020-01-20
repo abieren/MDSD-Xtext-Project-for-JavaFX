@@ -18,6 +18,7 @@ import org.xtext.example.mydsl.myDsl.Button;
 import org.xtext.example.mydsl.myDsl.Checkbox;
 import org.xtext.example.mydsl.myDsl.Container;
 import org.xtext.example.mydsl.myDsl.ContainerReference;
+import org.xtext.example.mydsl.myDsl.Fixed;
 import org.xtext.example.mydsl.myDsl.Frame;
 import org.xtext.example.mydsl.myDsl.GuiElement;
 import org.xtext.example.mydsl.myDsl.Label;
@@ -184,8 +185,18 @@ public class MyDslGenerator extends AbstractGenerator {
   
   public CharSequence compile(final LayoutHorizontal layout) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("new Horizontal(Arrays.asList(");
-    _builder.newLine();
+    _builder.append("new Horizontal(");
+    Object _xifexpression = null;
+    Fixed _fixed = layout.getFixed();
+    boolean _tripleNotEquals = (_fixed != null);
+    if (_tripleNotEquals) {
+      _xifexpression = Integer.valueOf(layout.getFixed().getFixed());
+    } else {
+      _xifexpression = "null";
+    }
+    _builder.append(_xifexpression);
+    _builder.append(", Arrays.asList(");
+    _builder.newLineIfNotEmpty();
     _builder.append("\t");
     _builder.append("null,");
     _builder.newLine();
@@ -210,7 +221,12 @@ public class MyDslGenerator extends AbstractGenerator {
     Space _space = entry.getSpace();
     boolean _tripleNotEquals = (_space != null);
     if (_tripleNotEquals) {
-      return this.compile(entry.getSpace());
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("new Space(");
+      int _space_1 = entry.getSpace().getSpace();
+      _builder.append(_space_1);
+      _builder.append(", 0)");
+      return _builder.toString();
     }
     GuiElement _guielement = entry.getGuielement();
     boolean _tripleNotEquals_1 = (_guielement != null);
@@ -223,8 +239,18 @@ public class MyDslGenerator extends AbstractGenerator {
   
   public CharSequence compile(final LayoutVertical layout) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("new Vertical(Arrays.asList(");
-    _builder.newLine();
+    _builder.append("new Vertical(");
+    Object _xifexpression = null;
+    Fixed _fixed = layout.getFixed();
+    boolean _tripleNotEquals = (_fixed != null);
+    if (_tripleNotEquals) {
+      _xifexpression = Integer.valueOf(layout.getFixed().getFixed());
+    } else {
+      _xifexpression = "null";
+    }
+    _builder.append(_xifexpression);
+    _builder.append(", Arrays.asList(");
+    _builder.newLineIfNotEmpty();
     _builder.append("\t");
     _builder.append("null,");
     _builder.newLine();
@@ -249,7 +275,12 @@ public class MyDslGenerator extends AbstractGenerator {
     Space _space = entry.getSpace();
     boolean _tripleNotEquals = (_space != null);
     if (_tripleNotEquals) {
-      return this.compile(entry.getSpace());
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("new Space(0, ");
+      int _space_1 = entry.getSpace().getSpace();
+      _builder.append(_space_1);
+      _builder.append(")");
+      return _builder.toString();
     }
     GuiElement _guielement = entry.getGuielement();
     boolean _tripleNotEquals_1 = (_guielement != null);
@@ -300,11 +331,6 @@ public class MyDslGenerator extends AbstractGenerator {
     _builder.newLineIfNotEmpty();
     _builder.append(")");
     return _builder;
-  }
-  
-  public CharSequence compile(final Space space) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nno viable alternative at input \'»)\'\'\'\'");
   }
   
   public Object compile(final GuiElement element) {

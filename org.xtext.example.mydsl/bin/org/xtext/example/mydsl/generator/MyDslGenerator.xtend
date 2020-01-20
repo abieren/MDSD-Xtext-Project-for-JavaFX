@@ -117,7 +117,7 @@ class MyDslGenerator extends AbstractGenerator {
 	
 	
 	def compile(LayoutHorizontal layout) '''
-		new Horizontal(Arrays.asList(
+		new Horizontal(«layout.fixed !== null ? layout.fixed.fixed : "null"», Arrays.asList(
 			null,
 			«FOR entry : layout.entries»
 				«entry.compile»,
@@ -128,14 +128,14 @@ class MyDslGenerator extends AbstractGenerator {
 	
 	def compile(LayoutHorizontalEntry entry)
 	{
-		if (entry.space !== null) return entry.space.compile
+		if (entry.space !== null) return '''new Space(«entry.space.space», 0)'''
 		if (entry.guielement !== null) return entry.guielement.compile
 		errorShouldBeUnreachable
 	}
 	
 	
 	def compile(LayoutVertical layout) '''
-		new Vertical(Arrays.asList(
+		new Vertical(«layout.fixed !== null ? layout.fixed.fixed : "null"», Arrays.asList(
 			null,
 			«FOR entry : layout.entries»
 				«entry.compile»,
@@ -146,7 +146,7 @@ class MyDslGenerator extends AbstractGenerator {
 	
 	def compile(LayoutVerticalEntry entry)
 	{
-		if (entry.space !== null) return entry.space.compile
+		if (entry.space !== null) return '''new Space(0, «entry.space.space»)'''
 		if (entry.guielement !== null) return entry.guielement.compile
 		errorShouldBeUnreachable
 	}
@@ -167,10 +167,6 @@ class MyDslGenerator extends AbstractGenerator {
 			«entry.guielement.compile»
 		)'''
 	
-	
-	def compile(Space space) '''
-		new Space(«space.»)'''
-		
 
 	def compile(GuiElement element)
 	{

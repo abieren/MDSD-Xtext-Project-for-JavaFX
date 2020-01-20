@@ -27,7 +27,7 @@ Layout:
 ;
 
 LayoutHorizontal:
-	'horizontal'
+	'horizontal' (fixed=Fixed)?
 	'{'
 		(entries+=LayoutHorizontalEntry)*
 	'}'
@@ -38,7 +38,7 @@ LayoutHorizontalEntry:
 ;
 
 LayoutVertical:
-	'vertical'
+	'vertical' (fixed=Fixed)?
 	'{'
 		(entries+=LayoutVerticalEntry)*
 	'}'
@@ -60,6 +60,9 @@ LayoutPositionEntry:
 	guielement=GuiElement
 ;
 
+Fixed:
+	"fixed="fixed=INT
+;
 
 Space:
 	"space" space=INT

@@ -382,16 +382,35 @@ ruleLayoutHorizontal returns [EObject current=null]
 		{
 			newLeafNode(otherlv_0, grammarAccess.getLayoutHorizontalAccess().getHorizontalKeyword_0());
 		}
-		otherlv_1='{'
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getLayoutHorizontalAccess().getFixedFixedParserRuleCall_1_0());
+				}
+				lv_fixed_1_0=ruleFixed
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getLayoutHorizontalRule());
+					}
+					set(
+						$current,
+						"fixed",
+						lv_fixed_1_0,
+						"org.xtext.example.mydsl.MyDsl.Fixed");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)?
+		otherlv_2='{'
 		{
-			newLeafNode(otherlv_1, grammarAccess.getLayoutHorizontalAccess().getLeftCurlyBracketKeyword_1());
+			newLeafNode(otherlv_2, grammarAccess.getLayoutHorizontalAccess().getLeftCurlyBracketKeyword_2());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getLayoutHorizontalAccess().getEntriesLayoutHorizontalEntryParserRuleCall_2_0());
+					newCompositeNode(grammarAccess.getLayoutHorizontalAccess().getEntriesLayoutHorizontalEntryParserRuleCall_3_0());
 				}
-				lv_entries_2_0=ruleLayoutHorizontalEntry
+				lv_entries_3_0=ruleLayoutHorizontalEntry
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getLayoutHorizontalRule());
@@ -399,15 +418,15 @@ ruleLayoutHorizontal returns [EObject current=null]
 					add(
 						$current,
 						"entries",
-						lv_entries_2_0,
+						lv_entries_3_0,
 						"org.xtext.example.mydsl.MyDsl.LayoutHorizontalEntry");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)*
-		otherlv_3='}'
+		otherlv_4='}'
 		{
-			newLeafNode(otherlv_3, grammarAccess.getLayoutHorizontalAccess().getRightCurlyBracketKeyword_3());
+			newLeafNode(otherlv_4, grammarAccess.getLayoutHorizontalAccess().getRightCurlyBracketKeyword_4());
 		}
 	)
 ;
@@ -490,16 +509,35 @@ ruleLayoutVertical returns [EObject current=null]
 		{
 			newLeafNode(otherlv_0, grammarAccess.getLayoutVerticalAccess().getVerticalKeyword_0());
 		}
-		otherlv_1='{'
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getLayoutVerticalAccess().getFixedFixedParserRuleCall_1_0());
+				}
+				lv_fixed_1_0=ruleFixed
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getLayoutVerticalRule());
+					}
+					set(
+						$current,
+						"fixed",
+						lv_fixed_1_0,
+						"org.xtext.example.mydsl.MyDsl.Fixed");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)?
+		otherlv_2='{'
 		{
-			newLeafNode(otherlv_1, grammarAccess.getLayoutVerticalAccess().getLeftCurlyBracketKeyword_1());
+			newLeafNode(otherlv_2, grammarAccess.getLayoutVerticalAccess().getLeftCurlyBracketKeyword_2());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getLayoutVerticalAccess().getEntriesLayoutVerticalEntryParserRuleCall_2_0());
+					newCompositeNode(grammarAccess.getLayoutVerticalAccess().getEntriesLayoutVerticalEntryParserRuleCall_3_0());
 				}
-				lv_entries_2_0=ruleLayoutVerticalEntry
+				lv_entries_3_0=ruleLayoutVerticalEntry
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getLayoutVerticalRule());
@@ -507,15 +545,15 @@ ruleLayoutVertical returns [EObject current=null]
 					add(
 						$current,
 						"entries",
-						lv_entries_2_0,
+						lv_entries_3_0,
 						"org.xtext.example.mydsl.MyDsl.LayoutVerticalEntry");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)*
-		otherlv_3='}'
+		otherlv_4='}'
 		{
-			newLeafNode(otherlv_3, grammarAccess.getLayoutVerticalAccess().getRightCurlyBracketKeyword_3());
+			newLeafNode(otherlv_4, grammarAccess.getLayoutVerticalAccess().getRightCurlyBracketKeyword_4());
 		}
 	)
 ;
@@ -687,6 +725,47 @@ ruleLayoutPositionEntry returns [EObject current=null]
 						lv_guielement_3_0,
 						"org.xtext.example.mydsl.MyDsl.GuiElement");
 					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleFixed
+entryRuleFixed returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getFixedRule()); }
+	iv_ruleFixed=ruleFixed
+	{ $current=$iv_ruleFixed.current; }
+	EOF;
+
+// Rule Fixed
+ruleFixed returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='fixed='
+		{
+			newLeafNode(otherlv_0, grammarAccess.getFixedAccess().getFixedKeyword_0());
+		}
+		(
+			(
+				lv_fixed_1_0=RULE_INT
+				{
+					newLeafNode(lv_fixed_1_0, grammarAccess.getFixedAccess().getFixedINTTerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getFixedRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"fixed",
+						lv_fixed_1_0,
+						"org.eclipse.xtext.common.Terminals.INT");
 				}
 			)
 		)

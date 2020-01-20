@@ -123,6 +123,15 @@ public interface MyDslFactory extends EFactory
   LayoutPositionEntry createLayoutPositionEntry();
 
   /**
+   * Returns a new object of class '<em>Fixed</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Fixed</em>'.
+   * @generated
+   */
+  Fixed createFixed();
+
+  /**
    * Returns a new object of class '<em>Space</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

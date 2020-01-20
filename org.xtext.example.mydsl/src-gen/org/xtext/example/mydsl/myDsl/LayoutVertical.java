@@ -14,6 +14,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.LayoutVertical#getFixed <em>Fixed</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.LayoutVertical#getEntries <em>Entries</em>}</li>
  * </ul>
  *
@@ -23,6 +24,28 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface LayoutVertical extends Layout
 {
+  /**
+   * Returns the value of the '<em><b>Fixed</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Fixed</em>' containment reference.
+   * @see #setFixed(Fixed)
+   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getLayoutVertical_Fixed()
+   * @model containment="true"
+   * @generated
+   */
+  Fixed getFixed();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.LayoutVertical#getFixed <em>Fixed</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Fixed</em>' containment reference.
+   * @see #getFixed()
+   * @generated
+   */
+  void setFixed(Fixed value);
+
   /**
    * Returns the value of the '<em><b>Entries</b></em>' containment reference list.
    * The list contents are of type {@link org.xtext.example.mydsl.myDsl.LayoutVerticalEntry}.

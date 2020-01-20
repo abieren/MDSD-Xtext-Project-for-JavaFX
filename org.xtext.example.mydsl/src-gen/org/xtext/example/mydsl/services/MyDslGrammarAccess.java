@@ -180,35 +180,43 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.LayoutHorizontal");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cHorizontalKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cEntriesAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cEntriesLayoutHorizontalEntryParserRuleCall_2_0 = (RuleCall)cEntriesAssignment_2.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cFixedAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cFixedFixedParserRuleCall_1_0 = (RuleCall)cFixedAssignment_1.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cEntriesAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cEntriesLayoutHorizontalEntryParserRuleCall_3_0 = (RuleCall)cEntriesAssignment_3.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//LayoutHorizontal:
-		//	'horizontal'
+		//	'horizontal' fixed=Fixed?
 		//	'{'
 		//	entries+=LayoutHorizontalEntry*
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'horizontal' '{' entries+=LayoutHorizontalEntry* '}'
+		//'horizontal' fixed=Fixed? '{' entries+=LayoutHorizontalEntry* '}'
 		public Group getGroup() { return cGroup; }
 		
 		//'horizontal'
 		public Keyword getHorizontalKeyword_0() { return cHorizontalKeyword_0; }
 		
+		//fixed=Fixed?
+		public Assignment getFixedAssignment_1() { return cFixedAssignment_1; }
+		
+		//Fixed
+		public RuleCall getFixedFixedParserRuleCall_1_0() { return cFixedFixedParserRuleCall_1_0; }
+		
 		//'{'
-		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 		
 		//entries+=LayoutHorizontalEntry*
-		public Assignment getEntriesAssignment_2() { return cEntriesAssignment_2; }
+		public Assignment getEntriesAssignment_3() { return cEntriesAssignment_3; }
 		
 		//LayoutHorizontalEntry
-		public RuleCall getEntriesLayoutHorizontalEntryParserRuleCall_2_0() { return cEntriesLayoutHorizontalEntryParserRuleCall_2_0; }
+		public RuleCall getEntriesLayoutHorizontalEntryParserRuleCall_3_0() { return cEntriesLayoutHorizontalEntryParserRuleCall_3_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_3() { return cRightCurlyBracketKeyword_3; }
+		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
 	}
 	public class LayoutHorizontalEntryElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.LayoutHorizontalEntry");
@@ -241,35 +249,43 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.LayoutVertical");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cVerticalKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cEntriesAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cEntriesLayoutVerticalEntryParserRuleCall_2_0 = (RuleCall)cEntriesAssignment_2.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cFixedAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cFixedFixedParserRuleCall_1_0 = (RuleCall)cFixedAssignment_1.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cEntriesAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cEntriesLayoutVerticalEntryParserRuleCall_3_0 = (RuleCall)cEntriesAssignment_3.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//LayoutVertical:
-		//	'vertical'
+		//	'vertical' fixed=Fixed?
 		//	'{'
 		//	entries+=LayoutVerticalEntry*
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'vertical' '{' entries+=LayoutVerticalEntry* '}'
+		//'vertical' fixed=Fixed? '{' entries+=LayoutVerticalEntry* '}'
 		public Group getGroup() { return cGroup; }
 		
 		//'vertical'
 		public Keyword getVerticalKeyword_0() { return cVerticalKeyword_0; }
 		
+		//fixed=Fixed?
+		public Assignment getFixedAssignment_1() { return cFixedAssignment_1; }
+		
+		//Fixed
+		public RuleCall getFixedFixedParserRuleCall_1_0() { return cFixedFixedParserRuleCall_1_0; }
+		
 		//'{'
-		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 		
 		//entries+=LayoutVerticalEntry*
-		public Assignment getEntriesAssignment_2() { return cEntriesAssignment_2; }
+		public Assignment getEntriesAssignment_3() { return cEntriesAssignment_3; }
 		
 		//LayoutVerticalEntry
-		public RuleCall getEntriesLayoutVerticalEntryParserRuleCall_2_0() { return cEntriesLayoutVerticalEntryParserRuleCall_2_0; }
+		public RuleCall getEntriesLayoutVerticalEntryParserRuleCall_3_0() { return cEntriesLayoutVerticalEntryParserRuleCall_3_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_3() { return cRightCurlyBracketKeyword_3; }
+		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
 	}
 	public class LayoutVerticalEntryElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.LayoutVerticalEntry");
@@ -367,6 +383,29 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//GuiElement
 		public RuleCall getGuielementGuiElementParserRuleCall_3_0() { return cGuielementGuiElementParserRuleCall_3_0; }
+	}
+	public class FixedElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.Fixed");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cFixedKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cFixedAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cFixedINTTerminalRuleCall_1_0 = (RuleCall)cFixedAssignment_1.eContents().get(0);
+		
+		//Fixed:
+		//	"fixed=" fixed=INT;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//"fixed=" fixed=INT
+		public Group getGroup() { return cGroup; }
+		
+		//"fixed="
+		public Keyword getFixedKeyword_0() { return cFixedKeyword_0; }
+		
+		//fixed=INT
+		public Assignment getFixedAssignment_1() { return cFixedAssignment_1; }
+		
+		//INT
+		public RuleCall getFixedINTTerminalRuleCall_1_0() { return cFixedINTTerminalRuleCall_1_0; }
 	}
 	public class SpaceElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.Space");
@@ -819,6 +858,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	private final LayoutVerticalEntryElements pLayoutVerticalEntry;
 	private final LayoutPositionElements pLayoutPosition;
 	private final LayoutPositionEntryElements pLayoutPositionEntry;
+	private final FixedElements pFixed;
 	private final SpaceElements pSpace;
 	private final PositionValueElements pPositionValue;
 	private final SizeElements pSize;
@@ -855,6 +895,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		this.pLayoutVerticalEntry = new LayoutVerticalEntryElements();
 		this.pLayoutPosition = new LayoutPositionElements();
 		this.pLayoutPositionEntry = new LayoutPositionEntryElements();
+		this.pFixed = new FixedElements();
 		this.pSpace = new SpaceElements();
 		this.pPositionValue = new PositionValueElements();
 		this.pSize = new SizeElements();
@@ -953,7 +994,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//LayoutHorizontal:
-	//	'horizontal'
+	//	'horizontal' fixed=Fixed?
 	//	'{'
 	//	entries+=LayoutHorizontalEntry*
 	//	'}';
@@ -976,7 +1017,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//LayoutVertical:
-	//	'vertical'
+	//	'vertical' fixed=Fixed?
 	//	'{'
 	//	entries+=LayoutVerticalEntry*
 	//	'}';
@@ -1020,6 +1061,16 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getLayoutPositionEntryRule() {
 		return getLayoutPositionEntryAccess().getRule();
+	}
+	
+	//Fixed:
+	//	"fixed=" fixed=INT;
+	public FixedElements getFixedAccess() {
+		return pFixed;
+	}
+	
+	public ParserRule getFixedRule() {
+		return getFixedAccess().getRule();
 	}
 	
 	//Space:

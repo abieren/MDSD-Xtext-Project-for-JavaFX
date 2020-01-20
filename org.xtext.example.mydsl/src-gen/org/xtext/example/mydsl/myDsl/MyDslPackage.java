@@ -240,7 +240,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getGuiElement()
    * @generated
    */
-  int GUI_ELEMENT = 14;
+  int GUI_ELEMENT = 15;
 
   /**
    * The number of structural features of the '<em>Gui Element</em>' class.
@@ -281,13 +281,22 @@ public interface MyDslPackage extends EPackage
   int LAYOUT_HORIZONTAL = 5;
 
   /**
+   * The feature id for the '<em><b>Fixed</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LAYOUT_HORIZONTAL__FIXED = LAYOUT_FEATURE_COUNT + 0;
+
+  /**
    * The feature id for the '<em><b>Entries</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int LAYOUT_HORIZONTAL__ENTRIES = LAYOUT_FEATURE_COUNT + 0;
+  int LAYOUT_HORIZONTAL__ENTRIES = LAYOUT_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Layout Horizontal</em>' class.
@@ -296,7 +305,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LAYOUT_HORIZONTAL_FEATURE_COUNT = LAYOUT_FEATURE_COUNT + 1;
+  int LAYOUT_HORIZONTAL_FEATURE_COUNT = LAYOUT_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.LayoutHorizontalEntryImpl <em>Layout Horizontal Entry</em>}' class.
@@ -346,13 +355,22 @@ public interface MyDslPackage extends EPackage
   int LAYOUT_VERTICAL = 7;
 
   /**
+   * The feature id for the '<em><b>Fixed</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LAYOUT_VERTICAL__FIXED = LAYOUT_FEATURE_COUNT + 0;
+
+  /**
    * The feature id for the '<em><b>Entries</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int LAYOUT_VERTICAL__ENTRIES = LAYOUT_FEATURE_COUNT + 0;
+  int LAYOUT_VERTICAL__ENTRIES = LAYOUT_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Layout Vertical</em>' class.
@@ -361,7 +379,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LAYOUT_VERTICAL_FEATURE_COUNT = LAYOUT_FEATURE_COUNT + 1;
+  int LAYOUT_VERTICAL_FEATURE_COUNT = LAYOUT_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.LayoutVerticalEntryImpl <em>Layout Vertical Entry</em>}' class.
@@ -466,6 +484,34 @@ public interface MyDslPackage extends EPackage
   int LAYOUT_POSITION_ENTRY_FEATURE_COUNT = 2;
 
   /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.FixedImpl <em>Fixed</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.myDsl.impl.FixedImpl
+   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getFixed()
+   * @generated
+   */
+  int FIXED = 11;
+
+  /**
+   * The feature id for the '<em><b>Fixed</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FIXED__FIXED = 0;
+
+  /**
+   * The number of structural features of the '<em>Fixed</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FIXED_FEATURE_COUNT = 1;
+
+  /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.SpaceImpl <em>Space</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -473,7 +519,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getSpace()
    * @generated
    */
-  int SPACE = 11;
+  int SPACE = 12;
 
   /**
    * The feature id for the '<em><b>Space</b></em>' attribute.
@@ -501,7 +547,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getPositionValue()
    * @generated
    */
-  int POSITION_VALUE = 12;
+  int POSITION_VALUE = 13;
 
   /**
    * The feature id for the '<em><b>Pos X</b></em>' attribute.
@@ -538,7 +584,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getSize()
    * @generated
    */
-  int SIZE = 13;
+  int SIZE = 14;
 
   /**
    * The feature id for the '<em><b>Width</b></em>' attribute.
@@ -575,7 +621,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getContainerReference()
    * @generated
    */
-  int CONTAINER_REFERENCE = 15;
+  int CONTAINER_REFERENCE = 16;
 
   /**
    * The feature id for the '<em><b>Reference Name</b></em>' attribute.
@@ -612,7 +658,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getText()
    * @generated
    */
-  int TEXT = 16;
+  int TEXT = 17;
 
   /**
    * The feature id for the '<em><b>Text</b></em>' attribute.
@@ -640,7 +686,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getTextfield()
    * @generated
    */
-  int TEXTFIELD = 17;
+  int TEXTFIELD = 18;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -686,7 +732,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getLabel()
    * @generated
    */
-  int LABEL = 18;
+  int LABEL = 19;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -732,7 +778,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getButton()
    * @generated
    */
-  int BUTTON = 19;
+  int BUTTON = 20;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -778,7 +824,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getCheckbox()
    * @generated
    */
-  int CHECKBOX = 20;
+  int CHECKBOX = 21;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -833,7 +879,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getRadiobutton()
    * @generated
    */
-  int RADIOBUTTON = 21;
+  int RADIOBUTTON = 22;
 
   /**
    * The feature id for the '<em><b>Group</b></em>' attribute.
@@ -1006,6 +1052,17 @@ public interface MyDslPackage extends EPackage
   EClass getLayoutHorizontal();
 
   /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.LayoutHorizontal#getFixed <em>Fixed</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Fixed</em>'.
+   * @see org.xtext.example.mydsl.myDsl.LayoutHorizontal#getFixed()
+   * @see #getLayoutHorizontal()
+   * @generated
+   */
+  EReference getLayoutHorizontal_Fixed();
+
+  /**
    * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.myDsl.LayoutHorizontal#getEntries <em>Entries</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1057,6 +1114,17 @@ public interface MyDslPackage extends EPackage
    * @generated
    */
   EClass getLayoutVertical();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.LayoutVertical#getFixed <em>Fixed</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Fixed</em>'.
+   * @see org.xtext.example.mydsl.myDsl.LayoutVertical#getFixed()
+   * @see #getLayoutVertical()
+   * @generated
+   */
+  EReference getLayoutVertical_Fixed();
 
   /**
    * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.myDsl.LayoutVertical#getEntries <em>Entries</em>}'.
@@ -1153,6 +1221,27 @@ public interface MyDslPackage extends EPackage
    * @generated
    */
   EReference getLayoutPositionEntry_Guielement();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Fixed <em>Fixed</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Fixed</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Fixed
+   * @generated
+   */
+  EClass getFixed();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Fixed#getFixed <em>Fixed</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Fixed</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Fixed#getFixed()
+   * @see #getFixed()
+   * @generated
+   */
+  EAttribute getFixed_Fixed();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Space <em>Space</em>}'.
@@ -1674,6 +1763,14 @@ public interface MyDslPackage extends EPackage
     EClass LAYOUT_HORIZONTAL = eINSTANCE.getLayoutHorizontal();
 
     /**
+     * The meta object literal for the '<em><b>Fixed</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LAYOUT_HORIZONTAL__FIXED = eINSTANCE.getLayoutHorizontal_Fixed();
+
+    /**
      * The meta object literal for the '<em><b>Entries</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1716,6 +1813,14 @@ public interface MyDslPackage extends EPackage
      * @generated
      */
     EClass LAYOUT_VERTICAL = eINSTANCE.getLayoutVertical();
+
+    /**
+     * The meta object literal for the '<em><b>Fixed</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LAYOUT_VERTICAL__FIXED = eINSTANCE.getLayoutVertical_Fixed();
 
     /**
      * The meta object literal for the '<em><b>Entries</b></em>' containment reference list feature.
@@ -1794,6 +1899,24 @@ public interface MyDslPackage extends EPackage
      * @generated
      */
     EReference LAYOUT_POSITION_ENTRY__GUIELEMENT = eINSTANCE.getLayoutPositionEntry_Guielement();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.FixedImpl <em>Fixed</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.myDsl.impl.FixedImpl
+     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getFixed()
+     * @generated
+     */
+    EClass FIXED = eINSTANCE.getFixed();
+
+    /**
+     * The meta object literal for the '<em><b>Fixed</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute FIXED__FIXED = eINSTANCE.getFixed_Fixed();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.SpaceImpl <em>Space</em>}' class.
