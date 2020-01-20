@@ -69,17 +69,24 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
       case MyDslPackage.TYPE: return createType();
       case MyDslPackage.FRAME: return createFrame();
       case MyDslPackage.CONTAINER: return createContainer();
-      case MyDslPackage.CONTAINER_REFERENCE: return createContainerReference();
       case MyDslPackage.LAYOUT: return createLayout();
-      case MyDslPackage.POSITION: return createPosition();
+      case MyDslPackage.LAYOUT_HORIZONTAL: return createLayoutHorizontal();
+      case MyDslPackage.LAYOUT_HORIZONTAL_ENTRY: return createLayoutHorizontalEntry();
+      case MyDslPackage.LAYOUT_VERTICAL: return createLayoutVertical();
+      case MyDslPackage.LAYOUT_VERTICAL_ENTRY: return createLayoutVerticalEntry();
+      case MyDslPackage.LAYOUT_POSITION: return createLayoutPosition();
+      case MyDslPackage.LAYOUT_POSITION_ENTRY: return createLayoutPositionEntry();
+      case MyDslPackage.SPACE: return createSpace();
+      case MyDslPackage.POSITION_VALUE: return createPositionValue();
       case MyDslPackage.SIZE: return createSize();
-      case MyDslPackage.TEXT: return createText();
-      case MyDslPackage.CHECKBOX_CHOICE: return createCheckboxChoice();
       case MyDslPackage.GUI_ELEMENT: return createGuiElement();
+      case MyDslPackage.CONTAINER_REFERENCE: return createContainerReference();
+      case MyDslPackage.TEXT: return createText();
       case MyDslPackage.TEXTFIELD: return createTextfield();
       case MyDslPackage.LABEL: return createLabel();
       case MyDslPackage.BUTTON: return createButton();
       case MyDslPackage.CHECKBOX: return createCheckbox();
+      case MyDslPackage.RADIOBUTTON: return createRadiobutton();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -139,18 +146,6 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
    * @generated
    */
   @Override
-  public ContainerReference createContainerReference()
-  {
-    ContainerReferenceImpl containerReference = new ContainerReferenceImpl();
-    return containerReference;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public Layout createLayout()
   {
     LayoutImpl layout = new LayoutImpl();
@@ -163,10 +158,94 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
    * @generated
    */
   @Override
-  public Position createPosition()
+  public LayoutHorizontal createLayoutHorizontal()
   {
-    PositionImpl position = new PositionImpl();
-    return position;
+    LayoutHorizontalImpl layoutHorizontal = new LayoutHorizontalImpl();
+    return layoutHorizontal;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public LayoutHorizontalEntry createLayoutHorizontalEntry()
+  {
+    LayoutHorizontalEntryImpl layoutHorizontalEntry = new LayoutHorizontalEntryImpl();
+    return layoutHorizontalEntry;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public LayoutVertical createLayoutVertical()
+  {
+    LayoutVerticalImpl layoutVertical = new LayoutVerticalImpl();
+    return layoutVertical;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public LayoutVerticalEntry createLayoutVerticalEntry()
+  {
+    LayoutVerticalEntryImpl layoutVerticalEntry = new LayoutVerticalEntryImpl();
+    return layoutVerticalEntry;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public LayoutPosition createLayoutPosition()
+  {
+    LayoutPositionImpl layoutPosition = new LayoutPositionImpl();
+    return layoutPosition;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public LayoutPositionEntry createLayoutPositionEntry()
+  {
+    LayoutPositionEntryImpl layoutPositionEntry = new LayoutPositionEntryImpl();
+    return layoutPositionEntry;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Space createSpace()
+  {
+    SpaceImpl space = new SpaceImpl();
+    return space;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public PositionValue createPositionValue()
+  {
+    PositionValueImpl positionValue = new PositionValueImpl();
+    return positionValue;
   }
 
   /**
@@ -187,34 +266,34 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
    * @generated
    */
   @Override
-  public Text createText()
-  {
-    TextImpl text = new TextImpl();
-    return text;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public CheckboxChoice createCheckboxChoice()
-  {
-    CheckboxChoiceImpl checkboxChoice = new CheckboxChoiceImpl();
-    return checkboxChoice;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public GuiElement createGuiElement()
   {
     GuiElementImpl guiElement = new GuiElementImpl();
     return guiElement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ContainerReference createContainerReference()
+  {
+    ContainerReferenceImpl containerReference = new ContainerReferenceImpl();
+    return containerReference;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Text createText()
+  {
+    TextImpl text = new TextImpl();
+    return text;
   }
 
   /**
@@ -263,6 +342,18 @@ public class MyDslFactoryImpl extends EFactoryImpl implements MyDslFactory
   {
     CheckboxImpl checkbox = new CheckboxImpl();
     return checkbox;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Radiobutton createRadiobutton()
+  {
+    RadiobuttonImpl radiobutton = new RadiobuttonImpl();
+    return radiobutton;
   }
 
   /**

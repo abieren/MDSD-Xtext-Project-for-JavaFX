@@ -3,46 +3,17 @@
  */
 package org.xtext.example.mydsl.myDsl;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Layout</b></em>'.
  * <!-- end-user-doc -->
  *
- * <p>
- * The following features are supported:
- * </p>
- * <ul>
- *   <li>{@link org.xtext.example.mydsl.myDsl.Layout#getLayout <em>Layout</em>}</li>
- * </ul>
  *
  * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getLayout()
  * @model
  * @generated
  */
-public interface Layout extends EObject
+public interface Layout extends GuiElement
 {
-  /**
-   * Returns the value of the '<em><b>Layout</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Layout</em>' attribute.
-   * @see #setLayout(String)
-   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getLayout_Layout()
-   * @model
-   * @generated
-   */
-  String getLayout();
-
-  /**
-   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.Layout#getLayout <em>Layout</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Layout</em>' attribute.
-   * @see #getLayout()
-   * @generated
-   */
-  void setLayout(String value);
-
 } // Layout

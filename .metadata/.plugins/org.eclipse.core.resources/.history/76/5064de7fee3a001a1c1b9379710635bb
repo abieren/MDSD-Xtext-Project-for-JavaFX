@@ -1,0 +1,124 @@
+grammar org.xtext.example.mydsl.MyDsl with org.eclipse.xtext.common.Terminals
+
+generate myDsl "http://www.xtext.org/example/mydsl/MyDsl"
+
+
+Domainmodel:
+	"main="main=NAME
+	(elements+=Type)*
+;
+
+Type:
+	Frame | Container
+;	
+
+Frame:
+	'frame' name=NAME (size=Size)?
+	layout=Layout?
+;
+
+Container:
+	'container' name=NAME (size=Size)? 
+	layout=Layout
+;
+
+Layout:
+	LayoutHorizontal | LayoutVertical | LayoutPosition
+;
+
+LayoutHorizontal:
+	'horizontal'
+	'{'
+		(entries+=LayoutHorizontalEntry)*
+	'}'
+;
+
+LayoutHorizontalEntry:
+	space=Space | guielement=GuiElement
+;
+
+LayoutVertical:
+	'vertical'
+	'{'
+		(entries+=LayoutVerticalEntry)*
+	'}'
+;
+
+LayoutVerticalEntry:
+	space=Space | guielement=GuiElement
+;
+
+LayoutPosition:
+	'positional'
+	'{'
+		(entries+=LayoutPositionEntry)*
+	'}'
+;
+
+LayoutPositionEntry:
+	"["position=PositionValue"]"
+	guielement=GuiElement
+;
+
+
+Space:
+	"space" space=INT
+;
+
+PositionValue:
+	posX=INT','posY=INT
+;
+
+Size:
+	width=INT'x'height=INT
+;
+
+GuiElement:
+	ContainerReference | Layout | Textfield | Label | Button | Checkbox | Radiobutton ";"
+;
+
+ContainerReference:
+	(referenceName=NAME) (name=NAME)
+;
+
+Text:
+	text=STRING
+;
+ 
+Textfield:
+	'textfield' name=NAME (size=Size)? (text=Text)
+;
+
+Label:
+	'label' name=NAME (size=Size)? (text=Text)
+;
+
+Button:
+	'button' name=NAME (size=Size)? (text=Text)
+;
+
+Checkbox:
+	'checkbox' name=NAME (size=Size)? (checked=CHECKED) (text=Text)
+;
+
+Radiobutton:
+	"radio" group=NAME name=NAME (size=Size)? (checked=CHECKED_YES)? (text=Text)
+;
+
+
+// terminal rules
+CHECKED:
+	CHECKED_YES | CHECKED_NO
+;
+
+CHECKED_YES:
+	'X'
+;
+
+CHECKED_NO:
+	'O'
+;
+
+NAME:
+	ID
+;

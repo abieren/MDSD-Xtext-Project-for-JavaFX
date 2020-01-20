@@ -10,6 +10,8 @@ import org.eclipse.xtext.IGrammarAccess;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.AbstractElementAlias;
+import org.eclipse.xtext.serializer.analysis.GrammarAlias.AlternativeAlias;
+import org.eclipse.xtext.serializer.analysis.GrammarAlias.GroupAlias;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.TokenAlias;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynNavigable;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynTransition;
@@ -20,14 +22,12 @@ import org.xtext.example.mydsl.services.MyDslGrammarAccess;
 public class MyDslSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected MyDslGrammarAccess grammarAccess;
-	protected AbstractElementAlias match_CheckboxChoice_CommaKeyword_2_q;
-	protected AbstractElementAlias match_CheckboxChoice_XKeyword_1_q;
+	protected AbstractElementAlias match_LayoutHorizontal_LayoutPosition_LayoutVertical___HorizontalKeyword_0_LeftCurlyBracketKeyword_1_RightCurlyBracketKeyword_3___or___PositionalKeyword_0_LeftCurlyBracketKeyword_1_RightCurlyBracketKeyword_3___or___VerticalKeyword_0_LeftCurlyBracketKeyword_1_RightCurlyBracketKeyword_3__;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (MyDslGrammarAccess) access;
-		match_CheckboxChoice_CommaKeyword_2_q = new TokenAlias(false, true, grammarAccess.getCheckboxChoiceAccess().getCommaKeyword_2());
-		match_CheckboxChoice_XKeyword_1_q = new TokenAlias(false, true, grammarAccess.getCheckboxChoiceAccess().getXKeyword_1());
+		match_LayoutHorizontal_LayoutPosition_LayoutVertical___HorizontalKeyword_0_LeftCurlyBracketKeyword_1_RightCurlyBracketKeyword_3___or___PositionalKeyword_0_LeftCurlyBracketKeyword_1_RightCurlyBracketKeyword_3___or___VerticalKeyword_0_LeftCurlyBracketKeyword_1_RightCurlyBracketKeyword_3__ = new AlternativeAlias(false, false, new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getLayoutHorizontalAccess().getHorizontalKeyword_0()), new TokenAlias(false, false, grammarAccess.getLayoutHorizontalAccess().getLeftCurlyBracketKeyword_1()), new TokenAlias(false, false, grammarAccess.getLayoutHorizontalAccess().getRightCurlyBracketKeyword_3())), new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getLayoutPositionAccess().getPositionalKeyword_0()), new TokenAlias(false, false, grammarAccess.getLayoutPositionAccess().getLeftCurlyBracketKeyword_1()), new TokenAlias(false, false, grammarAccess.getLayoutPositionAccess().getRightCurlyBracketKeyword_3())), new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getLayoutVerticalAccess().getVerticalKeyword_0()), new TokenAlias(false, false, grammarAccess.getLayoutVerticalAccess().getLeftCurlyBracketKeyword_1()), new TokenAlias(false, false, grammarAccess.getLayoutVerticalAccess().getRightCurlyBracketKeyword_3())));
 	}
 	
 	@Override
@@ -42,33 +42,20 @@ public class MyDslSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if (match_CheckboxChoice_CommaKeyword_2_q.equals(syntax))
-				emit_CheckboxChoice_CommaKeyword_2_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_CheckboxChoice_XKeyword_1_q.equals(syntax))
-				emit_CheckboxChoice_XKeyword_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			if (match_LayoutHorizontal_LayoutPosition_LayoutVertical___HorizontalKeyword_0_LeftCurlyBracketKeyword_1_RightCurlyBracketKeyword_3___or___PositionalKeyword_0_LeftCurlyBracketKeyword_1_RightCurlyBracketKeyword_3___or___VerticalKeyword_0_LeftCurlyBracketKeyword_1_RightCurlyBracketKeyword_3__.equals(syntax))
+				emit_LayoutHorizontal_LayoutPosition_LayoutVertical___HorizontalKeyword_0_LeftCurlyBracketKeyword_1_RightCurlyBracketKeyword_3___or___PositionalKeyword_0_LeftCurlyBracketKeyword_1_RightCurlyBracketKeyword_3___or___VerticalKeyword_0_LeftCurlyBracketKeyword_1_RightCurlyBracketKeyword_3__(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
 
 	/**
 	 * Ambiguous syntax:
-	 *     ','?
+	 *     ('horizontal' '{' '}') | ('vertical' '{' '}') | ('positional' '{' '}')
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     choice=ID '=x'? (ambiguity) (rule end)
+	 *     (rule start) (ambiguity) (rule start)
 	 */
-	protected void emit_CheckboxChoice_CommaKeyword_2_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     '=x'?
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     choice=ID (ambiguity) ','? (rule end)
-	 */
-	protected void emit_CheckboxChoice_XKeyword_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_LayoutHorizontal_LayoutPosition_LayoutVertical___HorizontalKeyword_0_LeftCurlyBracketKeyword_1_RightCurlyBracketKeyword_3___or___PositionalKeyword_0_LeftCurlyBracketKeyword_1_RightCurlyBracketKeyword_3___or___VerticalKeyword_0_LeftCurlyBracketKeyword_1_RightCurlyBracketKeyword_3__(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

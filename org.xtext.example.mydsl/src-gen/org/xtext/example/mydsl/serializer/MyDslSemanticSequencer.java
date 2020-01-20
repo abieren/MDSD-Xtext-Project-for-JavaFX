@@ -16,16 +16,22 @@ import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequence
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 import org.xtext.example.mydsl.myDsl.Button;
 import org.xtext.example.mydsl.myDsl.Checkbox;
-import org.xtext.example.mydsl.myDsl.CheckboxChoice;
 import org.xtext.example.mydsl.myDsl.Container;
 import org.xtext.example.mydsl.myDsl.ContainerReference;
 import org.xtext.example.mydsl.myDsl.Domainmodel;
 import org.xtext.example.mydsl.myDsl.Frame;
 import org.xtext.example.mydsl.myDsl.Label;
-import org.xtext.example.mydsl.myDsl.Layout;
+import org.xtext.example.mydsl.myDsl.LayoutHorizontal;
+import org.xtext.example.mydsl.myDsl.LayoutHorizontalEntry;
+import org.xtext.example.mydsl.myDsl.LayoutPosition;
+import org.xtext.example.mydsl.myDsl.LayoutPositionEntry;
+import org.xtext.example.mydsl.myDsl.LayoutVertical;
+import org.xtext.example.mydsl.myDsl.LayoutVerticalEntry;
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
-import org.xtext.example.mydsl.myDsl.Position;
+import org.xtext.example.mydsl.myDsl.PositionValue;
+import org.xtext.example.mydsl.myDsl.Radiobutton;
 import org.xtext.example.mydsl.myDsl.Size;
+import org.xtext.example.mydsl.myDsl.Space;
 import org.xtext.example.mydsl.myDsl.Text;
 import org.xtext.example.mydsl.myDsl.Textfield;
 import org.xtext.example.mydsl.services.MyDslGrammarAccess;
@@ -50,9 +56,6 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 			case MyDslPackage.CHECKBOX:
 				sequence_Checkbox(context, (Checkbox) semanticObject); 
 				return; 
-			case MyDslPackage.CHECKBOX_CHOICE:
-				sequence_CheckboxChoice(context, (CheckboxChoice) semanticObject); 
-				return; 
 			case MyDslPackage.CONTAINER:
 				sequence_Container(context, (Container) semanticObject); 
 				return; 
@@ -68,14 +71,35 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 			case MyDslPackage.LABEL:
 				sequence_Label(context, (Label) semanticObject); 
 				return; 
-			case MyDslPackage.LAYOUT:
-				sequence_Layout(context, (Layout) semanticObject); 
+			case MyDslPackage.LAYOUT_HORIZONTAL:
+				sequence_LayoutHorizontal(context, (LayoutHorizontal) semanticObject); 
 				return; 
-			case MyDslPackage.POSITION:
-				sequence_Position(context, (Position) semanticObject); 
+			case MyDslPackage.LAYOUT_HORIZONTAL_ENTRY:
+				sequence_LayoutHorizontalEntry(context, (LayoutHorizontalEntry) semanticObject); 
+				return; 
+			case MyDslPackage.LAYOUT_POSITION:
+				sequence_LayoutPosition(context, (LayoutPosition) semanticObject); 
+				return; 
+			case MyDslPackage.LAYOUT_POSITION_ENTRY:
+				sequence_LayoutPositionEntry(context, (LayoutPositionEntry) semanticObject); 
+				return; 
+			case MyDslPackage.LAYOUT_VERTICAL:
+				sequence_LayoutVertical(context, (LayoutVertical) semanticObject); 
+				return; 
+			case MyDslPackage.LAYOUT_VERTICAL_ENTRY:
+				sequence_LayoutVerticalEntry(context, (LayoutVerticalEntry) semanticObject); 
+				return; 
+			case MyDslPackage.POSITION_VALUE:
+				sequence_PositionValue(context, (PositionValue) semanticObject); 
+				return; 
+			case MyDslPackage.RADIOBUTTON:
+				sequence_Radiobutton(context, (Radiobutton) semanticObject); 
 				return; 
 			case MyDslPackage.SIZE:
 				sequence_Size(context, (Size) semanticObject); 
+				return; 
+			case MyDslPackage.SPACE:
+				sequence_Space(context, (Space) semanticObject); 
 				return; 
 			case MyDslPackage.TEXT:
 				sequence_Text(context, (Text) semanticObject); 
@@ -94,28 +118,10 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Button returns Button
 	 *
 	 * Constraint:
-	 *     (name=ID size=Size? text=Text)
+	 *     (name=NAME size=Size? text=Text)
 	 */
 	protected void sequence_Button(ISerializationContext context, Button semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     CheckboxChoice returns CheckboxChoice
-	 *
-	 * Constraint:
-	 *     choice=ID
-	 */
-	protected void sequence_CheckboxChoice(ISerializationContext context, CheckboxChoice semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.CHECKBOX_CHOICE__CHOICE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.CHECKBOX_CHOICE__CHOICE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getCheckboxChoiceAccess().getChoiceIDTerminalRuleCall_0_0(), semanticObject.getChoice());
-		feeder.finish();
 	}
 	
 	
@@ -125,7 +131,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Checkbox returns Checkbox
 	 *
 	 * Constraint:
-	 *     (name=ID size=Size? choice=CheckboxChoice)
+	 *     (name=NAME size=Size? checked=CHECKED text=Text)
 	 */
 	protected void sequence_Checkbox(ISerializationContext context, Checkbox semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -134,22 +140,22 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
-	 *     ContainerReference returns ContainerReference
 	 *     GuiElement returns ContainerReference
+	 *     ContainerReference returns ContainerReference
 	 *
 	 * Constraint:
-	 *     (referenceName=ID name=ID)
+	 *     (referenceName=NAME name=NAME)
 	 */
 	protected void sequence_ContainerReference(ISerializationContext context, ContainerReference semanticObject) {
 		if (errorAcceptor != null) {
 			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.CONTAINER_REFERENCE__REFERENCE_NAME) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.CONTAINER_REFERENCE__REFERENCE_NAME));
-			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.GUI_ELEMENT__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.GUI_ELEMENT__NAME));
+			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.CONTAINER_REFERENCE__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.CONTAINER_REFERENCE__NAME));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getContainerReferenceAccess().getReferenceNameIDTerminalRuleCall_0_0(), semanticObject.getReferenceName());
-		feeder.accept(grammarAccess.getContainerReferenceAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getContainerReferenceAccess().getReferenceNameNAMEParserRuleCall_0_0(), semanticObject.getReferenceName());
+		feeder.accept(grammarAccess.getContainerReferenceAccess().getNameNAMEParserRuleCall_1_0(), semanticObject.getName());
 		feeder.finish();
 	}
 	
@@ -160,7 +166,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Container returns Container
 	 *
 	 * Constraint:
-	 *     (containerName=ID size=Size? layout=Layout? guielements+=GuiElement*)
+	 *     (name=NAME size=Size? layout=Layout)
 	 */
 	protected void sequence_Container(ISerializationContext context, Container semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -172,7 +178,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Domainmodel returns Domainmodel
 	 *
 	 * Constraint:
-	 *     elements+=Type+
+	 *     (main=NAME elements+=Type*)
 	 */
 	protected void sequence_Domainmodel(ISerializationContext context, Domainmodel semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -185,7 +191,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Frame returns Frame
 	 *
 	 * Constraint:
-	 *     (name=ID size=Size? guielements+=GuiElement*)
+	 *     (name=NAME size=Size? layout=Layout?)
 	 */
 	protected void sequence_Frame(ISerializationContext context, Frame semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -198,7 +204,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Label returns Label
 	 *
 	 * Constraint:
-	 *     (name=ID size=Size? text=Text)
+	 *     (name=NAME size=Size? text=Text)
 	 */
 	protected void sequence_Label(ISerializationContext context, Label semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -207,40 +213,122 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
-	 *     Layout returns Layout
+	 *     LayoutHorizontalEntry returns LayoutHorizontalEntry
 	 *
 	 * Constraint:
-	 *     layout=ID
+	 *     (space=Space | guielement=GuiElement)
 	 */
-	protected void sequence_Layout(ISerializationContext context, Layout semanticObject) {
+	protected void sequence_LayoutHorizontalEntry(ISerializationContext context, LayoutHorizontalEntry semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Layout returns LayoutHorizontal
+	 *     LayoutHorizontal returns LayoutHorizontal
+	 *     GuiElement returns LayoutHorizontal
+	 *
+	 * Constraint:
+	 *     entries+=LayoutHorizontalEntry+
+	 */
+	protected void sequence_LayoutHorizontal(ISerializationContext context, LayoutHorizontal semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     LayoutPositionEntry returns LayoutPositionEntry
+	 *
+	 * Constraint:
+	 *     (position=PositionValue guielement=GuiElement)
+	 */
+	protected void sequence_LayoutPositionEntry(ISerializationContext context, LayoutPositionEntry semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.LAYOUT__LAYOUT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.LAYOUT__LAYOUT));
+			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.LAYOUT_POSITION_ENTRY__POSITION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.LAYOUT_POSITION_ENTRY__POSITION));
+			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.LAYOUT_POSITION_ENTRY__GUIELEMENT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.LAYOUT_POSITION_ENTRY__GUIELEMENT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getLayoutAccess().getLayoutIDTerminalRuleCall_1_0(), semanticObject.getLayout());
+		feeder.accept(grammarAccess.getLayoutPositionEntryAccess().getPositionPositionValueParserRuleCall_1_0(), semanticObject.getPosition());
+		feeder.accept(grammarAccess.getLayoutPositionEntryAccess().getGuielementGuiElementParserRuleCall_3_0(), semanticObject.getGuielement());
 		feeder.finish();
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     Position returns Position
+	 *     Layout returns LayoutPosition
+	 *     LayoutPosition returns LayoutPosition
+	 *     GuiElement returns LayoutPosition
+	 *
+	 * Constraint:
+	 *     entries+=LayoutPositionEntry+
+	 */
+	protected void sequence_LayoutPosition(ISerializationContext context, LayoutPosition semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     LayoutVerticalEntry returns LayoutVerticalEntry
+	 *
+	 * Constraint:
+	 *     (space=Space | guielement=GuiElement)
+	 */
+	protected void sequence_LayoutVerticalEntry(ISerializationContext context, LayoutVerticalEntry semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Layout returns LayoutVertical
+	 *     LayoutVertical returns LayoutVertical
+	 *     GuiElement returns LayoutVertical
+	 *
+	 * Constraint:
+	 *     entries+=LayoutVerticalEntry+
+	 */
+	protected void sequence_LayoutVertical(ISerializationContext context, LayoutVertical semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     PositionValue returns PositionValue
 	 *
 	 * Constraint:
 	 *     (posX=INT posY=INT)
 	 */
-	protected void sequence_Position(ISerializationContext context, Position semanticObject) {
+	protected void sequence_PositionValue(ISerializationContext context, PositionValue semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.POSITION__POS_X) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.POSITION__POS_X));
-			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.POSITION__POS_Y) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.POSITION__POS_Y));
+			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.POSITION_VALUE__POS_X) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.POSITION_VALUE__POS_X));
+			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.POSITION_VALUE__POS_Y) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.POSITION_VALUE__POS_Y));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getPositionAccess().getPosXINTTerminalRuleCall_0_0(), semanticObject.getPosX());
-		feeder.accept(grammarAccess.getPositionAccess().getPosYINTTerminalRuleCall_2_0(), semanticObject.getPosY());
+		feeder.accept(grammarAccess.getPositionValueAccess().getPosXINTTerminalRuleCall_0_0(), semanticObject.getPosX());
+		feeder.accept(grammarAccess.getPositionValueAccess().getPosYINTTerminalRuleCall_2_0(), semanticObject.getPosY());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     GuiElement returns Radiobutton
+	 *     Radiobutton returns Radiobutton
+	 *
+	 * Constraint:
+	 *     (group=NAME name=NAME size=Size? checked=CHECKED_YES? text=Text)
+	 */
+	protected void sequence_Radiobutton(ISerializationContext context, Radiobutton semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -267,10 +355,28 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
+	 *     Space returns Space
+	 *
+	 * Constraint:
+	 *     space=INT
+	 */
+	protected void sequence_Space(ISerializationContext context, Space semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, MyDslPackage.Literals.SPACE__SPACE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.SPACE__SPACE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getSpaceAccess().getSpaceINTTerminalRuleCall_1_0(), semanticObject.getSpace());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Text returns Text
 	 *
 	 * Constraint:
-	 *     text=ID
+	 *     text=STRING
 	 */
 	protected void sequence_Text(ISerializationContext context, Text semanticObject) {
 		if (errorAcceptor != null) {
@@ -278,7 +384,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyDslPackage.Literals.TEXT__TEXT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getTextAccess().getTextIDTerminalRuleCall_1_0(), semanticObject.getText());
+		feeder.accept(grammarAccess.getTextAccess().getTextSTRINGTerminalRuleCall_0(), semanticObject.getText());
 		feeder.finish();
 	}
 	
@@ -289,7 +395,7 @@ public class MyDslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     Textfield returns Textfield
 	 *
 	 * Constraint:
-	 *     (name=ID size=Size? text=Text)
+	 *     (name=NAME size=Size? text=Text)
 	 */
 	protected void sequence_Textfield(ISerializationContext context, Textfield semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

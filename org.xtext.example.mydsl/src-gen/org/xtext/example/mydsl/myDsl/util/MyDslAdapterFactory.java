@@ -96,19 +96,49 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
         return createContainerAdapter();
       }
       @Override
-      public Adapter caseContainerReference(ContainerReference object)
-      {
-        return createContainerReferenceAdapter();
-      }
-      @Override
       public Adapter caseLayout(Layout object)
       {
         return createLayoutAdapter();
       }
       @Override
-      public Adapter casePosition(Position object)
+      public Adapter caseLayoutHorizontal(LayoutHorizontal object)
       {
-        return createPositionAdapter();
+        return createLayoutHorizontalAdapter();
+      }
+      @Override
+      public Adapter caseLayoutHorizontalEntry(LayoutHorizontalEntry object)
+      {
+        return createLayoutHorizontalEntryAdapter();
+      }
+      @Override
+      public Adapter caseLayoutVertical(LayoutVertical object)
+      {
+        return createLayoutVerticalAdapter();
+      }
+      @Override
+      public Adapter caseLayoutVerticalEntry(LayoutVerticalEntry object)
+      {
+        return createLayoutVerticalEntryAdapter();
+      }
+      @Override
+      public Adapter caseLayoutPosition(LayoutPosition object)
+      {
+        return createLayoutPositionAdapter();
+      }
+      @Override
+      public Adapter caseLayoutPositionEntry(LayoutPositionEntry object)
+      {
+        return createLayoutPositionEntryAdapter();
+      }
+      @Override
+      public Adapter caseSpace(Space object)
+      {
+        return createSpaceAdapter();
+      }
+      @Override
+      public Adapter casePositionValue(PositionValue object)
+      {
+        return createPositionValueAdapter();
       }
       @Override
       public Adapter caseSize(Size object)
@@ -116,19 +146,19 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
         return createSizeAdapter();
       }
       @Override
-      public Adapter caseText(Text object)
-      {
-        return createTextAdapter();
-      }
-      @Override
-      public Adapter caseCheckboxChoice(CheckboxChoice object)
-      {
-        return createCheckboxChoiceAdapter();
-      }
-      @Override
       public Adapter caseGuiElement(GuiElement object)
       {
         return createGuiElementAdapter();
+      }
+      @Override
+      public Adapter caseContainerReference(ContainerReference object)
+      {
+        return createContainerReferenceAdapter();
+      }
+      @Override
+      public Adapter caseText(Text object)
+      {
+        return createTextAdapter();
       }
       @Override
       public Adapter caseTextfield(Textfield object)
@@ -149,6 +179,11 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
       public Adapter caseCheckbox(Checkbox object)
       {
         return createCheckboxAdapter();
+      }
+      @Override
+      public Adapter caseRadiobutton(Radiobutton object)
+      {
+        return createRadiobuttonAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -233,21 +268,6 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.ContainerReference <em>Container Reference</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.example.mydsl.myDsl.ContainerReference
-   * @generated
-   */
-  public Adapter createContainerReferenceAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.Layout <em>Layout</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -263,16 +283,121 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.Position <em>Position</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.LayoutHorizontal <em>Layout Horizontal</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.example.mydsl.myDsl.Position
+   * @see org.xtext.example.mydsl.myDsl.LayoutHorizontal
    * @generated
    */
-  public Adapter createPositionAdapter()
+  public Adapter createLayoutHorizontalAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.LayoutHorizontalEntry <em>Layout Horizontal Entry</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.myDsl.LayoutHorizontalEntry
+   * @generated
+   */
+  public Adapter createLayoutHorizontalEntryAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.LayoutVertical <em>Layout Vertical</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.myDsl.LayoutVertical
+   * @generated
+   */
+  public Adapter createLayoutVerticalAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.LayoutVerticalEntry <em>Layout Vertical Entry</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.myDsl.LayoutVerticalEntry
+   * @generated
+   */
+  public Adapter createLayoutVerticalEntryAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.LayoutPosition <em>Layout Position</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.myDsl.LayoutPosition
+   * @generated
+   */
+  public Adapter createLayoutPositionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.LayoutPositionEntry <em>Layout Position Entry</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.myDsl.LayoutPositionEntry
+   * @generated
+   */
+  public Adapter createLayoutPositionEntryAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.Space <em>Space</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.myDsl.Space
+   * @generated
+   */
+  public Adapter createSpaceAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.PositionValue <em>Position Value</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.myDsl.PositionValue
+   * @generated
+   */
+  public Adapter createPositionValueAdapter()
   {
     return null;
   }
@@ -293,36 +418,6 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.Text <em>Text</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.example.mydsl.myDsl.Text
-   * @generated
-   */
-  public Adapter createTextAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.CheckboxChoice <em>Checkbox Choice</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.example.mydsl.myDsl.CheckboxChoice
-   * @generated
-   */
-  public Adapter createCheckboxChoiceAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.GuiElement <em>Gui Element</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -333,6 +428,36 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createGuiElementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.ContainerReference <em>Container Reference</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.myDsl.ContainerReference
+   * @generated
+   */
+  public Adapter createContainerReferenceAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.Text <em>Text</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.myDsl.Text
+   * @generated
+   */
+  public Adapter createTextAdapter()
   {
     return null;
   }
@@ -393,6 +518,21 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createCheckboxAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.myDsl.Radiobutton <em>Radiobutton</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.myDsl.Radiobutton
+   * @generated
+   */
+  public Adapter createRadiobuttonAdapter()
   {
     return null;
   }

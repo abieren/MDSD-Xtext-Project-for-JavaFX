@@ -24,6 +24,7 @@ import org.xtext.example.mydsl.myDsl.Textfield;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.impl.TextfieldImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.TextfieldImpl#getSize <em>Size</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.TextfieldImpl#getText <em>Text</em>}</li>
  * </ul>
@@ -32,6 +33,26 @@ import org.xtext.example.mydsl.myDsl.Textfield;
  */
 public class TextfieldImpl extends GuiElementImpl implements Textfield
 {
+  /**
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected static final String NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected String name = NAME_EDEFAULT;
+
   /**
    * The cached value of the '{@link #getSize() <em>Size</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -71,6 +92,31 @@ public class TextfieldImpl extends GuiElementImpl implements Textfield
   protected EClass eStaticClass()
   {
     return MyDslPackage.Literals.TEXTFIELD;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String getName()
+  {
+    return name;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setName(String newName)
+  {
+    String oldName = name;
+    name = newName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.TEXTFIELD__NAME, oldName, name));
   }
 
   /**
@@ -201,6 +247,8 @@ public class TextfieldImpl extends GuiElementImpl implements Textfield
   {
     switch (featureID)
     {
+      case MyDslPackage.TEXTFIELD__NAME:
+        return getName();
       case MyDslPackage.TEXTFIELD__SIZE:
         return getSize();
       case MyDslPackage.TEXTFIELD__TEXT:
@@ -219,6 +267,9 @@ public class TextfieldImpl extends GuiElementImpl implements Textfield
   {
     switch (featureID)
     {
+      case MyDslPackage.TEXTFIELD__NAME:
+        setName((String)newValue);
+        return;
       case MyDslPackage.TEXTFIELD__SIZE:
         setSize((Size)newValue);
         return;
@@ -239,6 +290,9 @@ public class TextfieldImpl extends GuiElementImpl implements Textfield
   {
     switch (featureID)
     {
+      case MyDslPackage.TEXTFIELD__NAME:
+        setName(NAME_EDEFAULT);
+        return;
       case MyDslPackage.TEXTFIELD__SIZE:
         setSize((Size)null);
         return;
@@ -259,12 +313,31 @@ public class TextfieldImpl extends GuiElementImpl implements Textfield
   {
     switch (featureID)
     {
+      case MyDslPackage.TEXTFIELD__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case MyDslPackage.TEXTFIELD__SIZE:
         return size != null;
       case MyDslPackage.TEXTFIELD__TEXT:
         return text != null;
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuilder result = new StringBuilder(super.toString());
+    result.append(" (name: ");
+    result.append(name);
+    result.append(')');
+    return result.toString();
   }
 
 } //TextfieldImpl

@@ -24,20 +24,35 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public class DomainmodelElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.Domainmodel");
-		private final Assignment cElementsAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cElementsTypeParserRuleCall_0 = (RuleCall)cElementsAssignment.eContents().get(0);
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cMainKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cMainAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cMainNAMEParserRuleCall_1_0 = (RuleCall)cMainAssignment_1.eContents().get(0);
+		private final Assignment cElementsAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cElementsTypeParserRuleCall_2_0 = (RuleCall)cElementsAssignment_2.eContents().get(0);
 		
-		////Domainmodel:
-		////   (elements+=Type)*;
 		//Domainmodel:
+		//	"main=" main=NAME
 		//	elements+=Type*;
 		@Override public ParserRule getRule() { return rule; }
 		
+		//"main=" main=NAME elements+=Type*
+		public Group getGroup() { return cGroup; }
+		
+		//"main="
+		public Keyword getMainKeyword_0() { return cMainKeyword_0; }
+		
+		//main=NAME
+		public Assignment getMainAssignment_1() { return cMainAssignment_1; }
+		
+		//NAME
+		public RuleCall getMainNAMEParserRuleCall_1_0() { return cMainNAMEParserRuleCall_1_0; }
+		
 		//elements+=Type*
-		public Assignment getElementsAssignment() { return cElementsAssignment; }
+		public Assignment getElementsAssignment_2() { return cElementsAssignment_2; }
 		
 		//Type
-		public RuleCall getElementsTypeParserRuleCall_0() { return cElementsTypeParserRuleCall_0; }
+		public RuleCall getElementsTypeParserRuleCall_2_0() { return cElementsTypeParserRuleCall_2_0; }
 	}
 	public class TypeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.Type");
@@ -63,165 +78,321 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cFrameKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cSizeAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cSizeSizeParserRuleCall_3_0 = (RuleCall)cSizeAssignment_3.eContents().get(0);
-		private final Assignment cGuielementsAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cGuielementsGuiElementParserRuleCall_4_0 = (RuleCall)cGuielementsAssignment_4.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final RuleCall cNameNAMEParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Assignment cSizeAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cSizeSizeParserRuleCall_2_0 = (RuleCall)cSizeAssignment_2.eContents().get(0);
+		private final Assignment cLayoutAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cLayoutLayoutParserRuleCall_3_0 = (RuleCall)cLayoutAssignment_3.eContents().get(0);
 		
 		//Frame:
-		//	'frame' name=ID '{'
-		//	size=Size?
-		//	guielements+=GuiElement*
-		//	'}';
+		//	'frame' name=NAME size=Size?
+		//	layout=Layout?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'frame' name=ID '{' size=Size? guielements+=GuiElement* '}'
+		//'frame' name=NAME size=Size? layout=Layout?
 		public Group getGroup() { return cGroup; }
 		
 		//'frame'
 		public Keyword getFrameKeyword_0() { return cFrameKeyword_0; }
 		
-		//name=ID
+		//name=NAME
 		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 		
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
-		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		//NAME
+		public RuleCall getNameNAMEParserRuleCall_1_0() { return cNameNAMEParserRuleCall_1_0; }
 		
 		//size=Size?
-		public Assignment getSizeAssignment_3() { return cSizeAssignment_3; }
+		public Assignment getSizeAssignment_2() { return cSizeAssignment_2; }
 		
 		//Size
-		public RuleCall getSizeSizeParserRuleCall_3_0() { return cSizeSizeParserRuleCall_3_0; }
+		public RuleCall getSizeSizeParserRuleCall_2_0() { return cSizeSizeParserRuleCall_2_0; }
 		
-		//guielements+=GuiElement*
-		public Assignment getGuielementsAssignment_4() { return cGuielementsAssignment_4; }
+		//layout=Layout?
+		public Assignment getLayoutAssignment_3() { return cLayoutAssignment_3; }
 		
-		//GuiElement
-		public RuleCall getGuielementsGuiElementParserRuleCall_4_0() { return cGuielementsGuiElementParserRuleCall_4_0; }
-		
-		//'}'
-		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
+		//Layout
+		public RuleCall getLayoutLayoutParserRuleCall_3_0() { return cLayoutLayoutParserRuleCall_3_0; }
 	}
 	public class ContainerElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.Container");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cContainerKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cContainerNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cContainerNameIDTerminalRuleCall_1_0 = (RuleCall)cContainerNameAssignment_1.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cSizeAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cSizeSizeParserRuleCall_3_0 = (RuleCall)cSizeAssignment_3.eContents().get(0);
-		private final Assignment cLayoutAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cLayoutLayoutParserRuleCall_4_0 = (RuleCall)cLayoutAssignment_4.eContents().get(0);
-		private final Assignment cGuielementsAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cGuielementsGuiElementParserRuleCall_5_0 = (RuleCall)cGuielementsAssignment_5.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameNAMEParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Assignment cSizeAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cSizeSizeParserRuleCall_2_0 = (RuleCall)cSizeAssignment_2.eContents().get(0);
+		private final Assignment cLayoutAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cLayoutLayoutParserRuleCall_3_0 = (RuleCall)cLayoutAssignment_3.eContents().get(0);
 		
 		//Container:
-		//	'container' containerName=ID '{'
-		//	size=Size?
-		//	//(position=Position)?
-		//	layout=Layout?
-		//	guielements+=GuiElement*
-		//	'}';
+		//	'container' name=NAME size=Size?
+		//	layout=Layout;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'container' containerName=ID '{' size=Size? //(position=Position)?
-		//layout=Layout? guielements+=GuiElement* '}'
+		//'container' name=NAME size=Size? layout=Layout
 		public Group getGroup() { return cGroup; }
 		
 		//'container'
 		public Keyword getContainerKeyword_0() { return cContainerKeyword_0; }
 		
-		//containerName=ID
-		public Assignment getContainerNameAssignment_1() { return cContainerNameAssignment_1; }
-		
-		//ID
-		public RuleCall getContainerNameIDTerminalRuleCall_1_0() { return cContainerNameIDTerminalRuleCall_1_0; }
-		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
-		
-		//size=Size?
-		public Assignment getSizeAssignment_3() { return cSizeAssignment_3; }
-		
-		//Size
-		public RuleCall getSizeSizeParserRuleCall_3_0() { return cSizeSizeParserRuleCall_3_0; }
-		
-		////(position=Position)?
-		//layout=Layout?
-		public Assignment getLayoutAssignment_4() { return cLayoutAssignment_4; }
-		
-		//Layout
-		public RuleCall getLayoutLayoutParserRuleCall_4_0() { return cLayoutLayoutParserRuleCall_4_0; }
-		
-		//guielements+=GuiElement*
-		public Assignment getGuielementsAssignment_5() { return cGuielementsAssignment_5; }
-		
-		//GuiElement
-		public RuleCall getGuielementsGuiElementParserRuleCall_5_0() { return cGuielementsGuiElementParserRuleCall_5_0; }
-		
-		//'}'
-		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
-	}
-	public class ContainerReferenceElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.ContainerReference");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cReferenceNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cReferenceNameIDTerminalRuleCall_0_0 = (RuleCall)cReferenceNameAssignment_0.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		
-		//ContainerReference:
-		//	referenceName=ID name=ID;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//referenceName=ID name=ID
-		public Group getGroup() { return cGroup; }
-		
-		//referenceName=ID
-		public Assignment getReferenceNameAssignment_0() { return cReferenceNameAssignment_0; }
-		
-		//ID
-		public RuleCall getReferenceNameIDTerminalRuleCall_0_0() { return cReferenceNameIDTerminalRuleCall_0_0; }
-		
-		//name=ID
+		//name=NAME
 		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 		
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		//NAME
+		public RuleCall getNameNAMEParserRuleCall_1_0() { return cNameNAMEParserRuleCall_1_0; }
+		
+		//size=Size?
+		public Assignment getSizeAssignment_2() { return cSizeAssignment_2; }
+		
+		//Size
+		public RuleCall getSizeSizeParserRuleCall_2_0() { return cSizeSizeParserRuleCall_2_0; }
+		
+		//layout=Layout
+		public Assignment getLayoutAssignment_3() { return cLayoutAssignment_3; }
+		
+		//Layout
+		public RuleCall getLayoutLayoutParserRuleCall_3_0() { return cLayoutLayoutParserRuleCall_3_0; }
 	}
 	public class LayoutElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.Layout");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cLayoutKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cLayoutAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cLayoutIDTerminalRuleCall_1_0 = (RuleCall)cLayoutAssignment_1.eContents().get(0);
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cLayoutHorizontalParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cLayoutVerticalParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cLayoutPositionParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		
 		//Layout:
-		//	'layout=' layout=ID;
+		//	LayoutHorizontal | LayoutVertical | LayoutPosition;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'layout=' layout=ID
+		//LayoutHorizontal | LayoutVertical | LayoutPosition
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//LayoutHorizontal
+		public RuleCall getLayoutHorizontalParserRuleCall_0() { return cLayoutHorizontalParserRuleCall_0; }
+		
+		//LayoutVertical
+		public RuleCall getLayoutVerticalParserRuleCall_1() { return cLayoutVerticalParserRuleCall_1; }
+		
+		//LayoutPosition
+		public RuleCall getLayoutPositionParserRuleCall_2() { return cLayoutPositionParserRuleCall_2; }
+	}
+	public class LayoutHorizontalElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.LayoutHorizontal");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cHorizontalKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cEntriesAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cEntriesLayoutHorizontalEntryParserRuleCall_2_0 = (RuleCall)cEntriesAssignment_2.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		
+		//LayoutHorizontal:
+		//	'horizontal'
+		//	'{'
+		//	entries+=LayoutHorizontalEntry*
+		//	'}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'horizontal' '{' entries+=LayoutHorizontalEntry* '}'
 		public Group getGroup() { return cGroup; }
 		
-		//'layout='
-		public Keyword getLayoutKeyword_0() { return cLayoutKeyword_0; }
+		//'horizontal'
+		public Keyword getHorizontalKeyword_0() { return cHorizontalKeyword_0; }
 		
-		//layout=ID
-		public Assignment getLayoutAssignment_1() { return cLayoutAssignment_1; }
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
 		
-		//ID
-		public RuleCall getLayoutIDTerminalRuleCall_1_0() { return cLayoutIDTerminalRuleCall_1_0; }
+		//entries+=LayoutHorizontalEntry*
+		public Assignment getEntriesAssignment_2() { return cEntriesAssignment_2; }
+		
+		//LayoutHorizontalEntry
+		public RuleCall getEntriesLayoutHorizontalEntryParserRuleCall_2_0() { return cEntriesLayoutHorizontalEntryParserRuleCall_2_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_3() { return cRightCurlyBracketKeyword_3; }
 	}
-	public class PositionElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.Position");
+	public class LayoutHorizontalEntryElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.LayoutHorizontalEntry");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Assignment cSpaceAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
+		private final RuleCall cSpaceSpaceParserRuleCall_0_0 = (RuleCall)cSpaceAssignment_0.eContents().get(0);
+		private final Assignment cGuielementAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
+		private final RuleCall cGuielementGuiElementParserRuleCall_1_0 = (RuleCall)cGuielementAssignment_1.eContents().get(0);
+		
+		//LayoutHorizontalEntry:
+		//	space=Space | guielement=GuiElement;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//space=Space | guielement=GuiElement
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//space=Space
+		public Assignment getSpaceAssignment_0() { return cSpaceAssignment_0; }
+		
+		//Space
+		public RuleCall getSpaceSpaceParserRuleCall_0_0() { return cSpaceSpaceParserRuleCall_0_0; }
+		
+		//guielement=GuiElement
+		public Assignment getGuielementAssignment_1() { return cGuielementAssignment_1; }
+		
+		//GuiElement
+		public RuleCall getGuielementGuiElementParserRuleCall_1_0() { return cGuielementGuiElementParserRuleCall_1_0; }
+	}
+	public class LayoutVerticalElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.LayoutVertical");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cVerticalKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cEntriesAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cEntriesLayoutVerticalEntryParserRuleCall_2_0 = (RuleCall)cEntriesAssignment_2.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		
+		//LayoutVertical:
+		//	'vertical'
+		//	'{'
+		//	entries+=LayoutVerticalEntry*
+		//	'}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'vertical' '{' entries+=LayoutVerticalEntry* '}'
+		public Group getGroup() { return cGroup; }
+		
+		//'vertical'
+		public Keyword getVerticalKeyword_0() { return cVerticalKeyword_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
+		
+		//entries+=LayoutVerticalEntry*
+		public Assignment getEntriesAssignment_2() { return cEntriesAssignment_2; }
+		
+		//LayoutVerticalEntry
+		public RuleCall getEntriesLayoutVerticalEntryParserRuleCall_2_0() { return cEntriesLayoutVerticalEntryParserRuleCall_2_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_3() { return cRightCurlyBracketKeyword_3; }
+	}
+	public class LayoutVerticalEntryElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.LayoutVerticalEntry");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Assignment cSpaceAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
+		private final RuleCall cSpaceSpaceParserRuleCall_0_0 = (RuleCall)cSpaceAssignment_0.eContents().get(0);
+		private final Assignment cGuielementAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
+		private final RuleCall cGuielementGuiElementParserRuleCall_1_0 = (RuleCall)cGuielementAssignment_1.eContents().get(0);
+		
+		//LayoutVerticalEntry:
+		//	space=Space | guielement=GuiElement;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//space=Space | guielement=GuiElement
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//space=Space
+		public Assignment getSpaceAssignment_0() { return cSpaceAssignment_0; }
+		
+		//Space
+		public RuleCall getSpaceSpaceParserRuleCall_0_0() { return cSpaceSpaceParserRuleCall_0_0; }
+		
+		//guielement=GuiElement
+		public Assignment getGuielementAssignment_1() { return cGuielementAssignment_1; }
+		
+		//GuiElement
+		public RuleCall getGuielementGuiElementParserRuleCall_1_0() { return cGuielementGuiElementParserRuleCall_1_0; }
+	}
+	public class LayoutPositionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.LayoutPosition");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cPositionalKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cEntriesAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cEntriesLayoutPositionEntryParserRuleCall_2_0 = (RuleCall)cEntriesAssignment_2.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		
+		//LayoutPosition:
+		//	'positional'
+		//	'{'
+		//	entries+=LayoutPositionEntry*
+		//	'}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'positional' '{' entries+=LayoutPositionEntry* '}'
+		public Group getGroup() { return cGroup; }
+		
+		//'positional'
+		public Keyword getPositionalKeyword_0() { return cPositionalKeyword_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
+		
+		//entries+=LayoutPositionEntry*
+		public Assignment getEntriesAssignment_2() { return cEntriesAssignment_2; }
+		
+		//LayoutPositionEntry
+		public RuleCall getEntriesLayoutPositionEntryParserRuleCall_2_0() { return cEntriesLayoutPositionEntryParserRuleCall_2_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_3() { return cRightCurlyBracketKeyword_3; }
+	}
+	public class LayoutPositionEntryElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.LayoutPositionEntry");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cLeftSquareBracketKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cPositionAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cPositionPositionValueParserRuleCall_1_0 = (RuleCall)cPositionAssignment_1.eContents().get(0);
+		private final Keyword cRightSquareBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cGuielementAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cGuielementGuiElementParserRuleCall_3_0 = (RuleCall)cGuielementAssignment_3.eContents().get(0);
+		
+		//LayoutPositionEntry:
+		//	"[" position=PositionValue "]"
+		//	guielement=GuiElement;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//"[" position=PositionValue "]" guielement=GuiElement
+		public Group getGroup() { return cGroup; }
+		
+		//"["
+		public Keyword getLeftSquareBracketKeyword_0() { return cLeftSquareBracketKeyword_0; }
+		
+		//position=PositionValue
+		public Assignment getPositionAssignment_1() { return cPositionAssignment_1; }
+		
+		//PositionValue
+		public RuleCall getPositionPositionValueParserRuleCall_1_0() { return cPositionPositionValueParserRuleCall_1_0; }
+		
+		//"]"
+		public Keyword getRightSquareBracketKeyword_2() { return cRightSquareBracketKeyword_2; }
+		
+		//guielement=GuiElement
+		public Assignment getGuielementAssignment_3() { return cGuielementAssignment_3; }
+		
+		//GuiElement
+		public RuleCall getGuielementGuiElementParserRuleCall_3_0() { return cGuielementGuiElementParserRuleCall_3_0; }
+	}
+	public class SpaceElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.Space");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cSpaceKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cSpaceAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cSpaceINTTerminalRuleCall_1_0 = (RuleCall)cSpaceAssignment_1.eContents().get(0);
+		
+		//Space:
+		//	"space" space=INT;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//"space" space=INT
+		public Group getGroup() { return cGroup; }
+		
+		//"space"
+		public Keyword getSpaceKeyword_0() { return cSpaceKeyword_0; }
+		
+		//space=INT
+		public Assignment getSpaceAssignment_1() { return cSpaceAssignment_1; }
+		
+		//INT
+		public RuleCall getSpaceINTTerminalRuleCall_1_0() { return cSpaceINTTerminalRuleCall_1_0; }
+	}
+	public class PositionValueElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.PositionValue");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cPosXAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final RuleCall cPosXINTTerminalRuleCall_0_0 = (RuleCall)cPosXAssignment_0.eContents().get(0);
@@ -229,7 +400,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cPosYAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cPosYINTTerminalRuleCall_2_0 = (RuleCall)cPosYAssignment_2.eContents().get(0);
 		
-		//Position:
+		//PositionValue:
 		//	posX=INT ',' posY=INT;
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -256,15 +427,15 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cWidthAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final RuleCall cWidthINTTerminalRuleCall_0_0 = (RuleCall)cWidthAssignment_0.eContents().get(0);
-		private final Keyword cXKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cCommaKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cHeightAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cHeightINTTerminalRuleCall_2_0 = (RuleCall)cHeightAssignment_2.eContents().get(0);
 		
 		//Size:
-		//	width=INT 'x' height=INT;
+		//	width=INT ',' height=INT;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//width=INT 'x' height=INT
+		//width=INT ',' height=INT
 		public Group getGroup() { return cGroup; }
 		
 		//width=INT
@@ -273,8 +444,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//INT
 		public RuleCall getWidthINTTerminalRuleCall_0_0() { return cWidthINTTerminalRuleCall_0_0; }
 		
-		//'x'
-		public Keyword getXKeyword_1() { return cXKeyword_1; }
+		//','
+		public Keyword getCommaKeyword_1() { return cCommaKeyword_1; }
 		
 		//height=INT
 		public Assignment getHeightAssignment_2() { return cHeightAssignment_2; }
@@ -282,113 +453,113 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//INT
 		public RuleCall getHeightINTTerminalRuleCall_2_0() { return cHeightINTTerminalRuleCall_2_0; }
 	}
-	public class TextElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.Text");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cTextKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cTextAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cTextIDTerminalRuleCall_1_0 = (RuleCall)cTextAssignment_1.eContents().get(0);
-		
-		//Text:
-		//	'text=' text=ID;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//'text=' text=ID
-		public Group getGroup() { return cGroup; }
-		
-		//'text='
-		public Keyword getTextKeyword_0() { return cTextKeyword_0; }
-		
-		//text=ID
-		public Assignment getTextAssignment_1() { return cTextAssignment_1; }
-		
-		//ID
-		public RuleCall getTextIDTerminalRuleCall_1_0() { return cTextIDTerminalRuleCall_1_0; }
-	}
-	public class CheckboxChoiceElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.CheckboxChoice");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cChoiceAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cChoiceIDTerminalRuleCall_0_0 = (RuleCall)cChoiceAssignment_0.eContents().get(0);
-		private final Keyword cXKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cCommaKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		
-		//CheckboxChoice:
-		//	choice=ID '=x'? ','?;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//choice=ID '=x'? ','?
-		public Group getGroup() { return cGroup; }
-		
-		//choice=ID
-		public Assignment getChoiceAssignment_0() { return cChoiceAssignment_0; }
-		
-		//ID
-		public RuleCall getChoiceIDTerminalRuleCall_0_0() { return cChoiceIDTerminalRuleCall_0_0; }
-		
-		//'=x'?
-		public Keyword getXKeyword_1() { return cXKeyword_1; }
-		
-		//','?
-		public Keyword getCommaKeyword_2() { return cCommaKeyword_2; }
-	}
 	public class GuiElementElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.GuiElement");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cTextfieldParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cLabelParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cButtonParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
-		private final RuleCall cCheckboxParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
-		private final RuleCall cContainerReferenceParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final RuleCall cContainerReferenceParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cLayoutParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cTextfieldParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cLabelParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cButtonParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final RuleCall cCheckboxParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
+		private final RuleCall cRadiobuttonParserRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
 		
 		//GuiElement:
-		//	Textfield | Label | Button | Checkbox | ContainerReference;
+		//	ContainerReference | Layout | Textfield | Label | Button | Checkbox | Radiobutton;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//Textfield | Label | Button | Checkbox | ContainerReference
+		//ContainerReference | Layout | Textfield | Label | Button | Checkbox | Radiobutton
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
+		//ContainerReference
+		public RuleCall getContainerReferenceParserRuleCall_0() { return cContainerReferenceParserRuleCall_0; }
+		
+		//Layout
+		public RuleCall getLayoutParserRuleCall_1() { return cLayoutParserRuleCall_1; }
+		
 		//Textfield
-		public RuleCall getTextfieldParserRuleCall_0() { return cTextfieldParserRuleCall_0; }
+		public RuleCall getTextfieldParserRuleCall_2() { return cTextfieldParserRuleCall_2; }
 		
 		//Label
-		public RuleCall getLabelParserRuleCall_1() { return cLabelParserRuleCall_1; }
+		public RuleCall getLabelParserRuleCall_3() { return cLabelParserRuleCall_3; }
 		
 		//Button
-		public RuleCall getButtonParserRuleCall_2() { return cButtonParserRuleCall_2; }
+		public RuleCall getButtonParserRuleCall_4() { return cButtonParserRuleCall_4; }
 		
 		//Checkbox
-		public RuleCall getCheckboxParserRuleCall_3() { return cCheckboxParserRuleCall_3; }
+		public RuleCall getCheckboxParserRuleCall_5() { return cCheckboxParserRuleCall_5; }
 		
-		//ContainerReference
-		public RuleCall getContainerReferenceParserRuleCall_4() { return cContainerReferenceParserRuleCall_4; }
+		//Radiobutton
+		public RuleCall getRadiobuttonParserRuleCall_6() { return cRadiobuttonParserRuleCall_6; }
+	}
+	public class ContainerReferenceElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.ContainerReference");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cReferenceNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cReferenceNameNAMEParserRuleCall_0_0 = (RuleCall)cReferenceNameAssignment_0.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameNAMEParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		
+		//ContainerReference:
+		//	referenceName=NAME name=NAME;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//referenceName=NAME name=NAME
+		public Group getGroup() { return cGroup; }
+		
+		//referenceName=NAME
+		public Assignment getReferenceNameAssignment_0() { return cReferenceNameAssignment_0; }
+		
+		//NAME
+		public RuleCall getReferenceNameNAMEParserRuleCall_0_0() { return cReferenceNameNAMEParserRuleCall_0_0; }
+		
+		//name=NAME
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//NAME
+		public RuleCall getNameNAMEParserRuleCall_1_0() { return cNameNAMEParserRuleCall_1_0; }
+	}
+	public class TextElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.Text");
+		private final Assignment cTextAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cTextSTRINGTerminalRuleCall_0 = (RuleCall)cTextAssignment.eContents().get(0);
+		
+		//Text:
+		//	text=STRING;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//text=STRING
+		public Assignment getTextAssignment() { return cTextAssignment; }
+		
+		//STRING
+		public RuleCall getTextSTRINGTerminalRuleCall_0() { return cTextSTRINGTerminalRuleCall_0; }
 	}
 	public class TextfieldElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.Textfield");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cTextfieldKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final RuleCall cNameNAMEParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Assignment cSizeAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cSizeSizeParserRuleCall_2_0 = (RuleCall)cSizeAssignment_2.eContents().get(0);
 		private final Assignment cTextAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cTextTextParserRuleCall_3_0 = (RuleCall)cTextAssignment_3.eContents().get(0);
 		
 		//Textfield:
-		//	'textfield' name=ID size=Size? text=Text;
+		//	'textfield' name=NAME size=Size? text=Text;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'textfield' name=ID size=Size? text=Text
+		//'textfield' name=NAME size=Size? text=Text
 		public Group getGroup() { return cGroup; }
 		
 		//'textfield'
 		public Keyword getTextfieldKeyword_0() { return cTextfieldKeyword_0; }
 		
-		//name=ID
+		//name=NAME
 		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 		
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		//NAME
+		public RuleCall getNameNAMEParserRuleCall_1_0() { return cNameNAMEParserRuleCall_1_0; }
 		
 		//size=Size?
 		public Assignment getSizeAssignment_2() { return cSizeAssignment_2; }
@@ -407,27 +578,27 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cLabelKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final RuleCall cNameNAMEParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Assignment cSizeAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cSizeSizeParserRuleCall_2_0 = (RuleCall)cSizeAssignment_2.eContents().get(0);
 		private final Assignment cTextAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cTextTextParserRuleCall_3_0 = (RuleCall)cTextAssignment_3.eContents().get(0);
 		
 		//Label:
-		//	'label' name=ID size=Size? text=Text;
+		//	'label' name=NAME size=Size? text=Text;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'label' name=ID size=Size? text=Text
+		//'label' name=NAME size=Size? text=Text
 		public Group getGroup() { return cGroup; }
 		
 		//'label'
 		public Keyword getLabelKeyword_0() { return cLabelKeyword_0; }
 		
-		//name=ID
+		//name=NAME
 		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 		
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		//NAME
+		public RuleCall getNameNAMEParserRuleCall_1_0() { return cNameNAMEParserRuleCall_1_0; }
 		
 		//size=Size?
 		public Assignment getSizeAssignment_2() { return cSizeAssignment_2; }
@@ -446,27 +617,27 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cButtonKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final RuleCall cNameNAMEParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Assignment cSizeAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cSizeSizeParserRuleCall_2_0 = (RuleCall)cSizeAssignment_2.eContents().get(0);
 		private final Assignment cTextAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cTextTextParserRuleCall_3_0 = (RuleCall)cTextAssignment_3.eContents().get(0);
 		
 		//Button:
-		//	'button' name=ID size=Size? text=Text;
+		//	'button' name=NAME size=Size? text=Text;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'button' name=ID size=Size? text=Text
+		//'button' name=NAME size=Size? text=Text
 		public Group getGroup() { return cGroup; }
 		
 		//'button'
 		public Keyword getButtonKeyword_0() { return cButtonKeyword_0; }
 		
-		//name=ID
+		//name=NAME
 		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 		
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		//NAME
+		public RuleCall getNameNAMEParserRuleCall_1_0() { return cNameNAMEParserRuleCall_1_0; }
 		
 		//size=Size?
 		public Assignment getSizeAssignment_2() { return cSizeAssignment_2; }
@@ -485,27 +656,29 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cCheckboxKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final RuleCall cNameNAMEParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Assignment cSizeAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cSizeSizeParserRuleCall_2_0 = (RuleCall)cSizeAssignment_2.eContents().get(0);
-		private final Assignment cChoiceAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cChoiceCheckboxChoiceParserRuleCall_3_0 = (RuleCall)cChoiceAssignment_3.eContents().get(0);
+		private final Assignment cCheckedAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cCheckedCHECKEDParserRuleCall_3_0 = (RuleCall)cCheckedAssignment_3.eContents().get(0);
+		private final Assignment cTextAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cTextTextParserRuleCall_4_0 = (RuleCall)cTextAssignment_4.eContents().get(0);
 		
 		//Checkbox:
-		//	'checkbox' name=ID size=Size? choice=CheckboxChoice;
+		//	'checkbox' name=NAME size=Size? checked=CHECKED text=Text;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'checkbox' name=ID size=Size? choice=CheckboxChoice
+		//'checkbox' name=NAME size=Size? checked=CHECKED text=Text
 		public Group getGroup() { return cGroup; }
 		
 		//'checkbox'
 		public Keyword getCheckboxKeyword_0() { return cCheckboxKeyword_0; }
 		
-		//name=ID
+		//name=NAME
 		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 		
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		//NAME
+		public RuleCall getNameNAMEParserRuleCall_1_0() { return cNameNAMEParserRuleCall_1_0; }
 		
 		//size=Size?
 		public Assignment getSizeAssignment_2() { return cSizeAssignment_2; }
@@ -513,11 +686,125 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		//Size
 		public RuleCall getSizeSizeParserRuleCall_2_0() { return cSizeSizeParserRuleCall_2_0; }
 		
-		//choice=CheckboxChoice
-		public Assignment getChoiceAssignment_3() { return cChoiceAssignment_3; }
+		//checked=CHECKED
+		public Assignment getCheckedAssignment_3() { return cCheckedAssignment_3; }
 		
-		//CheckboxChoice
-		public RuleCall getChoiceCheckboxChoiceParserRuleCall_3_0() { return cChoiceCheckboxChoiceParserRuleCall_3_0; }
+		//CHECKED
+		public RuleCall getCheckedCHECKEDParserRuleCall_3_0() { return cCheckedCHECKEDParserRuleCall_3_0; }
+		
+		//text=Text
+		public Assignment getTextAssignment_4() { return cTextAssignment_4; }
+		
+		//Text
+		public RuleCall getTextTextParserRuleCall_4_0() { return cTextTextParserRuleCall_4_0; }
+	}
+	public class RadiobuttonElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.Radiobutton");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cRadioKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cGroupAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cGroupNAMEParserRuleCall_1_0 = (RuleCall)cGroupAssignment_1.eContents().get(0);
+		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cNameNAMEParserRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+		private final Assignment cSizeAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cSizeSizeParserRuleCall_3_0 = (RuleCall)cSizeAssignment_3.eContents().get(0);
+		private final Assignment cCheckedAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cCheckedCHECKED_YESParserRuleCall_4_0 = (RuleCall)cCheckedAssignment_4.eContents().get(0);
+		private final Assignment cTextAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cTextTextParserRuleCall_5_0 = (RuleCall)cTextAssignment_5.eContents().get(0);
+		
+		//Radiobutton:
+		//	"radio" group=NAME name=NAME size=Size? checked=CHECKED_YES? text=Text;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//"radio" group=NAME name=NAME size=Size? checked=CHECKED_YES? text=Text
+		public Group getGroup() { return cGroup; }
+		
+		//"radio"
+		public Keyword getRadioKeyword_0() { return cRadioKeyword_0; }
+		
+		//group=NAME
+		public Assignment getGroupAssignment_1() { return cGroupAssignment_1; }
+		
+		//NAME
+		public RuleCall getGroupNAMEParserRuleCall_1_0() { return cGroupNAMEParserRuleCall_1_0; }
+		
+		//name=NAME
+		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
+		
+		//NAME
+		public RuleCall getNameNAMEParserRuleCall_2_0() { return cNameNAMEParserRuleCall_2_0; }
+		
+		//size=Size?
+		public Assignment getSizeAssignment_3() { return cSizeAssignment_3; }
+		
+		//Size
+		public RuleCall getSizeSizeParserRuleCall_3_0() { return cSizeSizeParserRuleCall_3_0; }
+		
+		//checked=CHECKED_YES?
+		public Assignment getCheckedAssignment_4() { return cCheckedAssignment_4; }
+		
+		//CHECKED_YES
+		public RuleCall getCheckedCHECKED_YESParserRuleCall_4_0() { return cCheckedCHECKED_YESParserRuleCall_4_0; }
+		
+		//text=Text
+		public Assignment getTextAssignment_5() { return cTextAssignment_5; }
+		
+		//Text
+		public RuleCall getTextTextParserRuleCall_5_0() { return cTextTextParserRuleCall_5_0; }
+	}
+	public class CHECKEDElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.CHECKED");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cCHECKED_YESParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cCHECKED_NOParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//// terminal rules
+		//CHECKED:
+		//	CHECKED_YES | CHECKED_NO;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//CHECKED_YES | CHECKED_NO
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//CHECKED_YES
+		public RuleCall getCHECKED_YESParserRuleCall_0() { return cCHECKED_YESParserRuleCall_0; }
+		
+		//CHECKED_NO
+		public RuleCall getCHECKED_NOParserRuleCall_1() { return cCHECKED_NOParserRuleCall_1; }
+	}
+	public class CHECKED_YESElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.CHECKED_YES");
+		private final Keyword cXKeyword = (Keyword)rule.eContents().get(1);
+		
+		//CHECKED_YES:
+		//	'X';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'X'
+		public Keyword getXKeyword() { return cXKeyword; }
+	}
+	public class CHECKED_NOElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.CHECKED_NO");
+		private final Keyword cOKeyword = (Keyword)rule.eContents().get(1);
+		
+		//CHECKED_NO:
+		//	'O';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'O'
+		public Keyword getOKeyword() { return cOKeyword; }
+	}
+	public class NAMEElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.MyDsl.NAME");
+		private final RuleCall cIDTerminalRuleCall = (RuleCall)rule.eContents().get(1);
+		
+		//NAME:
+		//	ID;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//ID
+		public RuleCall getIDTerminalRuleCall() { return cIDTerminalRuleCall; }
 	}
 	
 	
@@ -525,17 +812,28 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	private final TypeElements pType;
 	private final FrameElements pFrame;
 	private final ContainerElements pContainer;
-	private final ContainerReferenceElements pContainerReference;
 	private final LayoutElements pLayout;
-	private final PositionElements pPosition;
+	private final LayoutHorizontalElements pLayoutHorizontal;
+	private final LayoutHorizontalEntryElements pLayoutHorizontalEntry;
+	private final LayoutVerticalElements pLayoutVertical;
+	private final LayoutVerticalEntryElements pLayoutVerticalEntry;
+	private final LayoutPositionElements pLayoutPosition;
+	private final LayoutPositionEntryElements pLayoutPositionEntry;
+	private final SpaceElements pSpace;
+	private final PositionValueElements pPositionValue;
 	private final SizeElements pSize;
-	private final TextElements pText;
-	private final CheckboxChoiceElements pCheckboxChoice;
 	private final GuiElementElements pGuiElement;
+	private final ContainerReferenceElements pContainerReference;
+	private final TextElements pText;
 	private final TextfieldElements pTextfield;
 	private final LabelElements pLabel;
 	private final ButtonElements pButton;
 	private final CheckboxElements pCheckbox;
+	private final RadiobuttonElements pRadiobutton;
+	private final CHECKEDElements pCHECKED;
+	private final CHECKED_YESElements pCHECKED_YES;
+	private final CHECKED_NOElements pCHECKED_NO;
+	private final NAMEElements pNAME;
 	
 	private final Grammar grammar;
 	
@@ -550,17 +848,28 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		this.pType = new TypeElements();
 		this.pFrame = new FrameElements();
 		this.pContainer = new ContainerElements();
-		this.pContainerReference = new ContainerReferenceElements();
 		this.pLayout = new LayoutElements();
-		this.pPosition = new PositionElements();
+		this.pLayoutHorizontal = new LayoutHorizontalElements();
+		this.pLayoutHorizontalEntry = new LayoutHorizontalEntryElements();
+		this.pLayoutVertical = new LayoutVerticalElements();
+		this.pLayoutVerticalEntry = new LayoutVerticalEntryElements();
+		this.pLayoutPosition = new LayoutPositionElements();
+		this.pLayoutPositionEntry = new LayoutPositionEntryElements();
+		this.pSpace = new SpaceElements();
+		this.pPositionValue = new PositionValueElements();
 		this.pSize = new SizeElements();
-		this.pText = new TextElements();
-		this.pCheckboxChoice = new CheckboxChoiceElements();
 		this.pGuiElement = new GuiElementElements();
+		this.pContainerReference = new ContainerReferenceElements();
+		this.pText = new TextElements();
 		this.pTextfield = new TextfieldElements();
 		this.pLabel = new LabelElements();
 		this.pButton = new ButtonElements();
 		this.pCheckbox = new CheckboxElements();
+		this.pRadiobutton = new RadiobuttonElements();
+		this.pCHECKED = new CHECKEDElements();
+		this.pCHECKED_YES = new CHECKED_YESElements();
+		this.pCHECKED_NO = new CHECKED_NOElements();
+		this.pNAME = new NAMEElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -590,9 +899,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	
-	////Domainmodel:
-	////   (elements+=Type)*;
 	//Domainmodel:
+	//	"main=" main=NAME
 	//	elements+=Type*;
 	public DomainmodelElements getDomainmodelAccess() {
 		return pDomainmodel;
@@ -613,10 +921,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Frame:
-	//	'frame' name=ID '{'
-	//	size=Size?
-	//	guielements+=GuiElement*
-	//	'}';
+	//	'frame' name=NAME size=Size?
+	//	layout=Layout?;
 	public FrameElements getFrameAccess() {
 		return pFrame;
 	}
@@ -626,12 +932,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Container:
-	//	'container' containerName=ID '{'
-	//	size=Size?
-	//	//(position=Position)?
-	//	layout=Layout?
-	//	guielements+=GuiElement*
-	//	'}';
+	//	'container' name=NAME size=Size?
+	//	layout=Layout;
 	public ContainerElements getContainerAccess() {
 		return pContainer;
 	}
@@ -640,18 +942,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getContainerAccess().getRule();
 	}
 	
-	//ContainerReference:
-	//	referenceName=ID name=ID;
-	public ContainerReferenceElements getContainerReferenceAccess() {
-		return pContainerReference;
-	}
-	
-	public ParserRule getContainerReferenceRule() {
-		return getContainerReferenceAccess().getRule();
-	}
-	
 	//Layout:
-	//	'layout=' layout=ID;
+	//	LayoutHorizontal | LayoutVertical | LayoutPosition;
 	public LayoutElements getLayoutAccess() {
 		return pLayout;
 	}
@@ -660,18 +952,98 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getLayoutAccess().getRule();
 	}
 	
-	//Position:
-	//	posX=INT ',' posY=INT;
-	public PositionElements getPositionAccess() {
-		return pPosition;
+	//LayoutHorizontal:
+	//	'horizontal'
+	//	'{'
+	//	entries+=LayoutHorizontalEntry*
+	//	'}';
+	public LayoutHorizontalElements getLayoutHorizontalAccess() {
+		return pLayoutHorizontal;
 	}
 	
-	public ParserRule getPositionRule() {
-		return getPositionAccess().getRule();
+	public ParserRule getLayoutHorizontalRule() {
+		return getLayoutHorizontalAccess().getRule();
+	}
+	
+	//LayoutHorizontalEntry:
+	//	space=Space | guielement=GuiElement;
+	public LayoutHorizontalEntryElements getLayoutHorizontalEntryAccess() {
+		return pLayoutHorizontalEntry;
+	}
+	
+	public ParserRule getLayoutHorizontalEntryRule() {
+		return getLayoutHorizontalEntryAccess().getRule();
+	}
+	
+	//LayoutVertical:
+	//	'vertical'
+	//	'{'
+	//	entries+=LayoutVerticalEntry*
+	//	'}';
+	public LayoutVerticalElements getLayoutVerticalAccess() {
+		return pLayoutVertical;
+	}
+	
+	public ParserRule getLayoutVerticalRule() {
+		return getLayoutVerticalAccess().getRule();
+	}
+	
+	//LayoutVerticalEntry:
+	//	space=Space | guielement=GuiElement;
+	public LayoutVerticalEntryElements getLayoutVerticalEntryAccess() {
+		return pLayoutVerticalEntry;
+	}
+	
+	public ParserRule getLayoutVerticalEntryRule() {
+		return getLayoutVerticalEntryAccess().getRule();
+	}
+	
+	//LayoutPosition:
+	//	'positional'
+	//	'{'
+	//	entries+=LayoutPositionEntry*
+	//	'}';
+	public LayoutPositionElements getLayoutPositionAccess() {
+		return pLayoutPosition;
+	}
+	
+	public ParserRule getLayoutPositionRule() {
+		return getLayoutPositionAccess().getRule();
+	}
+	
+	//LayoutPositionEntry:
+	//	"[" position=PositionValue "]"
+	//	guielement=GuiElement;
+	public LayoutPositionEntryElements getLayoutPositionEntryAccess() {
+		return pLayoutPositionEntry;
+	}
+	
+	public ParserRule getLayoutPositionEntryRule() {
+		return getLayoutPositionEntryAccess().getRule();
+	}
+	
+	//Space:
+	//	"space" space=INT;
+	public SpaceElements getSpaceAccess() {
+		return pSpace;
+	}
+	
+	public ParserRule getSpaceRule() {
+		return getSpaceAccess().getRule();
+	}
+	
+	//PositionValue:
+	//	posX=INT ',' posY=INT;
+	public PositionValueElements getPositionValueAccess() {
+		return pPositionValue;
+	}
+	
+	public ParserRule getPositionValueRule() {
+		return getPositionValueAccess().getRule();
 	}
 	
 	//Size:
-	//	width=INT 'x' height=INT;
+	//	width=INT ',' height=INT;
 	public SizeElements getSizeAccess() {
 		return pSize;
 	}
@@ -680,28 +1052,8 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getSizeAccess().getRule();
 	}
 	
-	//Text:
-	//	'text=' text=ID;
-	public TextElements getTextAccess() {
-		return pText;
-	}
-	
-	public ParserRule getTextRule() {
-		return getTextAccess().getRule();
-	}
-	
-	//CheckboxChoice:
-	//	choice=ID '=x'? ','?;
-	public CheckboxChoiceElements getCheckboxChoiceAccess() {
-		return pCheckboxChoice;
-	}
-	
-	public ParserRule getCheckboxChoiceRule() {
-		return getCheckboxChoiceAccess().getRule();
-	}
-	
 	//GuiElement:
-	//	Textfield | Label | Button | Checkbox | ContainerReference;
+	//	ContainerReference | Layout | Textfield | Label | Button | Checkbox | Radiobutton;
 	public GuiElementElements getGuiElementAccess() {
 		return pGuiElement;
 	}
@@ -710,8 +1062,28 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getGuiElementAccess().getRule();
 	}
 	
+	//ContainerReference:
+	//	referenceName=NAME name=NAME;
+	public ContainerReferenceElements getContainerReferenceAccess() {
+		return pContainerReference;
+	}
+	
+	public ParserRule getContainerReferenceRule() {
+		return getContainerReferenceAccess().getRule();
+	}
+	
+	//Text:
+	//	text=STRING;
+	public TextElements getTextAccess() {
+		return pText;
+	}
+	
+	public ParserRule getTextRule() {
+		return getTextAccess().getRule();
+	}
+	
 	//Textfield:
-	//	'textfield' name=ID size=Size? text=Text;
+	//	'textfield' name=NAME size=Size? text=Text;
 	public TextfieldElements getTextfieldAccess() {
 		return pTextfield;
 	}
@@ -721,7 +1093,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Label:
-	//	'label' name=ID size=Size? text=Text;
+	//	'label' name=NAME size=Size? text=Text;
 	public LabelElements getLabelAccess() {
 		return pLabel;
 	}
@@ -731,7 +1103,7 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Button:
-	//	'button' name=ID size=Size? text=Text;
+	//	'button' name=NAME size=Size? text=Text;
 	public ButtonElements getButtonAccess() {
 		return pButton;
 	}
@@ -741,13 +1113,64 @@ public class MyDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Checkbox:
-	//	'checkbox' name=ID size=Size? choice=CheckboxChoice;
+	//	'checkbox' name=NAME size=Size? checked=CHECKED text=Text;
 	public CheckboxElements getCheckboxAccess() {
 		return pCheckbox;
 	}
 	
 	public ParserRule getCheckboxRule() {
 		return getCheckboxAccess().getRule();
+	}
+	
+	//Radiobutton:
+	//	"radio" group=NAME name=NAME size=Size? checked=CHECKED_YES? text=Text;
+	public RadiobuttonElements getRadiobuttonAccess() {
+		return pRadiobutton;
+	}
+	
+	public ParserRule getRadiobuttonRule() {
+		return getRadiobuttonAccess().getRule();
+	}
+	
+	//// terminal rules
+	//CHECKED:
+	//	CHECKED_YES | CHECKED_NO;
+	public CHECKEDElements getCHECKEDAccess() {
+		return pCHECKED;
+	}
+	
+	public ParserRule getCHECKEDRule() {
+		return getCHECKEDAccess().getRule();
+	}
+	
+	//CHECKED_YES:
+	//	'X';
+	public CHECKED_YESElements getCHECKED_YESAccess() {
+		return pCHECKED_YES;
+	}
+	
+	public ParserRule getCHECKED_YESRule() {
+		return getCHECKED_YESAccess().getRule();
+	}
+	
+	//CHECKED_NO:
+	//	'O';
+	public CHECKED_NOElements getCHECKED_NOAccess() {
+		return pCHECKED_NO;
+	}
+	
+	public ParserRule getCHECKED_NORule() {
+		return getCHECKED_NOAccess().getRule();
+	}
+	
+	//NAME:
+	//	ID;
+	public NAMEElements getNAMEAccess() {
+		return pNAME;
+	}
+	
+	public ParserRule getNAMERule() {
+		return getNAMEAccess().getRule();
 	}
 	
 	//terminal ID:

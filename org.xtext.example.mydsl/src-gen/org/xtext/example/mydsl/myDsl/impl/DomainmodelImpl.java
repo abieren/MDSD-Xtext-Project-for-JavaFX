@@ -5,6 +5,7 @@ package org.xtext.example.mydsl.myDsl.impl;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -12,6 +13,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
@@ -29,6 +31,7 @@ import org.xtext.example.mydsl.myDsl.Type;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.impl.DomainmodelImpl#getMain <em>Main</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.DomainmodelImpl#getElements <em>Elements</em>}</li>
  * </ul>
  *
@@ -36,6 +39,26 @@ import org.xtext.example.mydsl.myDsl.Type;
  */
 public class DomainmodelImpl extends MinimalEObjectImpl.Container implements Domainmodel
 {
+  /**
+   * The default value of the '{@link #getMain() <em>Main</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getMain()
+   * @generated
+   * @ordered
+   */
+  protected static final String MAIN_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getMain() <em>Main</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getMain()
+   * @generated
+   * @ordered
+   */
+  protected String main = MAIN_EDEFAULT;
+
   /**
    * The cached value of the '{@link #getElements() <em>Elements</em>}' containment reference list.
    * <!-- begin-user-doc -->
@@ -65,6 +88,31 @@ public class DomainmodelImpl extends MinimalEObjectImpl.Container implements Dom
   protected EClass eStaticClass()
   {
     return MyDslPackage.Literals.DOMAINMODEL;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String getMain()
+  {
+    return main;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setMain(String newMain)
+  {
+    String oldMain = main;
+    main = newMain;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.DOMAINMODEL__MAIN, oldMain, main));
   }
 
   /**
@@ -108,6 +156,8 @@ public class DomainmodelImpl extends MinimalEObjectImpl.Container implements Dom
   {
     switch (featureID)
     {
+      case MyDslPackage.DOMAINMODEL__MAIN:
+        return getMain();
       case MyDslPackage.DOMAINMODEL__ELEMENTS:
         return getElements();
     }
@@ -125,6 +175,9 @@ public class DomainmodelImpl extends MinimalEObjectImpl.Container implements Dom
   {
     switch (featureID)
     {
+      case MyDslPackage.DOMAINMODEL__MAIN:
+        setMain((String)newValue);
+        return;
       case MyDslPackage.DOMAINMODEL__ELEMENTS:
         getElements().clear();
         getElements().addAll((Collection<? extends Type>)newValue);
@@ -143,6 +196,9 @@ public class DomainmodelImpl extends MinimalEObjectImpl.Container implements Dom
   {
     switch (featureID)
     {
+      case MyDslPackage.DOMAINMODEL__MAIN:
+        setMain(MAIN_EDEFAULT);
+        return;
       case MyDslPackage.DOMAINMODEL__ELEMENTS:
         getElements().clear();
         return;
@@ -160,10 +216,29 @@ public class DomainmodelImpl extends MinimalEObjectImpl.Container implements Dom
   {
     switch (featureID)
     {
+      case MyDslPackage.DOMAINMODEL__MAIN:
+        return MAIN_EDEFAULT == null ? main != null : !MAIN_EDEFAULT.equals(main);
       case MyDslPackage.DOMAINMODEL__ELEMENTS:
         return elements != null && !elements.isEmpty();
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuilder result = new StringBuilder(super.toString());
+    result.append(" (main: ");
+    result.append(main);
+    result.append(')');
+    return result.toString();
   }
 
 } //DomainmodelImpl

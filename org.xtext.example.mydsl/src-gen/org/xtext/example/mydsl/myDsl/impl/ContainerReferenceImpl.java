@@ -21,6 +21,7 @@ import org.xtext.example.mydsl.myDsl.MyDslPackage;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.ContainerReferenceImpl#getReferenceName <em>Reference Name</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.impl.ContainerReferenceImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated
@@ -46,6 +47,26 @@ public class ContainerReferenceImpl extends GuiElementImpl implements ContainerR
    * @ordered
    */
   protected String referenceName = REFERENCE_NAME_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected static final String NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected String name = NAME_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -99,12 +120,39 @@ public class ContainerReferenceImpl extends GuiElementImpl implements ContainerR
    * @generated
    */
   @Override
+  public String getName()
+  {
+    return name;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setName(String newName)
+  {
+    String oldName = name;
+    name = newName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.CONTAINER_REFERENCE__NAME, oldName, name));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
     switch (featureID)
     {
       case MyDslPackage.CONTAINER_REFERENCE__REFERENCE_NAME:
         return getReferenceName();
+      case MyDslPackage.CONTAINER_REFERENCE__NAME:
+        return getName();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -121,6 +169,9 @@ public class ContainerReferenceImpl extends GuiElementImpl implements ContainerR
     {
       case MyDslPackage.CONTAINER_REFERENCE__REFERENCE_NAME:
         setReferenceName((String)newValue);
+        return;
+      case MyDslPackage.CONTAINER_REFERENCE__NAME:
+        setName((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -139,6 +190,9 @@ public class ContainerReferenceImpl extends GuiElementImpl implements ContainerR
       case MyDslPackage.CONTAINER_REFERENCE__REFERENCE_NAME:
         setReferenceName(REFERENCE_NAME_EDEFAULT);
         return;
+      case MyDslPackage.CONTAINER_REFERENCE__NAME:
+        setName(NAME_EDEFAULT);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -155,6 +209,8 @@ public class ContainerReferenceImpl extends GuiElementImpl implements ContainerR
     {
       case MyDslPackage.CONTAINER_REFERENCE__REFERENCE_NAME:
         return REFERENCE_NAME_EDEFAULT == null ? referenceName != null : !REFERENCE_NAME_EDEFAULT.equals(referenceName);
+      case MyDslPackage.CONTAINER_REFERENCE__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
     }
     return super.eIsSet(featureID);
   }
@@ -172,6 +228,8 @@ public class ContainerReferenceImpl extends GuiElementImpl implements ContainerR
     StringBuilder result = new StringBuilder(super.toString());
     result.append(" (referenceName: ");
     result.append(referenceName);
+    result.append(", name: ");
+    result.append(name);
     result.append(')');
     return result.toString();
   }

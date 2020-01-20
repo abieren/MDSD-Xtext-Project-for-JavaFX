@@ -12,9 +12,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.xtext.example.mydsl.myDsl.Checkbox;
-import org.xtext.example.mydsl.myDsl.CheckboxChoice;
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
 import org.xtext.example.mydsl.myDsl.Size;
+import org.xtext.example.mydsl.myDsl.Text;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,14 +24,36 @@ import org.xtext.example.mydsl.myDsl.Size;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.impl.CheckboxImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.CheckboxImpl#getSize <em>Size</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.myDsl.impl.CheckboxImpl#getChoice <em>Choice</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.impl.CheckboxImpl#getChecked <em>Checked</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.impl.CheckboxImpl#getText <em>Text</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class CheckboxImpl extends GuiElementImpl implements Checkbox
 {
+  /**
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected static final String NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected String name = NAME_EDEFAULT;
+
   /**
    * The cached value of the '{@link #getSize() <em>Size</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -43,14 +65,34 @@ public class CheckboxImpl extends GuiElementImpl implements Checkbox
   protected Size size;
 
   /**
-   * The cached value of the '{@link #getChoice() <em>Choice</em>}' containment reference.
+   * The default value of the '{@link #getChecked() <em>Checked</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getChoice()
+   * @see #getChecked()
    * @generated
    * @ordered
    */
-  protected CheckboxChoice choice;
+  protected static final String CHECKED_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getChecked() <em>Checked</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getChecked()
+   * @generated
+   * @ordered
+   */
+  protected String checked = CHECKED_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getText() <em>Text</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getText()
+   * @generated
+   * @ordered
+   */
+  protected Text text;
 
   /**
    * <!-- begin-user-doc -->
@@ -71,6 +113,31 @@ public class CheckboxImpl extends GuiElementImpl implements Checkbox
   protected EClass eStaticClass()
   {
     return MyDslPackage.Literals.CHECKBOX;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String getName()
+  {
+    return name;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setName(String newName)
+  {
+    String oldName = name;
+    name = newName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.CHECKBOX__NAME, oldName, name));
   }
 
   /**
@@ -129,9 +196,9 @@ public class CheckboxImpl extends GuiElementImpl implements Checkbox
    * @generated
    */
   @Override
-  public CheckboxChoice getChoice()
+  public String getChecked()
   {
-    return choice;
+    return checked;
   }
 
   /**
@@ -139,13 +206,38 @@ public class CheckboxImpl extends GuiElementImpl implements Checkbox
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetChoice(CheckboxChoice newChoice, NotificationChain msgs)
+  @Override
+  public void setChecked(String newChecked)
   {
-    CheckboxChoice oldChoice = choice;
-    choice = newChoice;
+    String oldChecked = checked;
+    checked = newChecked;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.CHECKBOX__CHECKED, oldChecked, checked));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Text getText()
+  {
+    return text;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetText(Text newText, NotificationChain msgs)
+  {
+    Text oldText = text;
+    text = newText;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.CHECKBOX__CHOICE, oldChoice, newChoice);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.CHECKBOX__TEXT, oldText, newText);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -157,20 +249,20 @@ public class CheckboxImpl extends GuiElementImpl implements Checkbox
    * @generated
    */
   @Override
-  public void setChoice(CheckboxChoice newChoice)
+  public void setText(Text newText)
   {
-    if (newChoice != choice)
+    if (newText != text)
     {
       NotificationChain msgs = null;
-      if (choice != null)
-        msgs = ((InternalEObject)choice).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.CHECKBOX__CHOICE, null, msgs);
-      if (newChoice != null)
-        msgs = ((InternalEObject)newChoice).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.CHECKBOX__CHOICE, null, msgs);
-      msgs = basicSetChoice(newChoice, msgs);
+      if (text != null)
+        msgs = ((InternalEObject)text).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.CHECKBOX__TEXT, null, msgs);
+      if (newText != null)
+        msgs = ((InternalEObject)newText).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.CHECKBOX__TEXT, null, msgs);
+      msgs = basicSetText(newText, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.CHECKBOX__CHOICE, newChoice, newChoice));
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.CHECKBOX__TEXT, newText, newText));
   }
 
   /**
@@ -185,8 +277,8 @@ public class CheckboxImpl extends GuiElementImpl implements Checkbox
     {
       case MyDslPackage.CHECKBOX__SIZE:
         return basicSetSize(null, msgs);
-      case MyDslPackage.CHECKBOX__CHOICE:
-        return basicSetChoice(null, msgs);
+      case MyDslPackage.CHECKBOX__TEXT:
+        return basicSetText(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -201,10 +293,14 @@ public class CheckboxImpl extends GuiElementImpl implements Checkbox
   {
     switch (featureID)
     {
+      case MyDslPackage.CHECKBOX__NAME:
+        return getName();
       case MyDslPackage.CHECKBOX__SIZE:
         return getSize();
-      case MyDslPackage.CHECKBOX__CHOICE:
-        return getChoice();
+      case MyDslPackage.CHECKBOX__CHECKED:
+        return getChecked();
+      case MyDslPackage.CHECKBOX__TEXT:
+        return getText();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -219,11 +315,17 @@ public class CheckboxImpl extends GuiElementImpl implements Checkbox
   {
     switch (featureID)
     {
+      case MyDslPackage.CHECKBOX__NAME:
+        setName((String)newValue);
+        return;
       case MyDslPackage.CHECKBOX__SIZE:
         setSize((Size)newValue);
         return;
-      case MyDslPackage.CHECKBOX__CHOICE:
-        setChoice((CheckboxChoice)newValue);
+      case MyDslPackage.CHECKBOX__CHECKED:
+        setChecked((String)newValue);
+        return;
+      case MyDslPackage.CHECKBOX__TEXT:
+        setText((Text)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -239,11 +341,17 @@ public class CheckboxImpl extends GuiElementImpl implements Checkbox
   {
     switch (featureID)
     {
+      case MyDslPackage.CHECKBOX__NAME:
+        setName(NAME_EDEFAULT);
+        return;
       case MyDslPackage.CHECKBOX__SIZE:
         setSize((Size)null);
         return;
-      case MyDslPackage.CHECKBOX__CHOICE:
-        setChoice((CheckboxChoice)null);
+      case MyDslPackage.CHECKBOX__CHECKED:
+        setChecked(CHECKED_EDEFAULT);
+        return;
+      case MyDslPackage.CHECKBOX__TEXT:
+        setText((Text)null);
         return;
     }
     super.eUnset(featureID);
@@ -259,12 +367,35 @@ public class CheckboxImpl extends GuiElementImpl implements Checkbox
   {
     switch (featureID)
     {
+      case MyDslPackage.CHECKBOX__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case MyDslPackage.CHECKBOX__SIZE:
         return size != null;
-      case MyDslPackage.CHECKBOX__CHOICE:
-        return choice != null;
+      case MyDslPackage.CHECKBOX__CHECKED:
+        return CHECKED_EDEFAULT == null ? checked != null : !CHECKED_EDEFAULT.equals(checked);
+      case MyDslPackage.CHECKBOX__TEXT:
+        return text != null;
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuilder result = new StringBuilder(super.toString());
+    result.append(" (name: ");
+    result.append(name);
+    result.append(", checked: ");
+    result.append(checked);
+    result.append(')');
+    return result.toString();
   }
 
 } //CheckboxImpl

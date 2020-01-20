@@ -3,10 +3,34 @@
  */
 package org.xtext.example.mydsl.generator;
 
+import com.google.common.base.Objects;
+import com.google.common.collect.Iterables;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
+import org.eclipse.xtext.xbase.lib.IteratorExtensions;
+import org.eclipse.xtext.xbase.lib.StringExtensions;
+import org.xtext.example.mydsl.myDsl.Button;
+import org.xtext.example.mydsl.myDsl.Checkbox;
+import org.xtext.example.mydsl.myDsl.Container;
+import org.xtext.example.mydsl.myDsl.ContainerReference;
+import org.xtext.example.mydsl.myDsl.Frame;
+import org.xtext.example.mydsl.myDsl.GuiElement;
+import org.xtext.example.mydsl.myDsl.Label;
+import org.xtext.example.mydsl.myDsl.Layout;
+import org.xtext.example.mydsl.myDsl.LayoutHorizontal;
+import org.xtext.example.mydsl.myDsl.LayoutHorizontalEntry;
+import org.xtext.example.mydsl.myDsl.LayoutPosition;
+import org.xtext.example.mydsl.myDsl.LayoutPositionEntry;
+import org.xtext.example.mydsl.myDsl.LayoutVertical;
+import org.xtext.example.mydsl.myDsl.LayoutVerticalEntry;
+import org.xtext.example.mydsl.myDsl.Radiobutton;
+import org.xtext.example.mydsl.myDsl.Space;
+import org.xtext.example.mydsl.myDsl.Textfield;
 
 /**
  * Generates code from your model files on save.
@@ -17,5 +41,391 @@ import org.eclipse.xtext.generator.IGeneratorContext;
 public class MyDslGenerator extends AbstractGenerator {
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
+    Iterable<Frame> _filter = Iterables.<Frame>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), Frame.class);
+    for (final Frame frame : _filter) {
+      String _firstUpper = StringExtensions.toFirstUpper(frame.getName());
+      String _plus = ("Frame" + _firstUpper);
+      String _plus_1 = (_plus + ".java");
+      fsa.generateFile(_plus_1, this.compile(frame));
+    }
+    Iterable<Container> _filter_1 = Iterables.<Container>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), Container.class);
+    for (final Container container : _filter_1) {
+      String _name = container.getName();
+      String _plus_2 = ("Container" + _name);
+      String _plus_3 = (_plus_2 + ".java");
+      fsa.generateFile(_plus_3, this.compile(container));
+    }
+  }
+  
+  public void errorUnrecognizedType(final Class<?> clazz) {
+    String _name = clazz.getName();
+    String _plus = ("Unrecognized " + _name);
+    throw new RuntimeException(_plus);
+  }
+  
+  public void errorShouldBeUnreachable() {
+    throw new RuntimeException("Reached code that should be unreachable");
+  }
+  
+  public void errorUnexpectedCase() {
+    throw new RuntimeException("Reached an unexpected case");
+  }
+  
+  public CharSequence compile(final Frame frame) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("import guigen.*;");
+    _builder.newLine();
+    _builder.append("import java.util.Arrays;");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("public class Frame");
+    String _firstUpper = StringExtensions.toFirstUpper(frame.getName());
+    _builder.append(_firstUpper);
+    _builder.append(" extends Container");
+    _builder.newLineIfNotEmpty();
+    _builder.append("{");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("public Frame");
+    String _firstUpper_1 = StringExtensions.toFirstUpper(frame.getName());
+    _builder.append(_firstUpper_1, "\t");
+    _builder.append("()");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.append("{");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("super(Arrays.asList(");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    CharSequence _xifexpression = null;
+    Layout _layout = frame.getLayout();
+    boolean _tripleNotEquals = (_layout != null);
+    if (_tripleNotEquals) {
+      _xifexpression = this.compile(frame.getLayout());
+    } else {
+      _xifexpression = "null";
+    }
+    _builder.append(_xifexpression, "\t\t\t");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    _builder.append("));");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("}");
+    return _builder;
+  }
+  
+  public CharSequence compile(final Container container) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("import guigen.*;");
+    _builder.newLine();
+    _builder.append("import java.util.Arrays;");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("public class Container");
+    String _firstUpper = StringExtensions.toFirstUpper(container.getName());
+    _builder.append(_firstUpper);
+    _builder.append(" extends Container");
+    _builder.newLineIfNotEmpty();
+    _builder.append("{");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("public Container");
+    String _firstUpper_1 = StringExtensions.toFirstUpper(container.getName());
+    _builder.append(_firstUpper_1, "\t");
+    _builder.append("()");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.append("{");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("super(Arrays.asList(");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    CharSequence _xifexpression = null;
+    Layout _layout = container.getLayout();
+    boolean _tripleNotEquals = (_layout != null);
+    if (_tripleNotEquals) {
+      _xifexpression = this.compile(container.getLayout());
+    } else {
+      _xifexpression = "null";
+    }
+    _builder.append(_xifexpression, "\t\t\t");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    _builder.append("));");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("}");
+    return _builder;
+  }
+  
+  public CharSequence compile(final Layout layout) {
+    if ((layout instanceof LayoutHorizontal)) {
+      return this.compile(((LayoutHorizontal)layout));
+    } else {
+      if ((layout instanceof LayoutVertical)) {
+        return this.compile(((LayoutVertical)layout));
+      } else {
+        if ((layout instanceof LayoutPosition)) {
+          return this.compile(((LayoutPosition)layout));
+        } else {
+          this.errorUnrecognizedType(layout.getClass());
+        }
+      }
+    }
+    return null;
+  }
+  
+  public CharSequence compile(final LayoutHorizontal layout) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("new Horizontal(Arrays.asList(");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("null,");
+    _builder.newLine();
+    {
+      EList<LayoutHorizontalEntry> _entries = layout.getEntries();
+      for(final LayoutHorizontalEntry entry : _entries) {
+        _builder.append("\t");
+        Object _compile = this.compile(entry);
+        _builder.append(_compile, "\t");
+        _builder.append(",");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    _builder.append("\t");
+    _builder.append("null");
+    _builder.newLine();
+    _builder.append("))");
+    return _builder;
+  }
+  
+  public Object compile(final LayoutHorizontalEntry entry) {
+    Space _space = entry.getSpace();
+    boolean _tripleNotEquals = (_space != null);
+    if (_tripleNotEquals) {
+      return this.compile(entry.getSpace());
+    }
+    GuiElement _guielement = entry.getGuielement();
+    boolean _tripleNotEquals_1 = (_guielement != null);
+    if (_tripleNotEquals_1) {
+      return this.compile(entry.getGuielement());
+    }
+    this.errorShouldBeUnreachable();
+    return null;
+  }
+  
+  public CharSequence compile(final LayoutVertical layout) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("new Vertical(Arrays.asList(");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("null,");
+    _builder.newLine();
+    {
+      EList<LayoutVerticalEntry> _entries = layout.getEntries();
+      for(final LayoutVerticalEntry entry : _entries) {
+        _builder.append("\t");
+        Object _compile = this.compile(entry);
+        _builder.append(_compile, "\t");
+        _builder.append(",");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    _builder.append("\t");
+    _builder.append("null");
+    _builder.newLine();
+    _builder.append("))");
+    return _builder;
+  }
+  
+  public Object compile(final LayoutVerticalEntry entry) {
+    Space _space = entry.getSpace();
+    boolean _tripleNotEquals = (_space != null);
+    if (_tripleNotEquals) {
+      return this.compile(entry.getSpace());
+    }
+    GuiElement _guielement = entry.getGuielement();
+    boolean _tripleNotEquals_1 = (_guielement != null);
+    if (_tripleNotEquals_1) {
+      return this.compile(entry.getGuielement());
+    }
+    this.errorShouldBeUnreachable();
+    return null;
+  }
+  
+  public CharSequence compile(final LayoutPosition layout) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("new Positional(Arrays.asList(");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("null,");
+    _builder.newLine();
+    {
+      EList<LayoutPositionEntry> _entries = layout.getEntries();
+      for(final LayoutPositionEntry entry : _entries) {
+        _builder.append("\t");
+        CharSequence _compile = this.compile(entry);
+        _builder.append(_compile, "\t");
+        _builder.append(",");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    _builder.append("\t");
+    _builder.append("null");
+    _builder.newLine();
+    _builder.append("))");
+    return _builder;
+  }
+  
+  public CharSequence compile(final LayoutPositionEntry entry) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("new Position(");
+    int _posX = entry.getPosition().getPosX();
+    _builder.append(_posX);
+    _builder.append(", ");
+    int _posY = entry.getPosition().getPosY();
+    _builder.append(_posY);
+    _builder.append(",");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    Object _compile = this.compile(entry.getGuielement());
+    _builder.append(_compile, "\t");
+    _builder.newLineIfNotEmpty();
+    _builder.append(")");
+    return _builder;
+  }
+  
+  public CharSequence compile(final Space space) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nno viable alternative at input \'»)\'\'\'\'");
+  }
+  
+  public Object compile(final GuiElement element) {
+    if ((element instanceof ContainerReference)) {
+      return this.compile(((ContainerReference)element));
+    } else {
+      if ((element instanceof Layout)) {
+        return this.compile(((Layout)element));
+      } else {
+        if ((element instanceof Textfield)) {
+          return this.compile(((Textfield)element));
+        } else {
+          if ((element instanceof Label)) {
+            return this.compile(((Label)element));
+          } else {
+            if ((element instanceof Button)) {
+              return this.compile(((Button)element));
+            } else {
+              if ((element instanceof Checkbox)) {
+                return this.compile(((Checkbox)element));
+              } else {
+                if ((element instanceof Radiobutton)) {
+                  return this.compile(((Radiobutton)element));
+                } else {
+                  this.errorUnrecognizedType(element.getClass());
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    return null;
+  }
+  
+  public CharSequence compile(final ContainerReference containerRef) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("new Container");
+    String _firstUpper = StringExtensions.toFirstUpper(containerRef.getReferenceName());
+    _builder.append(_firstUpper);
+    _builder.append("()");
+    return _builder;
+  }
+  
+  public CharSequence compile(final Textfield textfield) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("new Textfield(");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("\"");
+    String _text = textfield.getText().getText();
+    _builder.append(_text, "\t");
+    _builder.append("\"");
+    _builder.newLineIfNotEmpty();
+    _builder.append(")");
+    return _builder;
+  }
+  
+  public CharSequence compile(final Label label) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("new Label(");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("\"");
+    String _text = label.getText().getText();
+    _builder.append(_text, "\t");
+    _builder.append("\"");
+    _builder.newLineIfNotEmpty();
+    _builder.append(")");
+    return _builder;
+  }
+  
+  public CharSequence compile(final Button button) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("new Button(");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("\"");
+    String _text = button.getText().getText();
+    _builder.append(_text, "\t");
+    _builder.append("\"");
+    _builder.newLineIfNotEmpty();
+    _builder.append(")");
+    return _builder;
+  }
+  
+  public CharSequence compile(final Checkbox checkbox) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("new Checkbox(");
+    String _xifexpression = null;
+    String _checked = checkbox.getChecked();
+    boolean _equals = Objects.equal(_checked, "X");
+    if (_equals) {
+      _xifexpression = "true";
+    } else {
+      String _xifexpression_1 = null;
+      String _checked_1 = checkbox.getChecked();
+      boolean _equals_1 = Objects.equal(_checked_1, "O");
+      if (_equals_1) {
+        _xifexpression_1 = "false";
+      } else {
+        this.errorUnexpectedCase();
+      }
+      _xifexpression = _xifexpression_1;
+    }
+    _builder.append(_xifexpression);
+    _builder.append(",");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.append("\"");
+    String _text = checkbox.getText().getText();
+    _builder.append(_text, "\t");
+    _builder.append("\"");
+    _builder.newLineIfNotEmpty();
+    _builder.append(")");
+    return _builder;
+  }
+  
+  public CharSequence compile(final Radiobutton radio) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("/*<RADIOBUTTON>*/ null");
+    return _builder;
   }
 }

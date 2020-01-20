@@ -12,17 +12,24 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.xtext.example.mydsl.myDsl.Button;
 import org.xtext.example.mydsl.myDsl.Checkbox;
-import org.xtext.example.mydsl.myDsl.CheckboxChoice;
 import org.xtext.example.mydsl.myDsl.ContainerReference;
 import org.xtext.example.mydsl.myDsl.Domainmodel;
 import org.xtext.example.mydsl.myDsl.Frame;
 import org.xtext.example.mydsl.myDsl.GuiElement;
 import org.xtext.example.mydsl.myDsl.Label;
 import org.xtext.example.mydsl.myDsl.Layout;
+import org.xtext.example.mydsl.myDsl.LayoutHorizontal;
+import org.xtext.example.mydsl.myDsl.LayoutHorizontalEntry;
+import org.xtext.example.mydsl.myDsl.LayoutPosition;
+import org.xtext.example.mydsl.myDsl.LayoutPositionEntry;
+import org.xtext.example.mydsl.myDsl.LayoutVertical;
+import org.xtext.example.mydsl.myDsl.LayoutVerticalEntry;
 import org.xtext.example.mydsl.myDsl.MyDslFactory;
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
-import org.xtext.example.mydsl.myDsl.Position;
+import org.xtext.example.mydsl.myDsl.PositionValue;
+import org.xtext.example.mydsl.myDsl.Radiobutton;
 import org.xtext.example.mydsl.myDsl.Size;
+import org.xtext.example.mydsl.myDsl.Space;
 import org.xtext.example.mydsl.myDsl.Text;
 import org.xtext.example.mydsl.myDsl.Textfield;
 import org.xtext.example.mydsl.myDsl.Type;
@@ -68,13 +75,6 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass containerReferenceEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   private EClass layoutEClass = null;
 
   /**
@@ -82,7 +82,56 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass positionEClass = null;
+  private EClass layoutHorizontalEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass layoutHorizontalEntryEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass layoutVerticalEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass layoutVerticalEntryEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass layoutPositionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass layoutPositionEntryEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass spaceEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass positionValueEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -96,21 +145,21 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass textEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass checkboxChoiceEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   private EClass guiElementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass containerReferenceEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass textEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -139,6 +188,13 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   private EClass checkboxEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass radiobuttonEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -220,9 +276,20 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   @Override
+  public EAttribute getDomainmodel_Main()
+  {
+    return (EAttribute)domainmodelEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EReference getDomainmodel_Elements()
   {
-    return (EReference)domainmodelEClass.getEStructuralFeatures().get(0);
+    return (EReference)domainmodelEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -242,9 +309,9 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   @Override
-  public EReference getType_Size()
+  public EAttribute getType_Name()
   {
-    return (EReference)typeEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)typeEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -253,9 +320,20 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   @Override
-  public EReference getType_Guielements()
+  public EReference getType_Size()
   {
     return (EReference)typeEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getType_Layout()
+  {
+    return (EReference)typeEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -275,64 +353,9 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   @Override
-  public EAttribute getFrame_Name()
-  {
-    return (EAttribute)frameEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public EClass getContainer()
   {
     return containerEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getContainer_ContainerName()
-  {
-    return (EAttribute)containerEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getContainer_Layout()
-  {
-    return (EReference)containerEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EClass getContainerReference()
-  {
-    return containerReferenceEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getContainerReference_ReferenceName()
-  {
-    return (EAttribute)containerReferenceEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -352,9 +375,9 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   @Override
-  public EAttribute getLayout_Layout()
+  public EClass getLayoutHorizontal()
   {
-    return (EAttribute)layoutEClass.getEStructuralFeatures().get(0);
+    return layoutHorizontalEClass;
   }
 
   /**
@@ -363,9 +386,9 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   @Override
-  public EClass getPosition()
+  public EReference getLayoutHorizontal_Entries()
   {
-    return positionEClass;
+    return (EReference)layoutHorizontalEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -374,9 +397,9 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   @Override
-  public EAttribute getPosition_PosX()
+  public EClass getLayoutHorizontalEntry()
   {
-    return (EAttribute)positionEClass.getEStructuralFeatures().get(0);
+    return layoutHorizontalEntryEClass;
   }
 
   /**
@@ -385,9 +408,185 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   @Override
-  public EAttribute getPosition_PosY()
+  public EReference getLayoutHorizontalEntry_Space()
   {
-    return (EAttribute)positionEClass.getEStructuralFeatures().get(1);
+    return (EReference)layoutHorizontalEntryEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getLayoutHorizontalEntry_Guielement()
+  {
+    return (EReference)layoutHorizontalEntryEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getLayoutVertical()
+  {
+    return layoutVerticalEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getLayoutVertical_Entries()
+  {
+    return (EReference)layoutVerticalEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getLayoutVerticalEntry()
+  {
+    return layoutVerticalEntryEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getLayoutVerticalEntry_Space()
+  {
+    return (EReference)layoutVerticalEntryEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getLayoutVerticalEntry_Guielement()
+  {
+    return (EReference)layoutVerticalEntryEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getLayoutPosition()
+  {
+    return layoutPositionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getLayoutPosition_Entries()
+  {
+    return (EReference)layoutPositionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getLayoutPositionEntry()
+  {
+    return layoutPositionEntryEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getLayoutPositionEntry_Position()
+  {
+    return (EReference)layoutPositionEntryEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getLayoutPositionEntry_Guielement()
+  {
+    return (EReference)layoutPositionEntryEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getSpace()
+  {
+    return spaceEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getSpace_Space()
+  {
+    return (EAttribute)spaceEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getPositionValue()
+  {
+    return positionValueEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getPositionValue_PosX()
+  {
+    return (EAttribute)positionValueEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getPositionValue_PosY()
+  {
+    return (EAttribute)positionValueEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -429,6 +628,50 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   @Override
+  public EClass getGuiElement()
+  {
+    return guiElementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getContainerReference()
+  {
+    return containerReferenceEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getContainerReference_ReferenceName()
+  {
+    return (EAttribute)containerReferenceEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getContainerReference_Name()
+  {
+    return (EAttribute)containerReferenceEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getText()
   {
     return textEClass;
@@ -451,50 +694,6 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   @Override
-  public EClass getCheckboxChoice()
-  {
-    return checkboxChoiceEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getCheckboxChoice_Choice()
-  {
-    return (EAttribute)checkboxChoiceEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EClass getGuiElement()
-  {
-    return guiElementEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getGuiElement_Name()
-  {
-    return (EAttribute)guiElementEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public EClass getTextfield()
   {
     return textfieldEClass;
@@ -506,9 +705,20 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   @Override
+  public EAttribute getTextfield_Name()
+  {
+    return (EAttribute)textfieldEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EReference getTextfield_Size()
   {
-    return (EReference)textfieldEClass.getEStructuralFeatures().get(0);
+    return (EReference)textfieldEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -519,7 +729,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
   @Override
   public EReference getTextfield_Text()
   {
-    return (EReference)textfieldEClass.getEStructuralFeatures().get(1);
+    return (EReference)textfieldEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -539,9 +749,20 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   @Override
+  public EAttribute getLabel_Name()
+  {
+    return (EAttribute)labelEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EReference getLabel_Size()
   {
-    return (EReference)labelEClass.getEStructuralFeatures().get(0);
+    return (EReference)labelEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -552,7 +773,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
   @Override
   public EReference getLabel_Text()
   {
-    return (EReference)labelEClass.getEStructuralFeatures().get(1);
+    return (EReference)labelEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -572,9 +793,20 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   @Override
+  public EAttribute getButton_Name()
+  {
+    return (EAttribute)buttonEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EReference getButton_Size()
   {
-    return (EReference)buttonEClass.getEStructuralFeatures().get(0);
+    return (EReference)buttonEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -585,7 +817,7 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
   @Override
   public EReference getButton_Text()
   {
-    return (EReference)buttonEClass.getEStructuralFeatures().get(1);
+    return (EReference)buttonEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -605,9 +837,9 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   @Override
-  public EReference getCheckbox_Size()
+  public EAttribute getCheckbox_Name()
   {
-    return (EReference)checkboxEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)checkboxEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -616,9 +848,97 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
    * @generated
    */
   @Override
-  public EReference getCheckbox_Choice()
+  public EReference getCheckbox_Size()
   {
     return (EReference)checkboxEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getCheckbox_Checked()
+  {
+    return (EAttribute)checkboxEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getCheckbox_Text()
+  {
+    return (EReference)checkboxEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getRadiobutton()
+  {
+    return radiobuttonEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getRadiobutton_Group()
+  {
+    return (EAttribute)radiobuttonEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getRadiobutton_Name()
+  {
+    return (EAttribute)radiobuttonEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getRadiobutton_Size()
+  {
+    return (EReference)radiobuttonEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getRadiobutton_Checked()
+  {
+    return (EAttribute)radiobuttonEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getRadiobutton_Text()
+  {
+    return (EReference)radiobuttonEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -653,57 +973,88 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
 
     // Create classes and their features
     domainmodelEClass = createEClass(DOMAINMODEL);
+    createEAttribute(domainmodelEClass, DOMAINMODEL__MAIN);
     createEReference(domainmodelEClass, DOMAINMODEL__ELEMENTS);
 
     typeEClass = createEClass(TYPE);
+    createEAttribute(typeEClass, TYPE__NAME);
     createEReference(typeEClass, TYPE__SIZE);
-    createEReference(typeEClass, TYPE__GUIELEMENTS);
+    createEReference(typeEClass, TYPE__LAYOUT);
 
     frameEClass = createEClass(FRAME);
-    createEAttribute(frameEClass, FRAME__NAME);
 
     containerEClass = createEClass(CONTAINER);
-    createEAttribute(containerEClass, CONTAINER__CONTAINER_NAME);
-    createEReference(containerEClass, CONTAINER__LAYOUT);
-
-    containerReferenceEClass = createEClass(CONTAINER_REFERENCE);
-    createEAttribute(containerReferenceEClass, CONTAINER_REFERENCE__REFERENCE_NAME);
 
     layoutEClass = createEClass(LAYOUT);
-    createEAttribute(layoutEClass, LAYOUT__LAYOUT);
 
-    positionEClass = createEClass(POSITION);
-    createEAttribute(positionEClass, POSITION__POS_X);
-    createEAttribute(positionEClass, POSITION__POS_Y);
+    layoutHorizontalEClass = createEClass(LAYOUT_HORIZONTAL);
+    createEReference(layoutHorizontalEClass, LAYOUT_HORIZONTAL__ENTRIES);
+
+    layoutHorizontalEntryEClass = createEClass(LAYOUT_HORIZONTAL_ENTRY);
+    createEReference(layoutHorizontalEntryEClass, LAYOUT_HORIZONTAL_ENTRY__SPACE);
+    createEReference(layoutHorizontalEntryEClass, LAYOUT_HORIZONTAL_ENTRY__GUIELEMENT);
+
+    layoutVerticalEClass = createEClass(LAYOUT_VERTICAL);
+    createEReference(layoutVerticalEClass, LAYOUT_VERTICAL__ENTRIES);
+
+    layoutVerticalEntryEClass = createEClass(LAYOUT_VERTICAL_ENTRY);
+    createEReference(layoutVerticalEntryEClass, LAYOUT_VERTICAL_ENTRY__SPACE);
+    createEReference(layoutVerticalEntryEClass, LAYOUT_VERTICAL_ENTRY__GUIELEMENT);
+
+    layoutPositionEClass = createEClass(LAYOUT_POSITION);
+    createEReference(layoutPositionEClass, LAYOUT_POSITION__ENTRIES);
+
+    layoutPositionEntryEClass = createEClass(LAYOUT_POSITION_ENTRY);
+    createEReference(layoutPositionEntryEClass, LAYOUT_POSITION_ENTRY__POSITION);
+    createEReference(layoutPositionEntryEClass, LAYOUT_POSITION_ENTRY__GUIELEMENT);
+
+    spaceEClass = createEClass(SPACE);
+    createEAttribute(spaceEClass, SPACE__SPACE);
+
+    positionValueEClass = createEClass(POSITION_VALUE);
+    createEAttribute(positionValueEClass, POSITION_VALUE__POS_X);
+    createEAttribute(positionValueEClass, POSITION_VALUE__POS_Y);
 
     sizeEClass = createEClass(SIZE);
     createEAttribute(sizeEClass, SIZE__WIDTH);
     createEAttribute(sizeEClass, SIZE__HEIGHT);
 
+    guiElementEClass = createEClass(GUI_ELEMENT);
+
+    containerReferenceEClass = createEClass(CONTAINER_REFERENCE);
+    createEAttribute(containerReferenceEClass, CONTAINER_REFERENCE__REFERENCE_NAME);
+    createEAttribute(containerReferenceEClass, CONTAINER_REFERENCE__NAME);
+
     textEClass = createEClass(TEXT);
     createEAttribute(textEClass, TEXT__TEXT);
 
-    checkboxChoiceEClass = createEClass(CHECKBOX_CHOICE);
-    createEAttribute(checkboxChoiceEClass, CHECKBOX_CHOICE__CHOICE);
-
-    guiElementEClass = createEClass(GUI_ELEMENT);
-    createEAttribute(guiElementEClass, GUI_ELEMENT__NAME);
-
     textfieldEClass = createEClass(TEXTFIELD);
+    createEAttribute(textfieldEClass, TEXTFIELD__NAME);
     createEReference(textfieldEClass, TEXTFIELD__SIZE);
     createEReference(textfieldEClass, TEXTFIELD__TEXT);
 
     labelEClass = createEClass(LABEL);
+    createEAttribute(labelEClass, LABEL__NAME);
     createEReference(labelEClass, LABEL__SIZE);
     createEReference(labelEClass, LABEL__TEXT);
 
     buttonEClass = createEClass(BUTTON);
+    createEAttribute(buttonEClass, BUTTON__NAME);
     createEReference(buttonEClass, BUTTON__SIZE);
     createEReference(buttonEClass, BUTTON__TEXT);
 
     checkboxEClass = createEClass(CHECKBOX);
+    createEAttribute(checkboxEClass, CHECKBOX__NAME);
     createEReference(checkboxEClass, CHECKBOX__SIZE);
-    createEReference(checkboxEClass, CHECKBOX__CHOICE);
+    createEAttribute(checkboxEClass, CHECKBOX__CHECKED);
+    createEReference(checkboxEClass, CHECKBOX__TEXT);
+
+    radiobuttonEClass = createEClass(RADIOBUTTON);
+    createEAttribute(radiobuttonEClass, RADIOBUTTON__GROUP);
+    createEAttribute(radiobuttonEClass, RADIOBUTTON__NAME);
+    createEReference(radiobuttonEClass, RADIOBUTTON__SIZE);
+    createEAttribute(radiobuttonEClass, RADIOBUTTON__CHECKED);
+    createEReference(radiobuttonEClass, RADIOBUTTON__TEXT);
   }
 
   /**
@@ -737,65 +1088,101 @@ public class MyDslPackageImpl extends EPackageImpl implements MyDslPackage
     // Add supertypes to classes
     frameEClass.getESuperTypes().add(this.getType());
     containerEClass.getESuperTypes().add(this.getType());
+    layoutEClass.getESuperTypes().add(this.getGuiElement());
+    layoutHorizontalEClass.getESuperTypes().add(this.getLayout());
+    layoutVerticalEClass.getESuperTypes().add(this.getLayout());
+    layoutPositionEClass.getESuperTypes().add(this.getLayout());
     containerReferenceEClass.getESuperTypes().add(this.getGuiElement());
     textfieldEClass.getESuperTypes().add(this.getGuiElement());
     labelEClass.getESuperTypes().add(this.getGuiElement());
     buttonEClass.getESuperTypes().add(this.getGuiElement());
     checkboxEClass.getESuperTypes().add(this.getGuiElement());
+    radiobuttonEClass.getESuperTypes().add(this.getGuiElement());
 
     // Initialize classes and features; add operations and parameters
     initEClass(domainmodelEClass, Domainmodel.class, "Domainmodel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getDomainmodel_Main(), ecorePackage.getEString(), "main", null, 0, 1, Domainmodel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDomainmodel_Elements(), this.getType(), null, "elements", null, 0, -1, Domainmodel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(typeEClass, Type.class, "Type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getType_Name(), ecorePackage.getEString(), "name", null, 0, 1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getType_Size(), this.getSize(), null, "size", null, 0, 1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getType_Guielements(), this.getGuiElement(), null, "guielements", null, 0, -1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getType_Layout(), this.getLayout(), null, "layout", null, 0, 1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(frameEClass, Frame.class, "Frame", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getFrame_Name(), ecorePackage.getEString(), "name", null, 0, 1, Frame.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(containerEClass, org.xtext.example.mydsl.myDsl.Container.class, "Container", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getContainer_ContainerName(), ecorePackage.getEString(), "containerName", null, 0, 1, org.xtext.example.mydsl.myDsl.Container.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getContainer_Layout(), this.getLayout(), null, "layout", null, 0, 1, org.xtext.example.mydsl.myDsl.Container.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(containerReferenceEClass, ContainerReference.class, "ContainerReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getContainerReference_ReferenceName(), ecorePackage.getEString(), "referenceName", null, 0, 1, ContainerReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(layoutEClass, Layout.class, "Layout", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getLayout_Layout(), ecorePackage.getEString(), "layout", null, 0, 1, Layout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(positionEClass, Position.class, "Position", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getPosition_PosX(), ecorePackage.getEInt(), "posX", null, 0, 1, Position.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getPosition_PosY(), ecorePackage.getEInt(), "posY", null, 0, 1, Position.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(layoutHorizontalEClass, LayoutHorizontal.class, "LayoutHorizontal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getLayoutHorizontal_Entries(), this.getLayoutHorizontalEntry(), null, "entries", null, 0, -1, LayoutHorizontal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(layoutHorizontalEntryEClass, LayoutHorizontalEntry.class, "LayoutHorizontalEntry", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getLayoutHorizontalEntry_Space(), this.getSpace(), null, "space", null, 0, 1, LayoutHorizontalEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getLayoutHorizontalEntry_Guielement(), this.getGuiElement(), null, "guielement", null, 0, 1, LayoutHorizontalEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(layoutVerticalEClass, LayoutVertical.class, "LayoutVertical", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getLayoutVertical_Entries(), this.getLayoutVerticalEntry(), null, "entries", null, 0, -1, LayoutVertical.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(layoutVerticalEntryEClass, LayoutVerticalEntry.class, "LayoutVerticalEntry", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getLayoutVerticalEntry_Space(), this.getSpace(), null, "space", null, 0, 1, LayoutVerticalEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getLayoutVerticalEntry_Guielement(), this.getGuiElement(), null, "guielement", null, 0, 1, LayoutVerticalEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(layoutPositionEClass, LayoutPosition.class, "LayoutPosition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getLayoutPosition_Entries(), this.getLayoutPositionEntry(), null, "entries", null, 0, -1, LayoutPosition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(layoutPositionEntryEClass, LayoutPositionEntry.class, "LayoutPositionEntry", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getLayoutPositionEntry_Position(), this.getPositionValue(), null, "position", null, 0, 1, LayoutPositionEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getLayoutPositionEntry_Guielement(), this.getGuiElement(), null, "guielement", null, 0, 1, LayoutPositionEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(spaceEClass, Space.class, "Space", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getSpace_Space(), ecorePackage.getEInt(), "space", null, 0, 1, Space.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(positionValueEClass, PositionValue.class, "PositionValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getPositionValue_PosX(), ecorePackage.getEInt(), "posX", null, 0, 1, PositionValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getPositionValue_PosY(), ecorePackage.getEInt(), "posY", null, 0, 1, PositionValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(sizeEClass, Size.class, "Size", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getSize_Width(), ecorePackage.getEInt(), "width", null, 0, 1, Size.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getSize_Height(), ecorePackage.getEInt(), "height", null, 0, 1, Size.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(guiElementEClass, GuiElement.class, "GuiElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(containerReferenceEClass, ContainerReference.class, "ContainerReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getContainerReference_ReferenceName(), ecorePackage.getEString(), "referenceName", null, 0, 1, ContainerReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getContainerReference_Name(), ecorePackage.getEString(), "name", null, 0, 1, ContainerReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(textEClass, Text.class, "Text", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getText_Text(), ecorePackage.getEString(), "text", null, 0, 1, Text.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(checkboxChoiceEClass, CheckboxChoice.class, "CheckboxChoice", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getCheckboxChoice_Choice(), ecorePackage.getEString(), "choice", null, 0, 1, CheckboxChoice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(guiElementEClass, GuiElement.class, "GuiElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getGuiElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, GuiElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
     initEClass(textfieldEClass, Textfield.class, "Textfield", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getTextfield_Name(), ecorePackage.getEString(), "name", null, 0, 1, Textfield.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getTextfield_Size(), this.getSize(), null, "size", null, 0, 1, Textfield.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getTextfield_Text(), this.getText(), null, "text", null, 0, 1, Textfield.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(labelEClass, Label.class, "Label", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getLabel_Name(), ecorePackage.getEString(), "name", null, 0, 1, Label.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getLabel_Size(), this.getSize(), null, "size", null, 0, 1, Label.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getLabel_Text(), this.getText(), null, "text", null, 0, 1, Label.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(buttonEClass, Button.class, "Button", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getButton_Name(), ecorePackage.getEString(), "name", null, 0, 1, Button.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getButton_Size(), this.getSize(), null, "size", null, 0, 1, Button.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getButton_Text(), this.getText(), null, "text", null, 0, 1, Button.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(checkboxEClass, Checkbox.class, "Checkbox", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getCheckbox_Name(), ecorePackage.getEString(), "name", null, 0, 1, Checkbox.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getCheckbox_Size(), this.getSize(), null, "size", null, 0, 1, Checkbox.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getCheckbox_Choice(), this.getCheckboxChoice(), null, "choice", null, 0, 1, Checkbox.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getCheckbox_Checked(), ecorePackage.getEString(), "checked", null, 0, 1, Checkbox.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCheckbox_Text(), this.getText(), null, "text", null, 0, 1, Checkbox.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(radiobuttonEClass, Radiobutton.class, "Radiobutton", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getRadiobutton_Group(), ecorePackage.getEString(), "group", null, 0, 1, Radiobutton.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getRadiobutton_Name(), ecorePackage.getEString(), "name", null, 0, 1, Radiobutton.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRadiobutton_Size(), this.getSize(), null, "size", null, 0, 1, Radiobutton.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getRadiobutton_Checked(), ecorePackage.getEString(), "checked", null, 0, 1, Radiobutton.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRadiobutton_Text(), this.getText(), null, "text", null, 0, 1, Radiobutton.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

@@ -1,0 +1,108 @@
+grammar org.xtext.example.mydsl.MyDsl with org.eclipse.xtext.common.Terminals
+
+generate myDsl "http://www.xtext.org/example/mydsl/MyDsl"
+
+//Domainmodel:
+//   (elements+=Type)*;
+
+Domainmodel:
+	"main="main=ID
+	(elements+=Type)*
+;
+
+Type:
+	Frame | Container
+;	
+
+Frame:
+	'frame' name=ID (size=Size)?
+	'{'
+		layout=Layout
+	'}'
+;
+
+Container:
+	'container' name=ID (size=Size)?
+	'{'
+		layout=Layout
+	'}'
+;
+
+Layout:
+	LayoutHorizontal | LayoutVertical | LayoutPosition
+;
+
+LayoutHorizontal:
+	'horizontal'
+	'{'
+		(entries+=LayoutHorizontalEntry)*
+	'}'
+;
+
+LayoutHorizontalEntry:
+	space=Space | guielement = GuiElement
+;
+
+LayoutVertical:
+	'vertical'
+	'{'
+		(guielements+=GuiElement)*
+	'}'
+;
+
+LayoutPosition:
+	'positional'
+	'{'
+		(entries+=LayoutPositionEntry)*
+	'}'
+;
+
+LayoutPositionEntry:
+	"position=" position=Position
+	guielement=GuiElement
+;
+
+ContainerReference:
+	(referenceName=ID) (name=ID)
+;
+
+Space:
+	"space" space=INT
+;
+
+Position:
+	posX=INT','posY=INT
+;
+
+Size:
+	width=INT'x'height=INT
+;
+
+Text:
+	'text='text=ID
+;
+
+CheckboxChoice:
+	choice=ID('=x')?(',')?
+;
+
+GuiElement:
+	ContainerReference | Layout | Textfield | Label | Button | Checkbox
+;
+ 
+Textfield:
+	'textfield' name=ID (size=Size)? (text=Text)
+;
+
+Label:
+	'label' name=ID (size=Size)? (text=Text)
+;
+
+Button:
+	'button' name=ID (size=Size)? (text=Text)
+;
+
+Checkbox:
+	'checkbox' name=ID (size=Size)? choice=CheckboxChoice
+;
+

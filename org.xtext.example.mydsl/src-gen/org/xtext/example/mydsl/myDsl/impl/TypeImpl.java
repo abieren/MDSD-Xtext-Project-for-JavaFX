@@ -3,12 +3,8 @@
  */
 package org.xtext.example.mydsl.myDsl.impl;
 
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -16,10 +12,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
-
-import org.xtext.example.mydsl.myDsl.GuiElement;
+import org.xtext.example.mydsl.myDsl.Layout;
 import org.xtext.example.mydsl.myDsl.MyDslPackage;
 import org.xtext.example.mydsl.myDsl.Size;
 import org.xtext.example.mydsl.myDsl.Type;
@@ -32,14 +25,35 @@ import org.xtext.example.mydsl.myDsl.Type;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.impl.TypeImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.TypeImpl#getSize <em>Size</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.myDsl.impl.TypeImpl#getGuielements <em>Guielements</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.impl.TypeImpl#getLayout <em>Layout</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class TypeImpl extends MinimalEObjectImpl.Container implements Type
 {
+  /**
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected static final String NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected String name = NAME_EDEFAULT;
+
   /**
    * The cached value of the '{@link #getSize() <em>Size</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -51,14 +65,14 @@ public class TypeImpl extends MinimalEObjectImpl.Container implements Type
   protected Size size;
 
   /**
-   * The cached value of the '{@link #getGuielements() <em>Guielements</em>}' containment reference list.
+   * The cached value of the '{@link #getLayout() <em>Layout</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getGuielements()
+   * @see #getLayout()
    * @generated
    * @ordered
    */
-  protected EList<GuiElement> guielements;
+  protected Layout layout;
 
   /**
    * <!-- begin-user-doc -->
@@ -79,6 +93,31 @@ public class TypeImpl extends MinimalEObjectImpl.Container implements Type
   protected EClass eStaticClass()
   {
     return MyDslPackage.Literals.TYPE;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String getName()
+  {
+    return name;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setName(String newName)
+  {
+    String oldName = name;
+    name = newName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.TYPE__NAME, oldName, name));
   }
 
   /**
@@ -137,13 +176,48 @@ public class TypeImpl extends MinimalEObjectImpl.Container implements Type
    * @generated
    */
   @Override
-  public EList<GuiElement> getGuielements()
+  public Layout getLayout()
   {
-    if (guielements == null)
+    return layout;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetLayout(Layout newLayout, NotificationChain msgs)
+  {
+    Layout oldLayout = layout;
+    layout = newLayout;
+    if (eNotificationRequired())
     {
-      guielements = new EObjectContainmentEList<GuiElement>(GuiElement.class, this, MyDslPackage.TYPE__GUIELEMENTS);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyDslPackage.TYPE__LAYOUT, oldLayout, newLayout);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
     }
-    return guielements;
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setLayout(Layout newLayout)
+  {
+    if (newLayout != layout)
+    {
+      NotificationChain msgs = null;
+      if (layout != null)
+        msgs = ((InternalEObject)layout).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.TYPE__LAYOUT, null, msgs);
+      if (newLayout != null)
+        msgs = ((InternalEObject)newLayout).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyDslPackage.TYPE__LAYOUT, null, msgs);
+      msgs = basicSetLayout(newLayout, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.TYPE__LAYOUT, newLayout, newLayout));
   }
 
   /**
@@ -158,8 +232,8 @@ public class TypeImpl extends MinimalEObjectImpl.Container implements Type
     {
       case MyDslPackage.TYPE__SIZE:
         return basicSetSize(null, msgs);
-      case MyDslPackage.TYPE__GUIELEMENTS:
-        return ((InternalEList<?>)getGuielements()).basicRemove(otherEnd, msgs);
+      case MyDslPackage.TYPE__LAYOUT:
+        return basicSetLayout(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -174,10 +248,12 @@ public class TypeImpl extends MinimalEObjectImpl.Container implements Type
   {
     switch (featureID)
     {
+      case MyDslPackage.TYPE__NAME:
+        return getName();
       case MyDslPackage.TYPE__SIZE:
         return getSize();
-      case MyDslPackage.TYPE__GUIELEMENTS:
-        return getGuielements();
+      case MyDslPackage.TYPE__LAYOUT:
+        return getLayout();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -187,18 +263,19 @@ public class TypeImpl extends MinimalEObjectImpl.Container implements Type
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
+      case MyDslPackage.TYPE__NAME:
+        setName((String)newValue);
+        return;
       case MyDslPackage.TYPE__SIZE:
         setSize((Size)newValue);
         return;
-      case MyDslPackage.TYPE__GUIELEMENTS:
-        getGuielements().clear();
-        getGuielements().addAll((Collection<? extends GuiElement>)newValue);
+      case MyDslPackage.TYPE__LAYOUT:
+        setLayout((Layout)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -214,11 +291,14 @@ public class TypeImpl extends MinimalEObjectImpl.Container implements Type
   {
     switch (featureID)
     {
+      case MyDslPackage.TYPE__NAME:
+        setName(NAME_EDEFAULT);
+        return;
       case MyDslPackage.TYPE__SIZE:
         setSize((Size)null);
         return;
-      case MyDslPackage.TYPE__GUIELEMENTS:
-        getGuielements().clear();
+      case MyDslPackage.TYPE__LAYOUT:
+        setLayout((Layout)null);
         return;
     }
     super.eUnset(featureID);
@@ -234,12 +314,31 @@ public class TypeImpl extends MinimalEObjectImpl.Container implements Type
   {
     switch (featureID)
     {
+      case MyDslPackage.TYPE__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case MyDslPackage.TYPE__SIZE:
         return size != null;
-      case MyDslPackage.TYPE__GUIELEMENTS:
-        return guielements != null && !guielements.isEmpty();
+      case MyDslPackage.TYPE__LAYOUT:
+        return layout != null;
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuilder result = new StringBuilder(super.toString());
+    result.append(" (name: ");
+    result.append(name);
+    result.append(')');
+    return result.toString();
   }
 
 } //TypeImpl

@@ -103,25 +103,73 @@ public class MyDslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case MyDslPackage.CONTAINER_REFERENCE:
-      {
-        ContainerReference containerReference = (ContainerReference)theEObject;
-        T result = caseContainerReference(containerReference);
-        if (result == null) result = caseGuiElement(containerReference);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case MyDslPackage.LAYOUT:
       {
         Layout layout = (Layout)theEObject;
         T result = caseLayout(layout);
+        if (result == null) result = caseGuiElement(layout);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case MyDslPackage.POSITION:
+      case MyDslPackage.LAYOUT_HORIZONTAL:
       {
-        Position position = (Position)theEObject;
-        T result = casePosition(position);
+        LayoutHorizontal layoutHorizontal = (LayoutHorizontal)theEObject;
+        T result = caseLayoutHorizontal(layoutHorizontal);
+        if (result == null) result = caseLayout(layoutHorizontal);
+        if (result == null) result = caseGuiElement(layoutHorizontal);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MyDslPackage.LAYOUT_HORIZONTAL_ENTRY:
+      {
+        LayoutHorizontalEntry layoutHorizontalEntry = (LayoutHorizontalEntry)theEObject;
+        T result = caseLayoutHorizontalEntry(layoutHorizontalEntry);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MyDslPackage.LAYOUT_VERTICAL:
+      {
+        LayoutVertical layoutVertical = (LayoutVertical)theEObject;
+        T result = caseLayoutVertical(layoutVertical);
+        if (result == null) result = caseLayout(layoutVertical);
+        if (result == null) result = caseGuiElement(layoutVertical);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MyDslPackage.LAYOUT_VERTICAL_ENTRY:
+      {
+        LayoutVerticalEntry layoutVerticalEntry = (LayoutVerticalEntry)theEObject;
+        T result = caseLayoutVerticalEntry(layoutVerticalEntry);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MyDslPackage.LAYOUT_POSITION:
+      {
+        LayoutPosition layoutPosition = (LayoutPosition)theEObject;
+        T result = caseLayoutPosition(layoutPosition);
+        if (result == null) result = caseLayout(layoutPosition);
+        if (result == null) result = caseGuiElement(layoutPosition);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MyDslPackage.LAYOUT_POSITION_ENTRY:
+      {
+        LayoutPositionEntry layoutPositionEntry = (LayoutPositionEntry)theEObject;
+        T result = caseLayoutPositionEntry(layoutPositionEntry);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MyDslPackage.SPACE:
+      {
+        Space space = (Space)theEObject;
+        T result = caseSpace(space);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MyDslPackage.POSITION_VALUE:
+      {
+        PositionValue positionValue = (PositionValue)theEObject;
+        T result = casePositionValue(positionValue);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -132,24 +180,25 @@ public class MyDslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case MyDslPackage.TEXT:
-      {
-        Text text = (Text)theEObject;
-        T result = caseText(text);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case MyDslPackage.CHECKBOX_CHOICE:
-      {
-        CheckboxChoice checkboxChoice = (CheckboxChoice)theEObject;
-        T result = caseCheckboxChoice(checkboxChoice);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case MyDslPackage.GUI_ELEMENT:
       {
         GuiElement guiElement = (GuiElement)theEObject;
         T result = caseGuiElement(guiElement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MyDslPackage.CONTAINER_REFERENCE:
+      {
+        ContainerReference containerReference = (ContainerReference)theEObject;
+        T result = caseContainerReference(containerReference);
+        if (result == null) result = caseGuiElement(containerReference);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MyDslPackage.TEXT:
+      {
+        Text text = (Text)theEObject;
+        T result = caseText(text);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -182,6 +231,14 @@ public class MyDslSwitch<T> extends Switch<T>
         Checkbox checkbox = (Checkbox)theEObject;
         T result = caseCheckbox(checkbox);
         if (result == null) result = caseGuiElement(checkbox);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MyDslPackage.RADIOBUTTON:
+      {
+        Radiobutton radiobutton = (Radiobutton)theEObject;
+        T result = caseRadiobutton(radiobutton);
+        if (result == null) result = caseGuiElement(radiobutton);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -254,22 +311,6 @@ public class MyDslSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Container Reference</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Container Reference</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseContainerReference(ContainerReference object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Layout</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -286,17 +327,129 @@ public class MyDslSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Position</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Layout Horizontal</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Position</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Layout Horizontal</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T casePosition(Position object)
+  public T caseLayoutHorizontal(LayoutHorizontal object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Layout Horizontal Entry</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Layout Horizontal Entry</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseLayoutHorizontalEntry(LayoutHorizontalEntry object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Layout Vertical</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Layout Vertical</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseLayoutVertical(LayoutVertical object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Layout Vertical Entry</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Layout Vertical Entry</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseLayoutVerticalEntry(LayoutVerticalEntry object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Layout Position</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Layout Position</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseLayoutPosition(LayoutPosition object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Layout Position Entry</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Layout Position Entry</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseLayoutPositionEntry(LayoutPositionEntry object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Space</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Space</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSpace(Space object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Position Value</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Position Value</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePositionValue(PositionValue object)
   {
     return null;
   }
@@ -318,38 +471,6 @@ public class MyDslSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Text</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Text</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseText(Text object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Checkbox Choice</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Checkbox Choice</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseCheckboxChoice(CheckboxChoice object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Gui Element</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -361,6 +482,38 @@ public class MyDslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseGuiElement(GuiElement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Container Reference</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Container Reference</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseContainerReference(ContainerReference object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Text</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Text</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseText(Text object)
   {
     return null;
   }
@@ -425,6 +578,22 @@ public class MyDslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseCheckbox(Checkbox object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Radiobutton</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Radiobutton</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRadiobutton(Radiobutton object)
   {
     return null;
   }

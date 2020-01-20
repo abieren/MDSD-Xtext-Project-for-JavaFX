@@ -2,10 +2,9 @@ grammar org.xtext.example.mydsl.MyDsl with org.eclipse.xtext.common.Terminals
 
 generate myDsl "http://www.xtext.org/example/mydsl/MyDsl"
 
-//Domainmodel:
-//   (elements+=Type)*;
 
 Domainmodel:
+	"main="main=NAME
 	(elements+=Type)*
 ;
 
@@ -14,62 +13,112 @@ Type:
 ;	
 
 Frame:
-	'frame' name=ID '{'
-		(size=Size)?
-		(guielements+=GuiElement)*
-	'}'
+	'frame' name=NAME (size=Size)?
+	layout=Layout?
 ;
 
 Container:
-	'container' containerName=ID '{'
-		(size=Size)?
-		//(position=Position)?
-		(layout=Layout)?
-		(guielements+=GuiElement)*
+	'container' name=NAME (size=Size)? 
+	layout=Layout
+;
+
+Layout:
+	LayoutHorizontal | LayoutVertical | LayoutPosition
+;
+
+LayoutHorizontal:
+	'horizontal'
+	'{'
+		(entries+=LayoutHorizontalEntry)*
 	'}'
 ;
 
-ContainerReference:
-	(referenceName=ID) (name=ID)
-;
- 
-Layout:
-	'layout='layout=ID
+LayoutHorizontalEntry:
+	space=Space | guielement=GuiElement
 ;
 
-Position:
+LayoutVertical:
+	'vertical'
+	'{'
+		(entries+=LayoutVerticalEntry)*
+	'}'
+;
+
+LayoutVerticalEntry:
+	space=Space | guielement=GuiElement
+;
+
+LayoutPosition:
+	'positional'
+	'{'
+		(entries+=LayoutPositionEntry)*
+	'}'
+;
+
+LayoutPositionEntry:
+	"["position=PositionValue"]"
+	guielement=GuiElement
+;
+
+
+Space:
+	"space" space=INT
+;
+
+PositionValue:
 	posX=INT','posY=INT
 ;
 
 Size:
-	width=INT'x'height=INT
-;
-
-Text:
-	'text='text=ID
-;
-
-CheckboxChoice:
-	choice=ID('=x')?(',')?
+	width=INT','height=INT
 ;
 
 GuiElement:
-	Textfield | Label | Button | Checkbox | ContainerReference
+	ContainerReference | Layout | Textfield | Label | Button | Checkbox | Radiobutton
+;
+
+ContainerReference:
+	(referenceName=NAME) (name=NAME)
+;
+
+Text:
+	text=STRING
 ;
  
 Textfield:
-	'textfield' name=ID (size=Size)? (text=Text)
+	'textfield' name=NAME (size=Size)? (text=Text)
 ;
 
 Label:
-	'label' name=ID (size=Size)? (text=Text)
+	'label' name=NAME (size=Size)? (text=Text)
 ;
 
 Button:
-	'button' name=ID (size=Size)? (text=Text)
+	'button' name=NAME (size=Size)? (text=Text)
 ;
 
 Checkbox:
-	'checkbox' name=ID (size=Size)? choice=CheckboxChoice
+	'checkbox' name=NAME (size=Size)? (checked=CHECKED) (text=Text)
 ;
 
+Radiobutton:
+	"radio" group=NAME name=NAME (size=Size)? (checked=CHECKED_YES)? (text=Text)
+;
+
+
+// terminal rules
+CHECKED:
+	CHECKED_YES | CHECKED_NO
+;
+
+CHECKED_YES:
+	'X'
+;
+
+CHECKED_NO:
+	'O'
+;
+
+NAME:
+	ID
+;

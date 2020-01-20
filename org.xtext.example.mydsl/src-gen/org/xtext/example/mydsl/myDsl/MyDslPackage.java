@@ -68,13 +68,22 @@ public interface MyDslPackage extends EPackage
   int DOMAINMODEL = 0;
 
   /**
+   * The feature id for the '<em><b>Main</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DOMAINMODEL__MAIN = 0;
+
+  /**
    * The feature id for the '<em><b>Elements</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DOMAINMODEL__ELEMENTS = 0;
+  int DOMAINMODEL__ELEMENTS = 1;
 
   /**
    * The number of structural features of the '<em>Domainmodel</em>' class.
@@ -83,7 +92,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DOMAINMODEL_FEATURE_COUNT = 1;
+  int DOMAINMODEL_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.TypeImpl <em>Type</em>}' class.
@@ -96,22 +105,31 @@ public interface MyDslPackage extends EPackage
   int TYPE = 1;
 
   /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE__NAME = 0;
+
+  /**
    * The feature id for the '<em><b>Size</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TYPE__SIZE = 0;
+  int TYPE__SIZE = 1;
 
   /**
-   * The feature id for the '<em><b>Guielements</b></em>' containment reference list.
+   * The feature id for the '<em><b>Layout</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TYPE__GUIELEMENTS = 1;
+  int TYPE__LAYOUT = 2;
 
   /**
    * The number of structural features of the '<em>Type</em>' class.
@@ -120,7 +138,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPE_FEATURE_COUNT = 2;
+  int TYPE_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.FrameImpl <em>Frame</em>}' class.
@@ -133,6 +151,15 @@ public interface MyDslPackage extends EPackage
   int FRAME = 2;
 
   /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FRAME__NAME = TYPE__NAME;
+
+  /**
    * The feature id for the '<em><b>Size</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -142,22 +169,13 @@ public interface MyDslPackage extends EPackage
   int FRAME__SIZE = TYPE__SIZE;
 
   /**
-   * The feature id for the '<em><b>Guielements</b></em>' containment reference list.
+   * The feature id for the '<em><b>Layout</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FRAME__GUIELEMENTS = TYPE__GUIELEMENTS;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FRAME__NAME = TYPE_FEATURE_COUNT + 0;
+  int FRAME__LAYOUT = TYPE__LAYOUT;
 
   /**
    * The number of structural features of the '<em>Frame</em>' class.
@@ -166,7 +184,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FRAME_FEATURE_COUNT = TYPE_FEATURE_COUNT + 1;
+  int FRAME_FEATURE_COUNT = TYPE_FEATURE_COUNT + 0;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.ContainerImpl <em>Container</em>}' class.
@@ -179,6 +197,15 @@ public interface MyDslPackage extends EPackage
   int CONTAINER = 3;
 
   /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONTAINER__NAME = TYPE__NAME;
+
+  /**
    * The feature id for the '<em><b>Size</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -188,31 +215,13 @@ public interface MyDslPackage extends EPackage
   int CONTAINER__SIZE = TYPE__SIZE;
 
   /**
-   * The feature id for the '<em><b>Guielements</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONTAINER__GUIELEMENTS = TYPE__GUIELEMENTS;
-
-  /**
-   * The feature id for the '<em><b>Container Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONTAINER__CONTAINER_NAME = TYPE_FEATURE_COUNT + 0;
-
-  /**
    * The feature id for the '<em><b>Layout</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CONTAINER__LAYOUT = TYPE_FEATURE_COUNT + 1;
+  int CONTAINER__LAYOUT = TYPE__LAYOUT;
 
   /**
    * The number of structural features of the '<em>Container</em>' class.
@@ -221,7 +230,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CONTAINER_FEATURE_COUNT = TYPE_FEATURE_COUNT + 2;
+  int CONTAINER_FEATURE_COUNT = TYPE_FEATURE_COUNT + 0;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.GuiElementImpl <em>Gui Element</em>}' class.
@@ -231,16 +240,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getGuiElement()
    * @generated
    */
-  int GUI_ELEMENT = 10;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int GUI_ELEMENT__NAME = 0;
+  int GUI_ELEMENT = 14;
 
   /**
    * The number of structural features of the '<em>Gui Element</em>' class.
@@ -249,44 +249,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int GUI_ELEMENT_FEATURE_COUNT = 1;
-
-  /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.ContainerReferenceImpl <em>Container Reference</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.myDsl.impl.ContainerReferenceImpl
-   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getContainerReference()
-   * @generated
-   */
-  int CONTAINER_REFERENCE = 4;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONTAINER_REFERENCE__NAME = GUI_ELEMENT__NAME;
-
-  /**
-   * The feature id for the '<em><b>Reference Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONTAINER_REFERENCE__REFERENCE_NAME = GUI_ELEMENT_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>Container Reference</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONTAINER_REFERENCE_FEATURE_COUNT = GUI_ELEMENT_FEATURE_COUNT + 1;
+  int GUI_ELEMENT_FEATURE_COUNT = 0;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.LayoutImpl <em>Layout</em>}' class.
@@ -296,16 +259,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getLayout()
    * @generated
    */
-  int LAYOUT = 5;
-
-  /**
-   * The feature id for the '<em><b>Layout</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LAYOUT__LAYOUT = 0;
+  int LAYOUT = 4;
 
   /**
    * The number of structural features of the '<em>Layout</em>' class.
@@ -314,17 +268,240 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LAYOUT_FEATURE_COUNT = 1;
+  int LAYOUT_FEATURE_COUNT = GUI_ELEMENT_FEATURE_COUNT + 0;
 
   /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.PositionImpl <em>Position</em>}' class.
+   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.LayoutHorizontalImpl <em>Layout Horizontal</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.myDsl.impl.PositionImpl
-   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getPosition()
+   * @see org.xtext.example.mydsl.myDsl.impl.LayoutHorizontalImpl
+   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getLayoutHorizontal()
    * @generated
    */
-  int POSITION = 6;
+  int LAYOUT_HORIZONTAL = 5;
+
+  /**
+   * The feature id for the '<em><b>Entries</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LAYOUT_HORIZONTAL__ENTRIES = LAYOUT_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Layout Horizontal</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LAYOUT_HORIZONTAL_FEATURE_COUNT = LAYOUT_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.LayoutHorizontalEntryImpl <em>Layout Horizontal Entry</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.myDsl.impl.LayoutHorizontalEntryImpl
+   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getLayoutHorizontalEntry()
+   * @generated
+   */
+  int LAYOUT_HORIZONTAL_ENTRY = 6;
+
+  /**
+   * The feature id for the '<em><b>Space</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LAYOUT_HORIZONTAL_ENTRY__SPACE = 0;
+
+  /**
+   * The feature id for the '<em><b>Guielement</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LAYOUT_HORIZONTAL_ENTRY__GUIELEMENT = 1;
+
+  /**
+   * The number of structural features of the '<em>Layout Horizontal Entry</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LAYOUT_HORIZONTAL_ENTRY_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.LayoutVerticalImpl <em>Layout Vertical</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.myDsl.impl.LayoutVerticalImpl
+   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getLayoutVertical()
+   * @generated
+   */
+  int LAYOUT_VERTICAL = 7;
+
+  /**
+   * The feature id for the '<em><b>Entries</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LAYOUT_VERTICAL__ENTRIES = LAYOUT_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Layout Vertical</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LAYOUT_VERTICAL_FEATURE_COUNT = LAYOUT_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.LayoutVerticalEntryImpl <em>Layout Vertical Entry</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.myDsl.impl.LayoutVerticalEntryImpl
+   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getLayoutVerticalEntry()
+   * @generated
+   */
+  int LAYOUT_VERTICAL_ENTRY = 8;
+
+  /**
+   * The feature id for the '<em><b>Space</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LAYOUT_VERTICAL_ENTRY__SPACE = 0;
+
+  /**
+   * The feature id for the '<em><b>Guielement</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LAYOUT_VERTICAL_ENTRY__GUIELEMENT = 1;
+
+  /**
+   * The number of structural features of the '<em>Layout Vertical Entry</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LAYOUT_VERTICAL_ENTRY_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.LayoutPositionImpl <em>Layout Position</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.myDsl.impl.LayoutPositionImpl
+   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getLayoutPosition()
+   * @generated
+   */
+  int LAYOUT_POSITION = 9;
+
+  /**
+   * The feature id for the '<em><b>Entries</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LAYOUT_POSITION__ENTRIES = LAYOUT_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Layout Position</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LAYOUT_POSITION_FEATURE_COUNT = LAYOUT_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.LayoutPositionEntryImpl <em>Layout Position Entry</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.myDsl.impl.LayoutPositionEntryImpl
+   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getLayoutPositionEntry()
+   * @generated
+   */
+  int LAYOUT_POSITION_ENTRY = 10;
+
+  /**
+   * The feature id for the '<em><b>Position</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LAYOUT_POSITION_ENTRY__POSITION = 0;
+
+  /**
+   * The feature id for the '<em><b>Guielement</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LAYOUT_POSITION_ENTRY__GUIELEMENT = 1;
+
+  /**
+   * The number of structural features of the '<em>Layout Position Entry</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LAYOUT_POSITION_ENTRY_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.SpaceImpl <em>Space</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.myDsl.impl.SpaceImpl
+   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getSpace()
+   * @generated
+   */
+  int SPACE = 11;
+
+  /**
+   * The feature id for the '<em><b>Space</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SPACE__SPACE = 0;
+
+  /**
+   * The number of structural features of the '<em>Space</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SPACE_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.PositionValueImpl <em>Position Value</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.myDsl.impl.PositionValueImpl
+   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getPositionValue()
+   * @generated
+   */
+  int POSITION_VALUE = 12;
 
   /**
    * The feature id for the '<em><b>Pos X</b></em>' attribute.
@@ -333,7 +510,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int POSITION__POS_X = 0;
+  int POSITION_VALUE__POS_X = 0;
 
   /**
    * The feature id for the '<em><b>Pos Y</b></em>' attribute.
@@ -342,16 +519,16 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int POSITION__POS_Y = 1;
+  int POSITION_VALUE__POS_Y = 1;
 
   /**
-   * The number of structural features of the '<em>Position</em>' class.
+   * The number of structural features of the '<em>Position Value</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int POSITION_FEATURE_COUNT = 2;
+  int POSITION_VALUE_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.SizeImpl <em>Size</em>}' class.
@@ -361,7 +538,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getSize()
    * @generated
    */
-  int SIZE = 7;
+  int SIZE = 13;
 
   /**
    * The feature id for the '<em><b>Width</b></em>' attribute.
@@ -391,6 +568,43 @@ public interface MyDslPackage extends EPackage
   int SIZE_FEATURE_COUNT = 2;
 
   /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.ContainerReferenceImpl <em>Container Reference</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.myDsl.impl.ContainerReferenceImpl
+   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getContainerReference()
+   * @generated
+   */
+  int CONTAINER_REFERENCE = 15;
+
+  /**
+   * The feature id for the '<em><b>Reference Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONTAINER_REFERENCE__REFERENCE_NAME = GUI_ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONTAINER_REFERENCE__NAME = GUI_ELEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Container Reference</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONTAINER_REFERENCE_FEATURE_COUNT = GUI_ELEMENT_FEATURE_COUNT + 2;
+
+  /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.TextImpl <em>Text</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -398,7 +612,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getText()
    * @generated
    */
-  int TEXT = 8;
+  int TEXT = 16;
 
   /**
    * The feature id for the '<em><b>Text</b></em>' attribute.
@@ -419,34 +633,6 @@ public interface MyDslPackage extends EPackage
   int TEXT_FEATURE_COUNT = 1;
 
   /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.CheckboxChoiceImpl <em>Checkbox Choice</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.myDsl.impl.CheckboxChoiceImpl
-   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getCheckboxChoice()
-   * @generated
-   */
-  int CHECKBOX_CHOICE = 9;
-
-  /**
-   * The feature id for the '<em><b>Choice</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CHECKBOX_CHOICE__CHOICE = 0;
-
-  /**
-   * The number of structural features of the '<em>Checkbox Choice</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CHECKBOX_CHOICE_FEATURE_COUNT = 1;
-
-  /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.TextfieldImpl <em>Textfield</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -454,7 +640,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getTextfield()
    * @generated
    */
-  int TEXTFIELD = 11;
+  int TEXTFIELD = 17;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -463,7 +649,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TEXTFIELD__NAME = GUI_ELEMENT__NAME;
+  int TEXTFIELD__NAME = GUI_ELEMENT_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Size</b></em>' containment reference.
@@ -472,7 +658,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TEXTFIELD__SIZE = GUI_ELEMENT_FEATURE_COUNT + 0;
+  int TEXTFIELD__SIZE = GUI_ELEMENT_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Text</b></em>' containment reference.
@@ -481,7 +667,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TEXTFIELD__TEXT = GUI_ELEMENT_FEATURE_COUNT + 1;
+  int TEXTFIELD__TEXT = GUI_ELEMENT_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Textfield</em>' class.
@@ -490,7 +676,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TEXTFIELD_FEATURE_COUNT = GUI_ELEMENT_FEATURE_COUNT + 2;
+  int TEXTFIELD_FEATURE_COUNT = GUI_ELEMENT_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.LabelImpl <em>Label</em>}' class.
@@ -500,7 +686,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getLabel()
    * @generated
    */
-  int LABEL = 12;
+  int LABEL = 18;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -509,7 +695,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LABEL__NAME = GUI_ELEMENT__NAME;
+  int LABEL__NAME = GUI_ELEMENT_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Size</b></em>' containment reference.
@@ -518,7 +704,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LABEL__SIZE = GUI_ELEMENT_FEATURE_COUNT + 0;
+  int LABEL__SIZE = GUI_ELEMENT_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Text</b></em>' containment reference.
@@ -527,7 +713,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LABEL__TEXT = GUI_ELEMENT_FEATURE_COUNT + 1;
+  int LABEL__TEXT = GUI_ELEMENT_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Label</em>' class.
@@ -536,7 +722,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LABEL_FEATURE_COUNT = GUI_ELEMENT_FEATURE_COUNT + 2;
+  int LABEL_FEATURE_COUNT = GUI_ELEMENT_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.ButtonImpl <em>Button</em>}' class.
@@ -546,7 +732,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getButton()
    * @generated
    */
-  int BUTTON = 13;
+  int BUTTON = 19;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -555,7 +741,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUTTON__NAME = GUI_ELEMENT__NAME;
+  int BUTTON__NAME = GUI_ELEMENT_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Size</b></em>' containment reference.
@@ -564,7 +750,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUTTON__SIZE = GUI_ELEMENT_FEATURE_COUNT + 0;
+  int BUTTON__SIZE = GUI_ELEMENT_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Text</b></em>' containment reference.
@@ -573,7 +759,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUTTON__TEXT = GUI_ELEMENT_FEATURE_COUNT + 1;
+  int BUTTON__TEXT = GUI_ELEMENT_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Button</em>' class.
@@ -582,7 +768,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int BUTTON_FEATURE_COUNT = GUI_ELEMENT_FEATURE_COUNT + 2;
+  int BUTTON_FEATURE_COUNT = GUI_ELEMENT_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.CheckboxImpl <em>Checkbox</em>}' class.
@@ -592,7 +778,7 @@ public interface MyDslPackage extends EPackage
    * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getCheckbox()
    * @generated
    */
-  int CHECKBOX = 14;
+  int CHECKBOX = 20;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -601,7 +787,7 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CHECKBOX__NAME = GUI_ELEMENT__NAME;
+  int CHECKBOX__NAME = GUI_ELEMENT_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Size</b></em>' containment reference.
@@ -610,16 +796,25 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CHECKBOX__SIZE = GUI_ELEMENT_FEATURE_COUNT + 0;
+  int CHECKBOX__SIZE = GUI_ELEMENT_FEATURE_COUNT + 1;
 
   /**
-   * The feature id for the '<em><b>Choice</b></em>' containment reference.
+   * The feature id for the '<em><b>Checked</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CHECKBOX__CHOICE = GUI_ELEMENT_FEATURE_COUNT + 1;
+  int CHECKBOX__CHECKED = GUI_ELEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Text</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CHECKBOX__TEXT = GUI_ELEMENT_FEATURE_COUNT + 3;
 
   /**
    * The number of structural features of the '<em>Checkbox</em>' class.
@@ -628,7 +823,71 @@ public interface MyDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CHECKBOX_FEATURE_COUNT = GUI_ELEMENT_FEATURE_COUNT + 2;
+  int CHECKBOX_FEATURE_COUNT = GUI_ELEMENT_FEATURE_COUNT + 4;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.myDsl.impl.RadiobuttonImpl <em>Radiobutton</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.myDsl.impl.RadiobuttonImpl
+   * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getRadiobutton()
+   * @generated
+   */
+  int RADIOBUTTON = 21;
+
+  /**
+   * The feature id for the '<em><b>Group</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RADIOBUTTON__GROUP = GUI_ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RADIOBUTTON__NAME = GUI_ELEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Size</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RADIOBUTTON__SIZE = GUI_ELEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Checked</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RADIOBUTTON__CHECKED = GUI_ELEMENT_FEATURE_COUNT + 3;
+
+  /**
+   * The feature id for the '<em><b>Text</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RADIOBUTTON__TEXT = GUI_ELEMENT_FEATURE_COUNT + 4;
+
+  /**
+   * The number of structural features of the '<em>Radiobutton</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RADIOBUTTON_FEATURE_COUNT = GUI_ELEMENT_FEATURE_COUNT + 5;
 
 
   /**
@@ -640,6 +899,17 @@ public interface MyDslPackage extends EPackage
    * @generated
    */
   EClass getDomainmodel();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Domainmodel#getMain <em>Main</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Main</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Domainmodel#getMain()
+   * @see #getDomainmodel()
+   * @generated
+   */
+  EAttribute getDomainmodel_Main();
 
   /**
    * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.myDsl.Domainmodel#getElements <em>Elements</em>}'.
@@ -663,6 +933,17 @@ public interface MyDslPackage extends EPackage
   EClass getType();
 
   /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Type#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Type#getName()
+   * @see #getType()
+   * @generated
+   */
+  EAttribute getType_Name();
+
+  /**
    * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Type#getSize <em>Size</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -674,15 +955,15 @@ public interface MyDslPackage extends EPackage
   EReference getType_Size();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.myDsl.Type#getGuielements <em>Guielements</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Type#getLayout <em>Layout</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Guielements</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Type#getGuielements()
+   * @return the meta object for the containment reference '<em>Layout</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Type#getLayout()
    * @see #getType()
    * @generated
    */
-  EReference getType_Guielements();
+  EReference getType_Layout();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Frame <em>Frame</em>}'.
@@ -695,17 +976,6 @@ public interface MyDslPackage extends EPackage
   EClass getFrame();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Frame#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Frame#getName()
-   * @see #getFrame()
-   * @generated
-   */
-  EAttribute getFrame_Name();
-
-  /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Container <em>Container</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -714,49 +984,6 @@ public interface MyDslPackage extends EPackage
    * @generated
    */
   EClass getContainer();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Container#getContainerName <em>Container Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Container Name</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Container#getContainerName()
-   * @see #getContainer()
-   * @generated
-   */
-  EAttribute getContainer_ContainerName();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Container#getLayout <em>Layout</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Layout</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Container#getLayout()
-   * @see #getContainer()
-   * @generated
-   */
-  EReference getContainer_Layout();
-
-  /**
-   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.ContainerReference <em>Container Reference</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Container Reference</em>'.
-   * @see org.xtext.example.mydsl.myDsl.ContainerReference
-   * @generated
-   */
-  EClass getContainerReference();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.ContainerReference#getReferenceName <em>Reference Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Reference Name</em>'.
-   * @see org.xtext.example.mydsl.myDsl.ContainerReference#getReferenceName()
-   * @see #getContainerReference()
-   * @generated
-   */
-  EAttribute getContainerReference_ReferenceName();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Layout <em>Layout</em>}'.
@@ -769,47 +996,216 @@ public interface MyDslPackage extends EPackage
   EClass getLayout();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Layout#getLayout <em>Layout</em>}'.
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.LayoutHorizontal <em>Layout Horizontal</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Layout</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Layout#getLayout()
-   * @see #getLayout()
+   * @return the meta object for class '<em>Layout Horizontal</em>'.
+   * @see org.xtext.example.mydsl.myDsl.LayoutHorizontal
    * @generated
    */
-  EAttribute getLayout_Layout();
+  EClass getLayoutHorizontal();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Position <em>Position</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.myDsl.LayoutHorizontal#getEntries <em>Entries</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Position</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Position
+   * @return the meta object for the containment reference list '<em>Entries</em>'.
+   * @see org.xtext.example.mydsl.myDsl.LayoutHorizontal#getEntries()
+   * @see #getLayoutHorizontal()
    * @generated
    */
-  EClass getPosition();
+  EReference getLayoutHorizontal_Entries();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Position#getPosX <em>Pos X</em>}'.
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.LayoutHorizontalEntry <em>Layout Horizontal Entry</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Layout Horizontal Entry</em>'.
+   * @see org.xtext.example.mydsl.myDsl.LayoutHorizontalEntry
+   * @generated
+   */
+  EClass getLayoutHorizontalEntry();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.LayoutHorizontalEntry#getSpace <em>Space</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Space</em>'.
+   * @see org.xtext.example.mydsl.myDsl.LayoutHorizontalEntry#getSpace()
+   * @see #getLayoutHorizontalEntry()
+   * @generated
+   */
+  EReference getLayoutHorizontalEntry_Space();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.LayoutHorizontalEntry#getGuielement <em>Guielement</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Guielement</em>'.
+   * @see org.xtext.example.mydsl.myDsl.LayoutHorizontalEntry#getGuielement()
+   * @see #getLayoutHorizontalEntry()
+   * @generated
+   */
+  EReference getLayoutHorizontalEntry_Guielement();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.LayoutVertical <em>Layout Vertical</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Layout Vertical</em>'.
+   * @see org.xtext.example.mydsl.myDsl.LayoutVertical
+   * @generated
+   */
+  EClass getLayoutVertical();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.myDsl.LayoutVertical#getEntries <em>Entries</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Entries</em>'.
+   * @see org.xtext.example.mydsl.myDsl.LayoutVertical#getEntries()
+   * @see #getLayoutVertical()
+   * @generated
+   */
+  EReference getLayoutVertical_Entries();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.LayoutVerticalEntry <em>Layout Vertical Entry</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Layout Vertical Entry</em>'.
+   * @see org.xtext.example.mydsl.myDsl.LayoutVerticalEntry
+   * @generated
+   */
+  EClass getLayoutVerticalEntry();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.LayoutVerticalEntry#getSpace <em>Space</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Space</em>'.
+   * @see org.xtext.example.mydsl.myDsl.LayoutVerticalEntry#getSpace()
+   * @see #getLayoutVerticalEntry()
+   * @generated
+   */
+  EReference getLayoutVerticalEntry_Space();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.LayoutVerticalEntry#getGuielement <em>Guielement</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Guielement</em>'.
+   * @see org.xtext.example.mydsl.myDsl.LayoutVerticalEntry#getGuielement()
+   * @see #getLayoutVerticalEntry()
+   * @generated
+   */
+  EReference getLayoutVerticalEntry_Guielement();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.LayoutPosition <em>Layout Position</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Layout Position</em>'.
+   * @see org.xtext.example.mydsl.myDsl.LayoutPosition
+   * @generated
+   */
+  EClass getLayoutPosition();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.myDsl.LayoutPosition#getEntries <em>Entries</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Entries</em>'.
+   * @see org.xtext.example.mydsl.myDsl.LayoutPosition#getEntries()
+   * @see #getLayoutPosition()
+   * @generated
+   */
+  EReference getLayoutPosition_Entries();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.LayoutPositionEntry <em>Layout Position Entry</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Layout Position Entry</em>'.
+   * @see org.xtext.example.mydsl.myDsl.LayoutPositionEntry
+   * @generated
+   */
+  EClass getLayoutPositionEntry();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.LayoutPositionEntry#getPosition <em>Position</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Position</em>'.
+   * @see org.xtext.example.mydsl.myDsl.LayoutPositionEntry#getPosition()
+   * @see #getLayoutPositionEntry()
+   * @generated
+   */
+  EReference getLayoutPositionEntry_Position();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.LayoutPositionEntry#getGuielement <em>Guielement</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Guielement</em>'.
+   * @see org.xtext.example.mydsl.myDsl.LayoutPositionEntry#getGuielement()
+   * @see #getLayoutPositionEntry()
+   * @generated
+   */
+  EReference getLayoutPositionEntry_Guielement();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Space <em>Space</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Space</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Space
+   * @generated
+   */
+  EClass getSpace();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Space#getSpace <em>Space</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Space</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Space#getSpace()
+   * @see #getSpace()
+   * @generated
+   */
+  EAttribute getSpace_Space();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.PositionValue <em>Position Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Position Value</em>'.
+   * @see org.xtext.example.mydsl.myDsl.PositionValue
+   * @generated
+   */
+  EClass getPositionValue();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.PositionValue#getPosX <em>Pos X</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Pos X</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Position#getPosX()
-   * @see #getPosition()
+   * @see org.xtext.example.mydsl.myDsl.PositionValue#getPosX()
+   * @see #getPositionValue()
    * @generated
    */
-  EAttribute getPosition_PosX();
+  EAttribute getPositionValue_PosX();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Position#getPosY <em>Pos Y</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.PositionValue#getPosY <em>Pos Y</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Pos Y</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Position#getPosY()
-   * @see #getPosition()
+   * @see org.xtext.example.mydsl.myDsl.PositionValue#getPosY()
+   * @see #getPositionValue()
    * @generated
    */
-  EAttribute getPosition_PosY();
+  EAttribute getPositionValue_PosY();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Size <em>Size</em>}'.
@@ -844,6 +1240,48 @@ public interface MyDslPackage extends EPackage
   EAttribute getSize_Height();
 
   /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.GuiElement <em>Gui Element</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Gui Element</em>'.
+   * @see org.xtext.example.mydsl.myDsl.GuiElement
+   * @generated
+   */
+  EClass getGuiElement();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.ContainerReference <em>Container Reference</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Container Reference</em>'.
+   * @see org.xtext.example.mydsl.myDsl.ContainerReference
+   * @generated
+   */
+  EClass getContainerReference();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.ContainerReference#getReferenceName <em>Reference Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Reference Name</em>'.
+   * @see org.xtext.example.mydsl.myDsl.ContainerReference#getReferenceName()
+   * @see #getContainerReference()
+   * @generated
+   */
+  EAttribute getContainerReference_ReferenceName();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.ContainerReference#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.example.mydsl.myDsl.ContainerReference#getName()
+   * @see #getContainerReference()
+   * @generated
+   */
+  EAttribute getContainerReference_Name();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Text <em>Text</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -865,48 +1303,6 @@ public interface MyDslPackage extends EPackage
   EAttribute getText_Text();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.CheckboxChoice <em>Checkbox Choice</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Checkbox Choice</em>'.
-   * @see org.xtext.example.mydsl.myDsl.CheckboxChoice
-   * @generated
-   */
-  EClass getCheckboxChoice();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.CheckboxChoice#getChoice <em>Choice</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Choice</em>'.
-   * @see org.xtext.example.mydsl.myDsl.CheckboxChoice#getChoice()
-   * @see #getCheckboxChoice()
-   * @generated
-   */
-  EAttribute getCheckboxChoice_Choice();
-
-  /**
-   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.GuiElement <em>Gui Element</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Gui Element</em>'.
-   * @see org.xtext.example.mydsl.myDsl.GuiElement
-   * @generated
-   */
-  EClass getGuiElement();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.GuiElement#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.xtext.example.mydsl.myDsl.GuiElement#getName()
-   * @see #getGuiElement()
-   * @generated
-   */
-  EAttribute getGuiElement_Name();
-
-  /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Textfield <em>Textfield</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -915,6 +1311,17 @@ public interface MyDslPackage extends EPackage
    * @generated
    */
   EClass getTextfield();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Textfield#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Textfield#getName()
+   * @see #getTextfield()
+   * @generated
+   */
+  EAttribute getTextfield_Name();
 
   /**
    * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Textfield#getSize <em>Size</em>}'.
@@ -949,6 +1356,17 @@ public interface MyDslPackage extends EPackage
   EClass getLabel();
 
   /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Label#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Label#getName()
+   * @see #getLabel()
+   * @generated
+   */
+  EAttribute getLabel_Name();
+
+  /**
    * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Label#getSize <em>Size</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -979,6 +1397,17 @@ public interface MyDslPackage extends EPackage
    * @generated
    */
   EClass getButton();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Button#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Button#getName()
+   * @see #getButton()
+   * @generated
+   */
+  EAttribute getButton_Name();
 
   /**
    * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Button#getSize <em>Size</em>}'.
@@ -1013,6 +1442,17 @@ public interface MyDslPackage extends EPackage
   EClass getCheckbox();
 
   /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Checkbox#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Checkbox#getName()
+   * @see #getCheckbox()
+   * @generated
+   */
+  EAttribute getCheckbox_Name();
+
+  /**
    * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Checkbox#getSize <em>Size</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1024,15 +1464,91 @@ public interface MyDslPackage extends EPackage
   EReference getCheckbox_Size();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Checkbox#getChoice <em>Choice</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Checkbox#getChecked <em>Checked</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Choice</em>'.
-   * @see org.xtext.example.mydsl.myDsl.Checkbox#getChoice()
+   * @return the meta object for the attribute '<em>Checked</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Checkbox#getChecked()
    * @see #getCheckbox()
    * @generated
    */
-  EReference getCheckbox_Choice();
+  EAttribute getCheckbox_Checked();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Checkbox#getText <em>Text</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Text</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Checkbox#getText()
+   * @see #getCheckbox()
+   * @generated
+   */
+  EReference getCheckbox_Text();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.myDsl.Radiobutton <em>Radiobutton</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Radiobutton</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Radiobutton
+   * @generated
+   */
+  EClass getRadiobutton();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Radiobutton#getGroup <em>Group</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Group</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Radiobutton#getGroup()
+   * @see #getRadiobutton()
+   * @generated
+   */
+  EAttribute getRadiobutton_Group();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Radiobutton#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Radiobutton#getName()
+   * @see #getRadiobutton()
+   * @generated
+   */
+  EAttribute getRadiobutton_Name();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Radiobutton#getSize <em>Size</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Size</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Radiobutton#getSize()
+   * @see #getRadiobutton()
+   * @generated
+   */
+  EReference getRadiobutton_Size();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.myDsl.Radiobutton#getChecked <em>Checked</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Checked</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Radiobutton#getChecked()
+   * @see #getRadiobutton()
+   * @generated
+   */
+  EAttribute getRadiobutton_Checked();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.myDsl.Radiobutton#getText <em>Text</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Text</em>'.
+   * @see org.xtext.example.mydsl.myDsl.Radiobutton#getText()
+   * @see #getRadiobutton()
+   * @generated
+   */
+  EReference getRadiobutton_Text();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -1068,6 +1584,14 @@ public interface MyDslPackage extends EPackage
     EClass DOMAINMODEL = eINSTANCE.getDomainmodel();
 
     /**
+     * The meta object literal for the '<em><b>Main</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DOMAINMODEL__MAIN = eINSTANCE.getDomainmodel_Main();
+
+    /**
      * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1086,6 +1610,14 @@ public interface MyDslPackage extends EPackage
     EClass TYPE = eINSTANCE.getType();
 
     /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute TYPE__NAME = eINSTANCE.getType_Name();
+
+    /**
      * The meta object literal for the '<em><b>Size</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1094,12 +1626,12 @@ public interface MyDslPackage extends EPackage
     EReference TYPE__SIZE = eINSTANCE.getType_Size();
 
     /**
-     * The meta object literal for the '<em><b>Guielements</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Layout</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference TYPE__GUIELEMENTS = eINSTANCE.getType_Guielements();
+    EReference TYPE__LAYOUT = eINSTANCE.getType_Layout();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.FrameImpl <em>Frame</em>}' class.
@@ -1112,14 +1644,6 @@ public interface MyDslPackage extends EPackage
     EClass FRAME = eINSTANCE.getFrame();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute FRAME__NAME = eINSTANCE.getFrame_Name();
-
-    /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.ContainerImpl <em>Container</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1128,40 +1652,6 @@ public interface MyDslPackage extends EPackage
      * @generated
      */
     EClass CONTAINER = eINSTANCE.getContainer();
-
-    /**
-     * The meta object literal for the '<em><b>Container Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute CONTAINER__CONTAINER_NAME = eINSTANCE.getContainer_ContainerName();
-
-    /**
-     * The meta object literal for the '<em><b>Layout</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference CONTAINER__LAYOUT = eINSTANCE.getContainer_Layout();
-
-    /**
-     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.ContainerReferenceImpl <em>Container Reference</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.example.mydsl.myDsl.impl.ContainerReferenceImpl
-     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getContainerReference()
-     * @generated
-     */
-    EClass CONTAINER_REFERENCE = eINSTANCE.getContainerReference();
-
-    /**
-     * The meta object literal for the '<em><b>Reference Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute CONTAINER_REFERENCE__REFERENCE_NAME = eINSTANCE.getContainerReference_ReferenceName();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.LayoutImpl <em>Layout</em>}' class.
@@ -1174,22 +1664,164 @@ public interface MyDslPackage extends EPackage
     EClass LAYOUT = eINSTANCE.getLayout();
 
     /**
-     * The meta object literal for the '<em><b>Layout</b></em>' attribute feature.
+     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.LayoutHorizontalImpl <em>Layout Horizontal</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.myDsl.impl.LayoutHorizontalImpl
+     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getLayoutHorizontal()
      * @generated
      */
-    EAttribute LAYOUT__LAYOUT = eINSTANCE.getLayout_Layout();
+    EClass LAYOUT_HORIZONTAL = eINSTANCE.getLayoutHorizontal();
 
     /**
-     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.PositionImpl <em>Position</em>}' class.
+     * The meta object literal for the '<em><b>Entries</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.xtext.example.mydsl.myDsl.impl.PositionImpl
-     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getPosition()
      * @generated
      */
-    EClass POSITION = eINSTANCE.getPosition();
+    EReference LAYOUT_HORIZONTAL__ENTRIES = eINSTANCE.getLayoutHorizontal_Entries();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.LayoutHorizontalEntryImpl <em>Layout Horizontal Entry</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.myDsl.impl.LayoutHorizontalEntryImpl
+     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getLayoutHorizontalEntry()
+     * @generated
+     */
+    EClass LAYOUT_HORIZONTAL_ENTRY = eINSTANCE.getLayoutHorizontalEntry();
+
+    /**
+     * The meta object literal for the '<em><b>Space</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LAYOUT_HORIZONTAL_ENTRY__SPACE = eINSTANCE.getLayoutHorizontalEntry_Space();
+
+    /**
+     * The meta object literal for the '<em><b>Guielement</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LAYOUT_HORIZONTAL_ENTRY__GUIELEMENT = eINSTANCE.getLayoutHorizontalEntry_Guielement();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.LayoutVerticalImpl <em>Layout Vertical</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.myDsl.impl.LayoutVerticalImpl
+     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getLayoutVertical()
+     * @generated
+     */
+    EClass LAYOUT_VERTICAL = eINSTANCE.getLayoutVertical();
+
+    /**
+     * The meta object literal for the '<em><b>Entries</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LAYOUT_VERTICAL__ENTRIES = eINSTANCE.getLayoutVertical_Entries();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.LayoutVerticalEntryImpl <em>Layout Vertical Entry</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.myDsl.impl.LayoutVerticalEntryImpl
+     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getLayoutVerticalEntry()
+     * @generated
+     */
+    EClass LAYOUT_VERTICAL_ENTRY = eINSTANCE.getLayoutVerticalEntry();
+
+    /**
+     * The meta object literal for the '<em><b>Space</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LAYOUT_VERTICAL_ENTRY__SPACE = eINSTANCE.getLayoutVerticalEntry_Space();
+
+    /**
+     * The meta object literal for the '<em><b>Guielement</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LAYOUT_VERTICAL_ENTRY__GUIELEMENT = eINSTANCE.getLayoutVerticalEntry_Guielement();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.LayoutPositionImpl <em>Layout Position</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.myDsl.impl.LayoutPositionImpl
+     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getLayoutPosition()
+     * @generated
+     */
+    EClass LAYOUT_POSITION = eINSTANCE.getLayoutPosition();
+
+    /**
+     * The meta object literal for the '<em><b>Entries</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LAYOUT_POSITION__ENTRIES = eINSTANCE.getLayoutPosition_Entries();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.LayoutPositionEntryImpl <em>Layout Position Entry</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.myDsl.impl.LayoutPositionEntryImpl
+     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getLayoutPositionEntry()
+     * @generated
+     */
+    EClass LAYOUT_POSITION_ENTRY = eINSTANCE.getLayoutPositionEntry();
+
+    /**
+     * The meta object literal for the '<em><b>Position</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LAYOUT_POSITION_ENTRY__POSITION = eINSTANCE.getLayoutPositionEntry_Position();
+
+    /**
+     * The meta object literal for the '<em><b>Guielement</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LAYOUT_POSITION_ENTRY__GUIELEMENT = eINSTANCE.getLayoutPositionEntry_Guielement();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.SpaceImpl <em>Space</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.myDsl.impl.SpaceImpl
+     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getSpace()
+     * @generated
+     */
+    EClass SPACE = eINSTANCE.getSpace();
+
+    /**
+     * The meta object literal for the '<em><b>Space</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SPACE__SPACE = eINSTANCE.getSpace_Space();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.PositionValueImpl <em>Position Value</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.myDsl.impl.PositionValueImpl
+     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getPositionValue()
+     * @generated
+     */
+    EClass POSITION_VALUE = eINSTANCE.getPositionValue();
 
     /**
      * The meta object literal for the '<em><b>Pos X</b></em>' attribute feature.
@@ -1197,7 +1829,7 @@ public interface MyDslPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute POSITION__POS_X = eINSTANCE.getPosition_PosX();
+    EAttribute POSITION_VALUE__POS_X = eINSTANCE.getPositionValue_PosX();
 
     /**
      * The meta object literal for the '<em><b>Pos Y</b></em>' attribute feature.
@@ -1205,7 +1837,7 @@ public interface MyDslPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute POSITION__POS_Y = eINSTANCE.getPosition_PosY();
+    EAttribute POSITION_VALUE__POS_Y = eINSTANCE.getPositionValue_PosY();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.SizeImpl <em>Size</em>}' class.
@@ -1234,6 +1866,42 @@ public interface MyDslPackage extends EPackage
     EAttribute SIZE__HEIGHT = eINSTANCE.getSize_Height();
 
     /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.GuiElementImpl <em>Gui Element</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.myDsl.impl.GuiElementImpl
+     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getGuiElement()
+     * @generated
+     */
+    EClass GUI_ELEMENT = eINSTANCE.getGuiElement();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.ContainerReferenceImpl <em>Container Reference</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.myDsl.impl.ContainerReferenceImpl
+     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getContainerReference()
+     * @generated
+     */
+    EClass CONTAINER_REFERENCE = eINSTANCE.getContainerReference();
+
+    /**
+     * The meta object literal for the '<em><b>Reference Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CONTAINER_REFERENCE__REFERENCE_NAME = eINSTANCE.getContainerReference_ReferenceName();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CONTAINER_REFERENCE__NAME = eINSTANCE.getContainerReference_Name();
+
+    /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.TextImpl <em>Text</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1252,42 +1920,6 @@ public interface MyDslPackage extends EPackage
     EAttribute TEXT__TEXT = eINSTANCE.getText_Text();
 
     /**
-     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.CheckboxChoiceImpl <em>Checkbox Choice</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.example.mydsl.myDsl.impl.CheckboxChoiceImpl
-     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getCheckboxChoice()
-     * @generated
-     */
-    EClass CHECKBOX_CHOICE = eINSTANCE.getCheckboxChoice();
-
-    /**
-     * The meta object literal for the '<em><b>Choice</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute CHECKBOX_CHOICE__CHOICE = eINSTANCE.getCheckboxChoice_Choice();
-
-    /**
-     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.GuiElementImpl <em>Gui Element</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.example.mydsl.myDsl.impl.GuiElementImpl
-     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getGuiElement()
-     * @generated
-     */
-    EClass GUI_ELEMENT = eINSTANCE.getGuiElement();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute GUI_ELEMENT__NAME = eINSTANCE.getGuiElement_Name();
-
-    /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.TextfieldImpl <em>Textfield</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1296,6 +1928,14 @@ public interface MyDslPackage extends EPackage
      * @generated
      */
     EClass TEXTFIELD = eINSTANCE.getTextfield();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute TEXTFIELD__NAME = eINSTANCE.getTextfield_Name();
 
     /**
      * The meta object literal for the '<em><b>Size</b></em>' containment reference feature.
@@ -1324,6 +1964,14 @@ public interface MyDslPackage extends EPackage
     EClass LABEL = eINSTANCE.getLabel();
 
     /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute LABEL__NAME = eINSTANCE.getLabel_Name();
+
+    /**
      * The meta object literal for the '<em><b>Size</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1348,6 +1996,14 @@ public interface MyDslPackage extends EPackage
      * @generated
      */
     EClass BUTTON = eINSTANCE.getButton();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute BUTTON__NAME = eINSTANCE.getButton_Name();
 
     /**
      * The meta object literal for the '<em><b>Size</b></em>' containment reference feature.
@@ -1376,6 +2032,14 @@ public interface MyDslPackage extends EPackage
     EClass CHECKBOX = eINSTANCE.getCheckbox();
 
     /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CHECKBOX__NAME = eINSTANCE.getCheckbox_Name();
+
+    /**
      * The meta object literal for the '<em><b>Size</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1384,12 +2048,70 @@ public interface MyDslPackage extends EPackage
     EReference CHECKBOX__SIZE = eINSTANCE.getCheckbox_Size();
 
     /**
-     * The meta object literal for the '<em><b>Choice</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Checked</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference CHECKBOX__CHOICE = eINSTANCE.getCheckbox_Choice();
+    EAttribute CHECKBOX__CHECKED = eINSTANCE.getCheckbox_Checked();
+
+    /**
+     * The meta object literal for the '<em><b>Text</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CHECKBOX__TEXT = eINSTANCE.getCheckbox_Text();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.myDsl.impl.RadiobuttonImpl <em>Radiobutton</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.myDsl.impl.RadiobuttonImpl
+     * @see org.xtext.example.mydsl.myDsl.impl.MyDslPackageImpl#getRadiobutton()
+     * @generated
+     */
+    EClass RADIOBUTTON = eINSTANCE.getRadiobutton();
+
+    /**
+     * The meta object literal for the '<em><b>Group</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute RADIOBUTTON__GROUP = eINSTANCE.getRadiobutton_Group();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute RADIOBUTTON__NAME = eINSTANCE.getRadiobutton_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Size</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference RADIOBUTTON__SIZE = eINSTANCE.getRadiobutton_Size();
+
+    /**
+     * The meta object literal for the '<em><b>Checked</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute RADIOBUTTON__CHECKED = eINSTANCE.getRadiobutton_Checked();
+
+    /**
+     * The meta object literal for the '<em><b>Text</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference RADIOBUTTON__TEXT = eINSTANCE.getRadiobutton_Text();
 
   }
 

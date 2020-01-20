@@ -24,6 +24,7 @@ import org.xtext.example.mydsl.myDsl.Text;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.impl.ButtonImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.ButtonImpl#getSize <em>Size</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.impl.ButtonImpl#getText <em>Text</em>}</li>
  * </ul>
@@ -32,6 +33,26 @@ import org.xtext.example.mydsl.myDsl.Text;
  */
 public class ButtonImpl extends GuiElementImpl implements Button
 {
+  /**
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected static final String NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected String name = NAME_EDEFAULT;
+
   /**
    * The cached value of the '{@link #getSize() <em>Size</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -71,6 +92,31 @@ public class ButtonImpl extends GuiElementImpl implements Button
   protected EClass eStaticClass()
   {
     return MyDslPackage.Literals.BUTTON;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String getName()
+  {
+    return name;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setName(String newName)
+  {
+    String oldName = name;
+    name = newName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MyDslPackage.BUTTON__NAME, oldName, name));
   }
 
   /**
@@ -201,6 +247,8 @@ public class ButtonImpl extends GuiElementImpl implements Button
   {
     switch (featureID)
     {
+      case MyDslPackage.BUTTON__NAME:
+        return getName();
       case MyDslPackage.BUTTON__SIZE:
         return getSize();
       case MyDslPackage.BUTTON__TEXT:
@@ -219,6 +267,9 @@ public class ButtonImpl extends GuiElementImpl implements Button
   {
     switch (featureID)
     {
+      case MyDslPackage.BUTTON__NAME:
+        setName((String)newValue);
+        return;
       case MyDslPackage.BUTTON__SIZE:
         setSize((Size)newValue);
         return;
@@ -239,6 +290,9 @@ public class ButtonImpl extends GuiElementImpl implements Button
   {
     switch (featureID)
     {
+      case MyDslPackage.BUTTON__NAME:
+        setName(NAME_EDEFAULT);
+        return;
       case MyDslPackage.BUTTON__SIZE:
         setSize((Size)null);
         return;
@@ -259,12 +313,31 @@ public class ButtonImpl extends GuiElementImpl implements Button
   {
     switch (featureID)
     {
+      case MyDslPackage.BUTTON__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case MyDslPackage.BUTTON__SIZE:
         return size != null;
       case MyDslPackage.BUTTON__TEXT:
         return text != null;
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuilder result = new StringBuilder(super.toString());
+    result.append(" (name: ");
+    result.append(name);
+    result.append(')');
+    return result.toString();
   }
 
 } //ButtonImpl

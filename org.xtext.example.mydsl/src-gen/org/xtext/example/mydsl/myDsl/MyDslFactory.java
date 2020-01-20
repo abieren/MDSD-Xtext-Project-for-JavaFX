@@ -60,15 +60,6 @@ public interface MyDslFactory extends EFactory
   Container createContainer();
 
   /**
-   * Returns a new object of class '<em>Container Reference</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Container Reference</em>'.
-   * @generated
-   */
-  ContainerReference createContainerReference();
-
-  /**
    * Returns a new object of class '<em>Layout</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -78,13 +69,76 @@ public interface MyDslFactory extends EFactory
   Layout createLayout();
 
   /**
-   * Returns a new object of class '<em>Position</em>'.
+   * Returns a new object of class '<em>Layout Horizontal</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Position</em>'.
+   * @return a new object of class '<em>Layout Horizontal</em>'.
    * @generated
    */
-  Position createPosition();
+  LayoutHorizontal createLayoutHorizontal();
+
+  /**
+   * Returns a new object of class '<em>Layout Horizontal Entry</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Layout Horizontal Entry</em>'.
+   * @generated
+   */
+  LayoutHorizontalEntry createLayoutHorizontalEntry();
+
+  /**
+   * Returns a new object of class '<em>Layout Vertical</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Layout Vertical</em>'.
+   * @generated
+   */
+  LayoutVertical createLayoutVertical();
+
+  /**
+   * Returns a new object of class '<em>Layout Vertical Entry</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Layout Vertical Entry</em>'.
+   * @generated
+   */
+  LayoutVerticalEntry createLayoutVerticalEntry();
+
+  /**
+   * Returns a new object of class '<em>Layout Position</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Layout Position</em>'.
+   * @generated
+   */
+  LayoutPosition createLayoutPosition();
+
+  /**
+   * Returns a new object of class '<em>Layout Position Entry</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Layout Position Entry</em>'.
+   * @generated
+   */
+  LayoutPositionEntry createLayoutPositionEntry();
+
+  /**
+   * Returns a new object of class '<em>Space</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Space</em>'.
+   * @generated
+   */
+  Space createSpace();
+
+  /**
+   * Returns a new object of class '<em>Position Value</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Position Value</em>'.
+   * @generated
+   */
+  PositionValue createPositionValue();
 
   /**
    * Returns a new object of class '<em>Size</em>'.
@@ -96,24 +150,6 @@ public interface MyDslFactory extends EFactory
   Size createSize();
 
   /**
-   * Returns a new object of class '<em>Text</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Text</em>'.
-   * @generated
-   */
-  Text createText();
-
-  /**
-   * Returns a new object of class '<em>Checkbox Choice</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Checkbox Choice</em>'.
-   * @generated
-   */
-  CheckboxChoice createCheckboxChoice();
-
-  /**
    * Returns a new object of class '<em>Gui Element</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -121,6 +157,24 @@ public interface MyDslFactory extends EFactory
    * @generated
    */
   GuiElement createGuiElement();
+
+  /**
+   * Returns a new object of class '<em>Container Reference</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Container Reference</em>'.
+   * @generated
+   */
+  ContainerReference createContainerReference();
+
+  /**
+   * Returns a new object of class '<em>Text</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Text</em>'.
+   * @generated
+   */
+  Text createText();
 
   /**
    * Returns a new object of class '<em>Textfield</em>'.
@@ -157,6 +211,15 @@ public interface MyDslFactory extends EFactory
    * @generated
    */
   Checkbox createCheckbox();
+
+  /**
+   * Returns a new object of class '<em>Radiobutton</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Radiobutton</em>'.
+   * @generated
+   */
+  Radiobutton createRadiobutton();
 
   /**
    * Returns the package supported by this factory.

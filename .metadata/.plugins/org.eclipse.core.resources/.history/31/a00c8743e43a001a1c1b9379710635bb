@@ -1,0 +1,131 @@
+grammar org.xtext.example.mydsl.MyDsl with org.eclipse.xtext.common.Terminals
+
+generate myDsl "http://www.xtext.org/example/mydsl/MyDsl"
+
+//Domainmodel:
+//   (elements+=Type)*;
+
+Domainmodel:
+	"main="main=ID
+	(elements+=Type)*
+;
+
+Type:
+	Frame | Container
+;	
+
+Frame:
+	'frame' name=ID (size=Size)?
+	'{'
+		layout=Layout
+	'}'
+;
+
+Container:
+	'container' name=ID (size=Size)?
+	'{'
+		layout=Layout
+	'}'
+;
+
+Layout:
+	LayoutHorizontal | LayoutVertical | LayoutPosition
+;
+
+LayoutHorizontal:
+	'horizontal'
+	'{'
+		(entries+=LayoutHorizontalEntry)*
+	'}'
+;
+
+LayoutHorizontalEntry:
+	space=Space | guielement = GuiElement
+;
+
+LayoutVertical:
+	'vertical'
+	'{'
+		(entries+=LayoutVerticalEntry)*
+	'}'
+;
+
+LayoutVerticalEntry:
+	space=Space | guielement = GuiElement
+;
+
+LayoutPosition:
+	'positional'
+	'{'
+		(entries+=LayoutPositionEntry)*
+	'}'
+;
+
+LayoutPositionEntry:
+	"["position=PositionValue"]"
+	guielement=GuiElement
+;
+
+
+Space:
+	"space" space=INT
+;
+
+PositionValue:
+	posX=INT','posY=INT
+;
+
+Size:
+	"size="width=INT'x'height=INT
+;
+
+GuiElement:
+	ContainerReference | Layout | Textfield | Label | Button | Checkbox | RadioButtons
+;
+
+ContainerReference:
+	(referenceName=ID) (name=ID)
+;
+
+Text:
+	"text="text=STRING
+;
+
+CheckedValue:
+	CheckedYes | CheckedNo
+;
+
+CheckedYes:
+	'X'
+;
+
+CheckedNo:
+	'O'
+;
+ 
+Textfield:
+	'textfield' name=ID (size=Size)? (text=Text)
+;
+
+Label:
+	'label' name=ID (size=Size)? (text=Text)
+;
+
+Button:
+	'button' name=ID (size=Size)? (text=Text)
+;
+
+Checkbox:
+	'checkbox' name=ID (size=Size)? (checked=CheckedValue) (text=Text)
+;
+
+RadioButtons:
+	'radiobuttons' (size=Size)?
+	'{'
+		(radiobuttons+=Radiobutton)+
+	'}'
+;
+
+Radiobutton:
+	"radio" name=ID (checked=CheckedYes)? (text=Text)
+;

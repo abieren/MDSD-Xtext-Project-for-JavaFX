@@ -7,57 +7,84 @@
   <genPackages prefix="MyDsl" basePackage="org.xtext.example.mydsl" disposableProviderFactory="true"
       fileExtensions="guimodel" ecorePackage="MyDsl.ecore#/">
     <genClasses ecoreClass="MyDsl.ecore#//Domainmodel">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Domainmodel/main"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Domainmodel/elements"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//Type">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Type/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Type/size"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Type/guielements"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Type/layout"/>
     </genClasses>
-    <genClasses ecoreClass="MyDsl.ecore#//Frame">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Frame/name"/>
+    <genClasses ecoreClass="MyDsl.ecore#//Frame"/>
+    <genClasses ecoreClass="MyDsl.ecore#//Container"/>
+    <genClasses ecoreClass="MyDsl.ecore#//Layout"/>
+    <genClasses ecoreClass="MyDsl.ecore#//LayoutHorizontal">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//LayoutHorizontal/entries"/>
     </genClasses>
-    <genClasses ecoreClass="MyDsl.ecore#//Container">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Container/containerName"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Container/layout"/>
+    <genClasses ecoreClass="MyDsl.ecore#//LayoutHorizontalEntry">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//LayoutHorizontalEntry/space"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//LayoutHorizontalEntry/guielement"/>
     </genClasses>
-    <genClasses ecoreClass="MyDsl.ecore#//ContainerReference">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//ContainerReference/referenceName"/>
+    <genClasses ecoreClass="MyDsl.ecore#//LayoutVertical">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//LayoutVertical/entries"/>
     </genClasses>
-    <genClasses ecoreClass="MyDsl.ecore#//Layout">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Layout/layout"/>
+    <genClasses ecoreClass="MyDsl.ecore#//LayoutVerticalEntry">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//LayoutVerticalEntry/space"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//LayoutVerticalEntry/guielement"/>
     </genClasses>
-    <genClasses ecoreClass="MyDsl.ecore#//Position">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Position/posX"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Position/posY"/>
+    <genClasses ecoreClass="MyDsl.ecore#//LayoutPosition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//LayoutPosition/entries"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//LayoutPositionEntry">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//LayoutPositionEntry/position"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//LayoutPositionEntry/guielement"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//Space">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Space/space"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//PositionValue">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//PositionValue/posX"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//PositionValue/posY"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//Size">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Size/width"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Size/height"/>
     </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//GuiElement"/>
+    <genClasses ecoreClass="MyDsl.ecore#//ContainerReference">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//ContainerReference/referenceName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//ContainerReference/name"/>
+    </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//Text">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Text/text"/>
     </genClasses>
-    <genClasses ecoreClass="MyDsl.ecore#//CheckboxChoice">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//CheckboxChoice/choice"/>
-    </genClasses>
-    <genClasses ecoreClass="MyDsl.ecore#//GuiElement">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//GuiElement/name"/>
-    </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//Textfield">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Textfield/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Textfield/size"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Textfield/text"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//Label">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Label/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Label/size"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Label/text"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//Button">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Button/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Button/size"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Button/text"/>
     </genClasses>
     <genClasses ecoreClass="MyDsl.ecore#//Checkbox">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Checkbox/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Checkbox/size"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Checkbox/choice"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Checkbox/checked"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Checkbox/text"/>
+    </genClasses>
+    <genClasses ecoreClass="MyDsl.ecore#//Radiobutton">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Radiobutton/group"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Radiobutton/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Radiobutton/size"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyDsl.ecore#//Radiobutton/checked"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyDsl.ecore#//Radiobutton/text"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

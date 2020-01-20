@@ -3,8 +3,6 @@
  */
 package org.xtext.example.mydsl.myDsl;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -16,8 +14,9 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.Type#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Type#getSize <em>Size</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.myDsl.Type#getGuielements <em>Guielements</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.Type#getLayout <em>Layout</em>}</li>
  * </ul>
  *
  * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getType()
@@ -26,6 +25,28 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Type extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Name</em>' attribute.
+   * @see #setName(String)
+   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getType_Name()
+   * @model
+   * @generated
+   */
+  String getName();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.Type#getName <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Name</em>' attribute.
+   * @see #getName()
+   * @generated
+   */
+  void setName(String value);
+
   /**
    * Returns the value of the '<em><b>Size</b></em>' containment reference.
    * <!-- begin-user-doc -->
@@ -49,15 +70,25 @@ public interface Type extends EObject
   void setSize(Size value);
 
   /**
-   * Returns the value of the '<em><b>Guielements</b></em>' containment reference list.
-   * The list contents are of type {@link org.xtext.example.mydsl.myDsl.GuiElement}.
+   * Returns the value of the '<em><b>Layout</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Guielements</em>' containment reference list.
-   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getType_Guielements()
+   * @return the value of the '<em>Layout</em>' containment reference.
+   * @see #setLayout(Layout)
+   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getType_Layout()
    * @model containment="true"
    * @generated
    */
-  EList<GuiElement> getGuielements();
+  Layout getLayout();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.Type#getLayout <em>Layout</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Layout</em>' containment reference.
+   * @see #getLayout()
+   * @generated
+   */
+  void setLayout(Layout value);
 
 } // Type

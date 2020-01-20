@@ -13,8 +13,10 @@ package org.xtext.example.mydsl.myDsl;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.Checkbox#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.example.mydsl.myDsl.Checkbox#getSize <em>Size</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.myDsl.Checkbox#getChoice <em>Choice</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.Checkbox#getChecked <em>Checked</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.myDsl.Checkbox#getText <em>Text</em>}</li>
  * </ul>
  *
  * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getCheckbox()
@@ -23,6 +25,28 @@ package org.xtext.example.mydsl.myDsl;
  */
 public interface Checkbox extends GuiElement
 {
+  /**
+   * Returns the value of the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Name</em>' attribute.
+   * @see #setName(String)
+   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getCheckbox_Name()
+   * @model
+   * @generated
+   */
+  String getName();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.Checkbox#getName <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Name</em>' attribute.
+   * @see #getName()
+   * @generated
+   */
+  void setName(String value);
+
   /**
    * Returns the value of the '<em><b>Size</b></em>' containment reference.
    * <!-- begin-user-doc -->
@@ -46,25 +70,47 @@ public interface Checkbox extends GuiElement
   void setSize(Size value);
 
   /**
-   * Returns the value of the '<em><b>Choice</b></em>' containment reference.
+   * Returns the value of the '<em><b>Checked</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Choice</em>' containment reference.
-   * @see #setChoice(CheckboxChoice)
-   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getCheckbox_Choice()
+   * @return the value of the '<em>Checked</em>' attribute.
+   * @see #setChecked(String)
+   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getCheckbox_Checked()
+   * @model
+   * @generated
+   */
+  String getChecked();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.Checkbox#getChecked <em>Checked</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Checked</em>' attribute.
+   * @see #getChecked()
+   * @generated
+   */
+  void setChecked(String value);
+
+  /**
+   * Returns the value of the '<em><b>Text</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Text</em>' containment reference.
+   * @see #setText(Text)
+   * @see org.xtext.example.mydsl.myDsl.MyDslPackage#getCheckbox_Text()
    * @model containment="true"
    * @generated
    */
-  CheckboxChoice getChoice();
+  Text getText();
 
   /**
-   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.Checkbox#getChoice <em>Choice</em>}' containment reference.
+   * Sets the value of the '{@link org.xtext.example.mydsl.myDsl.Checkbox#getText <em>Text</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Choice</em>' containment reference.
-   * @see #getChoice()
+   * @param value the new value of the '<em>Text</em>' containment reference.
+   * @see #getText()
    * @generated
    */
-  void setChoice(CheckboxChoice value);
+  void setText(Text value);
 
 } // Checkbox
